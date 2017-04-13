@@ -1,0 +1,435 @@
+\documentclass[10pt]{beamer}
+
+\usetheme{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+\newcommand{\MDL}{\textbf{\textsc{mdl}}\xspace}
+
+\usepackage{graphicx}
+\usepackage{tikz-cd}
+
+\newcommand{\Cat}[1]{\ensuremath{\underline{\mathbf{#1}}}}
+\newcommand{\Obj}[1]{\ensuremath{\mathrm{Obj}(\Cat{#1})}}
+\newcommand{\Hom}[3]{\ensuremath{\mathrm{Hom}_{\Cat{#1}}(#2,#3)}}
+\newcommand{\Domain}[1]{\ensuremath{\mathbf{Dom}(#1)}}
+\newcommand{\Codomain}[1]{\ensuremath{\mathbf{Cod}(#1)}}
+\newcommand{\CompCat}[1]{\Cat{\overline{#1}}}
+\newcommand{\Comm}[1]{\mathrm{Kom}_{\Cat{#1}}}
+\newcommand{\Com}[3]{#3^{#2}}
+\newcommand{\SCat}[1]{\Cat{Symms(#1)}}
+\newcommand{\FSCat}[1]{\Cat{FSymm(#1)}}
+\newcommand{\FkCat}[1]{\Cat{FkSymm(#1)}}
+\newcommand{\PkCat}[1]{\Cat{PkSymm(#1)}}
+\newcommand{\IrPaths}[1]{\Cat{IrPaths(#1)}}
+\newcommand{\FProj}[2]{\ensuremath{W_{\Cat{#1,#2}}}}
+\newcommand{\FuncIm}[1]{\mathrm{Im}(#1)}
+\newcommand{\term}[1]{\emph{#1}}
+
+\newcommand{\eqnlabel}[1]{\label{eq:#1}}
+\newcommand{\eqnref}[1]{(\ref{eq:#1})}
+\newcommand{\deflabel}[1]{\label{def:#1}}
+\newcommand{\defref}[1]{definition \ref{def:#1}}
+\newcommand{\thlabel}[1]{\label{th:#1}}
+\newcommand{\thref}[1]{theorem \ref{th:#1}}
+
+% \newcommand{\pullback}{\arrow[d,]}
+% \newcommand{\pushout}{\arrow[d,\text{\pigpenfont J}]}
+
+% \newtheorem{threm}{Theorem}[section]
+% \newtheorem{lemma}[threm]{Lemma}
+\theoremstyle{definition}
+% \newtheorem{corollary}[theorem]{Corollary}
+% \newtheorem{definition}[theorem]{Definition}
+% \newtheorem{example}[theorem]{Example}
+\newtheorem{xca}[theorem]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\numberwithin{equation}{section}
+
+%    Absolute value notation
+\newcommand{\abs}[1]{\lvert#1\rvert}
+
+%    Blank box placeholder for figures (to avoid requiring any
+%    particular graphics capabilities for printing this document).
+\newcommand{\blankbox}[2]{%
+  \parbox{\columnwidth}{\centering
+%    Set fboxsep to 0 so that the actual size of the box will match the
+%    given measurements more closely.
+    \setlength{\fboxsep}{0pt}%
+    \fbox{\raisebox{0pt}[#2]{\hspace{#1}}}%
+  }%
+}
+
+
+\title{Category Theory and Haskell}
+\subtitle{Parallel Universes}
+\date{\today}
+\author{Siva Kalyan and T. Mark Ellison}
+\institute{Australian National University}
+% \titlegraphic{\hfill\includegraphics[height=1.5cm]{logo.pdf}}
+
+\usepackage{listings}
+\usepackage{color}
+\definecolor{identifierColor}{rgb}{0.65,0.16,0.16}
+\lstset{
+  frame=none,
+  xleftmargin=2pt,
+  stepnumber=1,
+  numbers=left,
+  numbersep=5pt,
+  numberstyle=\ttfamily\tiny\color[gray]{0.3},
+  belowcaptionskip=\bigskipamount,
+  captionpos=b,
+  escapeinside={*'}{'*},
+  language=haskell,
+  tabsize=2,
+  emphstyle={\bf},
+  commentstyle=\it\color{brown},
+  stringstyle=\mdseries\rmfamily\color{green},
+  showspaces=false,
+  keywordstyle=\bfseries\rmfamily\color{red},
+  columns=flexible,
+  basicstyle=\small\sffamily\color{blue},
+  showstringspaces=false,
+  morecomment=[l]\%,
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Table of contents}
+  \setbeamertemplate{section in toc}[sections numbered]
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section{Applicatives}
+
+\begin{frame}[fragile]{Category Theory: Initial Objects}
+
+  \emph{Initial Objects}
+
+  An \emph{initial object} is a type $0$ aka $I$ in category $\Cat{C}$, such that there is only a single mapping from it to any other type $A$.
+
+  \[
+  \begin{tikzcd}
+    \forall A\in \Obj{C}, | \Hom{C}{0}{A} | = 1
+  \end{tikzcd}
+  \]
+
+  Initial objects in categories:
+  \begin{description}
+    \item[\Cat{Set}] the empty set
+    \item[\Cat{Grp}] the singleton group
+    \item[\Cat{Top}] the empty topological space
+    \item[\Cat{1\downarrow Set}] the singleton pointed set
+    \item[\Cat{POrd}] the minimum element (if there is one)
+  \end{description}
+
+  \begin{lstlisting}[frame=single]
+    Void -- the type corresponding to 0, containing only itself
+    absurd :: Void -> t
+  \end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Category Theory: Terminal Objects}
+
+  \emph{Terminal Objects}
+
+  A \emph{terminal object} is a type $1$ aka $T$ in category $\Cat{C}$, such that there is only a single mapping from any other type $A$ onto that type.
+
+  \[
+  \begin{tikzcd}
+    \forall A\in \Obj{C}, | \Hom{C}{A}{1} | = 1
+  \end{tikzcd}
+  \]
+
+  Terminal objects in categories:
+  \begin{description}
+    \item[\Cat{Set}] the singleton set
+    \item[\Cat{Grp}] the singleton group
+    \item[\Cat{Top}] the singleton topological space
+    \item[\Cat{1\downarrow Set}] the singleton pointed set
+    \item[\Cat{POrd}] the maximum element (if there is one)
+  \end{description}
+
+  \begin{lstlisting}[frame=single]
+    () -- the type corresponding to 1, containing only itself
+    terminalMap _ = ()
+  \end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Category Theory: Products}
+
+  \emph{Pairwise Products}
+
+  Given objects $A,B$ there is an object $A\sqcap B$ such that for any arrows $a : X \rightarrow A$ and $b : X \rightarrow B$ there is a unique arrow $x : X \rightarrow A\sqcap B$ such that $a = \pi_A \circ x$ and $b = \pi_B \circ x$.
+
+  \[
+  \begin{tikzcd}
+    A & A\sqcap B \arrow[swap]{l}{\pi_{A}} \arrow{r}{\pi_{B}} & B \\
+    & X \arrow[dotted]{u}{\exists! x} \arrow{ul}{a} \arrow[swap]{ur}{b} & \\
+  \end{tikzcd}
+  \]
+
+
+\end{frame}
+
+\begin{frame}[fragile]{Category Theory: Products}
+
+  \emph{Pairwise Products}
+
+  Product in categories:
+  \begin{description}
+    \item[\Cat{Set}] the set of pairs
+    \item[\Cat{Grp}] the singleton group
+    \item[\Cat{1\downarrow Set}] the set of pairs from each subset, picking out the pair of the pointed elements
+    \item[\Cat{POrd}] the least upper bound element
+  \end{description}
+
+  In \Cat{Hask}\ the arrows $\pi_A,\pi_B$ are called \lstinline[columns=fixed]{fst} and \lstinline[columns=fixed]{snd} respectively.
+
+  \begin{lstlisting}[frame=single]
+    (a,b) -- the type containing pairs from types a and b
+    fst (x,y) = x
+    snd (x,y) = y
+  \end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Category Theory: Cartesian Closure}
+
+  \emph{Cartesian-Closed Categories}
+
+  \[
+  \Hom{C}{A\sqcap B}{C} \cong \Hom{C}{A}{\Com{C}{B}{C}}
+  \]
+
+  \[
+  \Hom{C}{\Com{C}{B}{C}\sqcap B}{C} \cong \Hom{C}{\Com{C}{B}{C}}{\Com{C}{B}{C}}
+  \]
+
+  \[
+  \lambda : \Com{C}{B}{C}\sqcap B \rightarrow C \cong 1_{\Com{C}{B}{C}}
+  \]
+
+  An \emph{applicative} functor $F$ is an endofunctor from a Cartesian-closed category to itself which preserves terminal objects, products and powers: $F(1_{\Cat{C}}) = 1_{F \Cat{C}}$, $F(A\sqcap B) = (F A)\sqcap(F B)$ and $\Com{C}{F B}{(F C)} \cong F( \Com{C}{B}{C} )$.
+
+\end{frame}
+
+\begin{frame}[fragile]{Applicatives}
+
+  \emph{Cartesian-Closed Categories}
+
+  \[
+  \begin{tikzcd}
+    B^A \times A \arrow{r}{\lambda_{A,B}} & B
+  \end{tikzcd}
+  \]
+
+  Have an endofunctor $Ap : \Cat{C}\times\Cat{C} \rightarrow \Cat{C}$ such that $Ap : B^A \times A \mapsto B$, such that $ Ap(f,g) = U(f)$
+
+\end{frame}
+
+\section{Haskell: Applicatives}
+
+\begin{frame}[fragile]{Applicatives}
+
+  \emph{Applicative Functors}
+  aka \emph{Endofunctors on Cartesian-Closed Categories}
+
+  \begin{lstlisting}[frame=single]
+class Functor f => Applicative f where
+    -- | Lift a value.
+    pure :: a -> f a
+    -- | Sequential application.
+    (<*>) :: f (a -> b) -> f a -> f b
+  \end{lstlisting}
+
+  Write $(e_{X,Z},c_{X,Z})$ for the forward and backward natural transformation
+  \begin{equation}
+    Hom(X\times Y,Z) \cong Hom(X,Z^Y) \mathrm{aka} Hom(- \times Y,-) \cong Hom(-,-^Y)
+  \end{equation}
+  
+\end{frame}
+
+\begin{frame}[fragile]{Applicatives}
+
+  \emph{Applicative Functors Example}
+
+  \begin{lstlisting}[frame=single]
+instance Applicative Maybe where
+    -- | Apply functor Maybe to value
+    pure x = Just x
+    -- | Apply domain function via fmap
+    Nothing <*> _ = Nothing
+    (Just f) <*> something = fmap f something
+  \end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Applicatives}
+
+  \emph{Applicative Functors Example}
+
+  \begin{lstlisting}[frame=single]
+instance Applicative [] where
+    -- | Apply functor [] to value
+    pure x = [ x ]
+    -- | Apply domain function via fmap
+    fs <*> xs = [ f x | f <- fs, x <- xs ]
+  \end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Applicatives}
+
+  \emph{Applicative Functor Laws}
+
+  \begin{lstlisting}[frame=single]
+               v = pure id <*> v
+      pure (f x) = pure f <*> pure x
+    u <*> pure y = pure ($ y) <*> u
+ u <*> (v <*> w) = pure (.) <*> u <*> v <*> w
+  \end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Applicatives}
+
+  \emph{Monoidal Categories}
+
+  In mathematics, a monoidal category (or tensor category) is a category C equipped with a bifunctor
+⊗ : C × C → C
+  that is associative up to a natural isomorphism, and an object I that is both a left and right identity for ⊗, again up to a natural isomorphism.
+
+  \emph{Cartesian-Closed Categories}
+
+  Have an endofunctor $Ap : \Cat{C}\times\Cat{C} \rightarrow \Cat{C}$ such that $Ap : B^A \times A \mapsto B$, such that $ Ap(f,g) = U(f)$
+
+\end{frame}
+
+\begin{frame}[fragile]{Applicatives}
+
+  \emph{Endofunctors with a strength}
+
+  A strong endofunctor F:C→C over a monoidal category (C,⊗,I) is one which comes with a natural transformation σ:A⊗F(B)→F(A⊗B)σ:A⊗F(B)→F(A⊗B), satisfying some coherence conditions with respect to the associator which I will gloss over. This condition is sometimes also pronounced "FF has a strength".
+
+  A lax monoidal functor F:C→DF:C→D is a functor between two monoidal categories (C,⊗,I)(C,⊗,I) and (D,⊕,J)(D,⊕,J) with natural transformations ϕ:F(A)⊕F(B)→F(A⊗B)ϕ:F(A)⊕F(B)→F(A⊗B) and i:J→F(I)i:J→F(I), again satisfying a coherence condition with respect to the associators.
+
+  A strong monoidal functor F:C→DF:C→D is one in which ϕϕ and ii are natural isomorphisms. That is, F(A⊗B)≃F(A)⊕F(B)F(A⊗B)≃F(A)⊕F(B), with ϕϕ and its inverse describing the isomorphism.
+
+  An applicative functor, in the sense of Haskell programs, is a lax monoidal endofunctor with a strength, with the monoidal structure in question being the Cartesian products. So this is why you get the paradoxical-sounding term "strong lax monoidal functor".
+\end{frame}
+
+\section{Maths: Adjoint Functors}
+
+\begin{frame}[fragile]{Adjoint Functors}
+
+%%% An 4-tuple $(F,G,\eta,\varepsilon)$ is an adjunction between  two categories $\Cat{C}$ and $\Cat{D}$ (where {\displaystyle F\colon C\to D} F\colon C\to D is left adjoint to {\displaystyle G\colon D\to C} G\colon D\to C and {\displaystyle \eta } \eta  and {\displaystyle \varepsilon } \varepsilon  are respectively the unit and the counit) always defines a monad {\displaystyle (GF,\eta ,G\varepsilon F)} (GF,\eta ,G\varepsilon F).
+$(F,G)$ form an adjoint pair when there is a natural isomorphism
+  \[
+  Hom(F-,-) \cong_{\Phi} Hom(-,G-)
+  \]
+  
+\end{frame}
+
+
+\section{Maths: Monads}
+
+\begin{frame}[fragile]{Monads}
+
+An adjunction $(F,G,\eta,\varepsilon)$ between two categories $\Cat{C}$ and $\Cat{D}$ where
+\begin{enumerate}
+\item $F: \Cat{C}\to \Cat{D}$
+\item $G: \Cat{D}\to \Cat{C}$
+\item $\varepsilon: GF\to 1_{\Cat{C}}$ is the counit of adjunction
+\item $\eta: 1_{\Cat{D}}\to FG$ is the unit of adjunction
+\end{enumerate}
+gives rise to a monad $(FG,\eta,F\varepsilon G)$.
+  
+\end{frame}
+
+\begin{frame}[fragile]{Monads}
+
+  $(T,\eta,\mu〉$ is a monad over category $\Cat{C}$.
+    Create new category $\Cat{C_K} \subseteq \Cat{C}$ such that:
+
+    \begin{enumerate}
+      \item $Obj(\Cat{C_T}) = Obj(\Cat{C})$
+      \item $Hom_{\Cat{C_T}}(A,B) = Hom_{\Cat{C}}(A,T B)$
+      \item $g \circ_{T} f = \mu_{Z} \circ T g \circ f$
+      \item $id_{X_T} = \eta_{X}$
+    \end{enumerate}
+
+\end{frame}
+
+%% \begin{equation*}
+%% \end{equation*}
+
+\section{Haskell: Monads}
+
+\begin{frame}[fragile]{Monads}
+
+  \emph{Monads}
+
+  \begin{lstlisting}[frame=single]
+class Applicative m => Monad m where
+    -- | Like g(f(..)) in imperative languages
+    (>>=)       :: forall a b. m a -> (a -> m b) -> m b
+    -- | Like 'f ; g' in imperative languages
+    (>>)        :: forall a b. m a -> m b -> m b
+    m >> k      = m >>= \_ -> k
+    -- | Inject a value into the monadic type.
+    return      :: a -> m a
+    return      = pure
+  \end{lstlisting}
+
+\end{frame}
+
+\section{References}
+
+\begin{frame}[allowframebreaks]{References}
+
+  \bibliography{demo}
+  \bibliographystyle{abbrv}
+
+\end{frame}
+
+\section{Maths: Kleisli}
+
+\begin{frame}[fragile]{Kleisli Adjunctions}
+
+  \emph{Every monad can be constructed from an adjunction}
+
+  If $(F,G,\epsilon,\eta)$ is an \emph{adjunction}, then $(GF,\eta)$ is a \emph{monad}.
+
+  $(T,\eta,\mu〉$ is a monad over category $\Cat{C}$.
+    Create new category $\Cat{C_K} \subseteq \Cat{C}$ such that:
+
+    \begin{enumerate}
+      \item $Obj(\Cat{C_T}) = Obj(\Cat{C})$
+      \item $Hom_{\Cat{C_T}}(A,B) = Hom_{\Cat{C}}(A,T B)$
+      \item $g \circ_{T} f = \mu_{Z} \circ T g \circ f $
+      \item $id_{TX} = \eta_{X} $
+    \end{enumerate}
+
+    Now define a functor $ F : \Cat{C} \rightarrow \Cat{C_T} $ such that $ F(X) = X, F(f:X\rightarrow Y) = \eta_Y\circ f$.
+    and also a functor $ G : \Cat{C_T} \rightarrow \Cat{C} $ such that $ G(X) = X, G(f:X\rightarrow TY) = \mu_Y\circ Tf$.
+
+    These functors can be shown form an adjoint pair $(F,G,\varepsilon,\phi)$ where $\varepsilon_{Y} = id_{TY}$ and $T = GF$.
+    
+\end{frame}
+
+\end{document}
