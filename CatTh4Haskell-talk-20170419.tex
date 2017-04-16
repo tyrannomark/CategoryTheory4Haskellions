@@ -115,6 +115,33 @@
   \tableofcontents[hideallsubsections]
 \end{frame}
 
+
+\begin{frame}[fragile]
+  \frametitle{Haskell and Category Theory}
+
+  \begin{tabular}{lr}
+    \hline
+    Haskell & Category Theory \\
+    \hline
+    \textbf{Category} & \textbf{Category} \\
+    \textbf{Type} & \textbf{Object} \\
+    \textbf{Function} & \textbf{Morphism} \\
+    \textbf{\Cat{Hask}} & \textbf{\Cat{Set}} \\
+    \textbf{...} & \textbf{Terminal Objects} \\
+    \textbf{Value} & \textbf{Global Element} \\
+    \textbf{Tuple} & \textbf{Product} \\
+    \textbf{Currying, Function Application} & \textbf{Cartesian Closure} \\
+    \textbf{Type Constructor, Functor} & \textbf{Functor} \\
+    \textbf{...} & \textbf{Natural Transformation} \\
+    \textbf{Applicative} & \textbf{...} \\
+    \textbf{...} & \textbf{Adjoint Functor Pair} \\
+    \textbf{Monad} & \textbf{Monad} \\
+    \hline
+  \end{tabular}
+  
+
+\end{frame}
+
 \section{Categories}
 
 \begin{frame}[fragile]
@@ -183,35 +210,6 @@
   \end{tabular}
 \end{frame}
 
-\begin{frame}[fragile]{Category Theory: Initial Objects}
-
-  \emph{Initial Objects}
-
-  An \emph{initial object} is a type $0$ aka $I$ in category $\Cat{C}$, such
-  that there is  only a single mapping from it to any other type $A$.
-
-  \[
-  \begin{tikzcd}
-    \forall A\in \Obj{C}, | \Hom{C}{0}{A} | = 1
-  \end{tikzcd}
-  \]
-
-  Initial objects in categories:
-  \begin{description}
-    \item[\Cat{Set}] the empty set
-    \item[\Cat{Grp}] the singleton group
-    \item[\Cat{Top}] the empty topological space
-    \item[\Cat{1\downarrow Set}] the singleton pointed set
-    \item[\Cat{POrd}] the minimum element (if there is one)
-  \end{description}
-
-  \begin{lstlisting}[frame=single]
-    Void -- the type corresponding to 0, containing only itself
-    absurd :: Void -> t
-  \end{lstlisting}
-
-\end{frame}
-
 \begin{frame}[fragile]{Category Theory: Terminal Objects}
 
   \emph{Terminal Objects}
@@ -219,12 +217,10 @@
   A \emph{terminal object} is a type $1$ aka $T$ in category $\Cat{C}$, such that there is only a single mapping from any other type $A$ onto that type.
 
   \[
-  \begin{tikzcd}
     \forall A\in \Obj{C}, | \Hom{C}{A}{1} | = 1
-  \end{tikzcd}
   \]
 
-  Terminal objects in categories:
+  Terminal objects in some mathematical categories:
   \begin{description}
     \item[\Cat{Set}] the singleton set
     \item[\Cat{Grp}] the singleton group
@@ -233,6 +229,7 @@
     \item[\Cat{POrd}] the maximum element (if there is one)
   \end{description}
 
+  In \Cat{Hask}:
   \begin{lstlisting}[frame=single]
     () -- the type corresponding to 1, containing only itself
     terminalMap _ = ()
@@ -248,8 +245,8 @@
     \textbf{Morphisms} & functions & functions & $\leq$ & functors \\
     \textbf{Composition} & $\circ$ & \texttt{.} & transitivity & $\circ$ \\
     \textbf{Identity} & $1_A$ & \texttt{id} & $=$ & $1_{\Cat{C}}$ \\
-    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \texttt{Void} & lwr bnd & $\Cat{0}$ \\
-    \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \texttt{()} & uppr bnd & $\Cat{1}$ \\\bottomrule
+%%    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \texttt{Void} & lwr bnd & $\Cat{0}$ \\
+    \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \texttt{()} & upper bound & $\Cat{1}$ \\\bottomrule
   \end{tabular}
 
 \end{frame}
@@ -316,10 +313,10 @@
     \textbf{Morphisms} & functions & functions & $\leq$ & functors \\
     \textbf{Composition} & $\circ$ & \texttt{.} & transitivity & $\circ$ \\
     \textbf{Identity} & $1_A$ & \texttt{id} & $=$ & $1_{\Cat{C}}$ \\
-    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \texttt{Void} & lwr bnd & $\Cat{0}$ \\
+%%    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \texttt{Void} & lwr bnd & $\Cat{0}$ \\
     \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \texttt{()} & uppr bnd & $\Cat{1}$ \\
     \textbf{Product} & $A \times B$ & \texttt{(A,B)} & $\min$ & $\Cat{C} \times \Cat{D}$ \\
-    \textbf{Coproduct} & $A \sqcup B$ & \texttt{A | B} & $\max$ & $\Cat{C} \sqcup \Cat{B}$ \\\bottomrule
+%%    \textbf{Coproduct} & $A \sqcup B$ & \texttt{A | B} & $\max$ & $\Cat{C} \sqcup \Cat{B}$ \\\bottomrule
   \end{tabular}
 \end{frame}
 
@@ -343,10 +340,10 @@
     \textbf{Morphisms} & functions & functions & $\leq$ & functors \\
     \textbf{Composition} & $\circ$ & \texttt{.} & transitivity & $\circ$ \\
     \textbf{Identity} & $1_A$ & \texttt{id} & $=$ & $1_{\Cat{C}}$ \\
-    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \texttt{Void} & lwr bnd & $\Cat{0}$ \\
+%%    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \texttt{Void} & lwr bnd & $\Cat{0}$ \\
     \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \texttt{()} & uppr bnd & $\Cat{1}$ \\
     \textbf{Product} & $A \times B$ & \texttt{(A,B)} & $\min$ & $\Cat{C} \times \Cat{D}$ \\
-    \textbf{Coproduct} & $A \sqcup B$ & \texttt{A | B} & $\max$ & $\Cat{C} \sqcup \Cat{B}$ \\
+%%    \textbf{Coproduct} & $A \sqcup B$ & \texttt{A | B} & $\max$ & $\Cat{C} \sqcup \Cat{B}$ \\
     \textbf{Endofunctors} & functors & type const. & \textsc{opt}s & nat.\ trans.\\\bottomrule
   \end{tabular}
 \end{frame}
@@ -706,12 +703,26 @@ class Applicative m => Monad m where
 
 \end{frame}
 
-\section{References}
+\begin{frame}[fragile]{Other Connections}
+  \begin{description}
+  \item[Arrows] 
+  \item[Comonads] 
+  \item[Lens] 
+  \item[Kleisli Arrows] 
+  \item[] 
+  \item[] 
+  \item[] 
+  \end{description}
+\end{frame}
 
-\begin{frame}[allowframebreaks]{References}
+\section{Further Reading}
 
+\begin{frame}[fragile]{Further Reading}
+
+  ADD: Milewski, Walters
+  
   \nocite{Elkins2009}
-  \bibliography{demo}
+  \bibliography{CatTh4Haskell-talk-20170419}
   \bibliographystyle{abbrv}
 
 \end{frame}
