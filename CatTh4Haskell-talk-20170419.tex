@@ -120,9 +120,9 @@
   \frametitle{Haskell and Category Theory}
 
   \begin{tabular}{lr}
-    \hline
+    \toprule
     Haskell & Category Theory \\
-    \hline
+    \midrule
     \textbf{Category} & \textbf{Category} \\
     \textbf{Type} & \textbf{Object} \\
     \textbf{Function} & \textbf{Morphism} \\
@@ -136,7 +136,7 @@
     \textbf{Applicative} & \textbf{...} \\
     \textbf{...} & \textbf{Adjoint Functor Pair} \\
     \textbf{Monad} & \textbf{Monad} \\
-    \hline
+    \bottomrule
   \end{tabular}
   
 
@@ -284,11 +284,11 @@
     \begin{tabular}{r l l l l}\toprule
     & $\Cat{Set}$ & $\Cat{Hask}$ & $\Cat{POrd}$ & $\Cat{Cat}$ \\\midrule
     \textbf{Objects} & sets & types & items & small cats \\
-    \textbf{Morphisms} & functions & functions & $\leq$ & functors \\
-    \textbf{Composition} & $\circ$ & \texttt{.} & transitivity & $\circ$ \\
-    \textbf{Identity} & $1_A$ & \texttt{id} & $=$ & $1_{\Cat{C}}$ \\
+    \textbf{Morphisms} & functions & functions & $a \leq b$ & functors \\
+    \textbf{Composition} & $f \circ g$ & \lstinline!f.g! & transitivity & $F \circ G$ \\
+    \textbf{Identity} & $1_A$ & {\lstinline!id!} & $a = a$ & $1_{\Cat{C}}$ \\
 %%    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \texttt{Void} & lwr bnd & $\Cat{0}$ \\
-    \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \texttt{()} & upper bound & $\Cat{1}$ \\\bottomrule
+      \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \lstinline!()! & upper bound & $\Cat{1}$ \\\bottomrule
   \end{tabular}
   \end{center}
   
@@ -375,8 +375,8 @@
     \textbf{Morphisms} & functions & functions & $a \leq b$ & functors \\
     \textbf{Composition} & $f \circ g$ & \lstinline!f.g! & transitivity & $F \circ G$ \\
     \textbf{Identity} & $1_A$ & {\lstinline!id!} & $a = a$ & $1_{\Cat{C}}$ \\
-    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \lstinline!Void! & lwr bnd & $\Cat{0}$ \\
-    \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \lstinline!()! & uppr bnd & $\Cat{1}$ \\
+    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \lstinline!Void! & lower bound & $\Cat{0}$ \\
+    \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \lstinline!()! & upper bound & $\Cat{1}$ \\
     \textbf{Product} & $A \times B$ & \lstinline!(a,b)! & $\min(a,b)$ & $\Cat{C} \times \Cat{D}$ \\
     \textbf{Coproduct} & $A \sqcup B$ & \lstinline!Either a b! & $\max(a,b)$ & $\Cat{C} \sqcup \Cat{B}$ \\\bottomrule
   \end{tabular}
@@ -384,13 +384,54 @@
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Exponential objects}
-  \emph{Briefly} mention CCCs.
+  \frametitle{Exponential Objects}
+
+  Given objects $A$ and $B$ in $\Obj{C}$, an \emph{exponential object} $B^A$
+  (also written $[A \rightarrow B]$) is any object such that for any object $C$ and any
+  arrow $f\colon C \sqcap A \rightarrow B$,
+  \[
+    \begin{tikzcd}
+      C \sqcap A \arrow[swap,densely dotted]{d}{\exists!} \arrow{dr}{f} & \\
+      B^A \sqcap A \arrow[swap]{r}{\mathrm{eval}_B^A} & B
+    \end{tikzcd}\rlap{.}
+  \]
+
+  Alternatively, the pair $\langle {B^A,\mathrm{eval}_B^A} \rangle$ constitutes a terminal
+  object in the category whose objects are diagrams of the form
+  \[
+    \begin{tikzcd}
+      C \sqcap A \arrow{r} & B
+    \end{tikzcd}\rlap{,}
+  \]
+  and whose arrows are commutative diagrams of the form
+  \[
+    \begin{tikzcd}[row sep=tiny]
+      D \sqcap A \arrow{dd} \arrow[bend left=15]{dr} & \\
+      & B \\
+      C \sqcap A \arrow[bend right=15]{ur} &
+    \end{tikzcd}\rlap{.}
+  \]
 \end{frame}
 
-\begin{frame}[fragile]
-  \frametitle{Curry-Howard isomorphism}
-  
+\begin{frame}[fragile,fragile]
+  \frametitle{Exponential Objects in Haskell}
+
+  In $\Cat{Hask}$, the exponential object of two types \lstinline{a} and
+  \lstinline{b} is the \emph{function type} \lstinline{(a -> b)} (which is
+  nothing more than the hom-set of \lstinline{a} and \lstinline{b}!). Let's see
+  how this satisfies the above definition.
+
+\begin{lstlisting}[frame=single]
+eval :: ((a -> b),a) -> b
+eval (f,x) = f x
+arrow :: (c,a) -> b -- some ol' function
+factoredArrow :: (c,a) -> ((a -> b),a)
+factoredArrow (y,x) = (\z -> arrow (y,z),x)
+\end{lstlisting}
+  {\footnotesize{(Spot the currying!)}}
+
+  It should be clear that \lstinline{eval.factoredArrow = arrow} --- and that
+  \lstinline{factoredArrow} is the \emph{only} arrow for which this is true.
 \end{frame}
 
 \section{Functors}
