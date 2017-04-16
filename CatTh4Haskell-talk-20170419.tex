@@ -31,6 +31,7 @@
 \newcommand{\FProj}[2]{\ensuremath{W_{\Cat{#1,#2}}}}
 \newcommand{\FuncIm}[1]{\mathrm{Im}(#1)}
 \newcommand{\term}[1]{\emph{#1}}
+\newcommand{\strong}[1]{\textbf{#1}}
 
 \newcommand{\eqnlabel}[1]{\label{eq:#1}}
 \newcommand{\eqnref}[1]{(\ref{eq:#1})}
@@ -104,6 +105,8 @@
 }
 
 \begin{document}
+
+%% SEE https://wiki.haskell.org/wikiupload/8/85/TMR-Issue13.pdf#page=73
 
 \maketitle
 
@@ -266,11 +269,17 @@
 
 \end{frame}
 
+<<<<<<< HEAD
 \begin{frame}[fragile]
   \frametitle{Examples}
 
   \begin{center}
     \begin{tabular}{r l l l l}\toprule
+=======
+\begin{frame}[fragile]{Examples}
+
+  \begin{tabular}{r l l l l}\toprule
+>>>>>>> 78ad0526b0ba1f73ab0a22c580381b3a60a6e261
     & $\Cat{Set}$ & $\Cat{Hask}$ & $\Cat{POrd}$ & $\Cat{Cat}$ \\\midrule
     \textbf{Objects} & sets & types & items & small cats \\
     \textbf{Morphisms} & functions & functions & $a \leq b$ & functors \\
@@ -279,8 +288,28 @@
     \textbf{Initial obj\rlap{.}} & $\emptyset$ & \lstinline!Void! & lwr bnd & $\Cat{0}$ \\
     \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \lstinline!()! & uppr bnd & $\Cat{1}$ \\\bottomrule
   \end{tabular}
+<<<<<<< HEAD
   \end{center}
   
+=======
+
+\end{frame}
+
+\begin{frame}[fragile]{Category Theory: Global Elements}
+  %% See answer 4 here: http://stackoverflow.com/questions/17380379/where-do-values-fit-in-category-of-hask
+  \emph{Global Elements}
+
+  A \emph{global element} of an object $A$ in category $\Cat{C}$ with terminal object $1$ is an arrow $a : 1 \rightarrow A$.
+  
+  \[
+  \begin{tikzcd}
+    1 \arrow{r}{a} & A
+  \end{tikzcd}
+  \]
+
+  In \Cat{Hask}, if we have a value \lstinline{v} in some type \lstinline{A}, we can upgrade it to the global element by use of \lstinline{const v}.
+
+>>>>>>> 78ad0526b0ba1f73ab0a22c580381b3a60a6e261
 \end{frame}
 
 \begin{frame}[fragile]{Products}
@@ -406,35 +435,196 @@
 
 \begin{frame}[fragile]{Category Theory: Cartesian Closure}
 
-  \emph{Cartesian-Closed Categories}
+  \emph{Cartesian-Closed Categories (CCC)}
 
-  \[
-  \Hom{C}{A\sqcap B}{C} \cong \Hom{C}{A}{\Com{C}{B}{C}}
-  \]
+  There is a terminal object $1$.
 
+  There are binary products $\sqcap$.
+
+  There is a bi-functor taking $A,B$ onto $\Com{C}{A}{B}$, obeying the following rules:
+  
   \[
-  \Hom{C}{\Com{C}{B}{C}\sqcap B}{C} \cong \Hom{C}{\Com{C}{B}{C}}{\Com{C}{B}{C}}
+  A \cong \Com{C}{1}{A}
   \]
+  
+  \begin{equation}
+  \Hom{C}{A\sqcap B}{C} \cong \Hom{C}{A}{\Com{C}{B}{C}} \eqnlabel{exp1}
+  \end{equation}
+\end{frame}
+
+\begin{frame}[fragile]{Category Theory: Cartesian Closure}
+
+  \emph{Cartesian-Closed Categories (CCC)}
+  include
+  \begin{description}
+    \item[\Cat{Set}] the singleton set, pairs, sets of functions
+    \item[\Cat{Grp}] ?
+    \item[\Cat{1\downarrow Set}] ?
+    \item[\Cat{POrd}] ?
+    \item[\Cat{Hask}] \lstinline{()}, \lstinline{(a,b)}, \lstinline{a -> b}
+  \end{description}
+
+\end{frame}
+
+\begin{frame}[fragile]{Category Theory: Cartesian Closure}
+
+  \emph{Cartesian-Closed Categories (CCC)}
+
+  We define the arrow $\lambda$ to be the arrow from $\Com{C}{B}{C}\sqcap B$ to $C$ which corresponds to the identity arrow under the isomorphism in \eqnref{exp1}.
 
   \[
   \lambda : \Com{C}{B}{C}\sqcap B \rightarrow C \cong 1_{\Com{C}{B}{C}}
   \]
 
-  An \emph{applicative} functor $F$ is an endofunctor from a Cartesian-closed category to itself which preserves terminal objects, products and powers: $F(1_{\Cat{C}}) = 1_{F \Cat{C}}$, $F(A\sqcap B) = (F A)\sqcap(F B)$ and $\Com{C}{F B}{(F C)} \cong F( \Com{C}{B}{C} )$.
+\end{frame}
+
+\begin{frame}[fragile]{Category Theory: Endofunctors in CCCs}
+
+  \emph{Endofunctors in CCCs}
+
+  For any functor $F$, there is a 1-1 correspondence between natural transformations from the identity functor to $F$ and the global elements of $F(1)$. Use the symbol $i$ to index over the global elements of $F(1_{\Cat{C}}$. Then we have the natural transformations:
+  
+  \[
+  \phi_{i,A} : A \rightarrow F A
+  \]
+  where
+  \[
+  f : A \rightarrow B, F(f) \circ \phi_{i,A} = \phi_{i,B} \circ f
+  \]
+
+\end{frame}
+
+\begin{frame}[fragile]{Category Theory: Applicative Functors}
+
+  \emph{Applicative Functors}
+
+  An \emph{applicative} functor $F$ is a functor $\Cat{C}\rightarrow \Cat{D}$ such that:
+  \begin{enumerate}
+    \item $\Cat{C}$ is CCC,
+    \item $im(F)$ is CCC,
+    \item $F$ perserves terminal objects, i.e. $F(1_{\Cat{C}})=1_{\Cat{D}}$,
+    \item $F$ perserves products, i.e. $F(A\sqcap B)=F(A)\sqcap F(B)$, and
+    \item $F$ perserves the power functor, i.e. $\Com{D}{F A}{(F B)} = F \Com{C}{A}{B}$.
+  \end{enumerate}
 
 \end{frame}
 
 \begin{frame}[fragile]{Applicatives}
 
-  \emph{Cartesian-Closed Categories}
+  \emph{Applicatives in Haskell}
+
+  \begin{lstlisting}[frame=single]
+class Functor f => Applicative f where
+    -- | Lift a value.
+    pure :: a -> f a
+    -- | Sequential application.
+    (<*>) :: f (a -> b) -> f a -> f b
+  \end{lstlisting}
+
+  \lstinline{pure} applies the functor to global elements (arrows from $1$ to $a$).
+  \[
+  \phi : \Com{Hask}{1}{A} \rightarrow \Com{Hask}{1}{F A}
+  \]
+  \[
+  \phi \circ \epsilon_a \mapsto \epsilon_a'
+  \]
+
+  \lstinline{<*>} takes the image of an arrow and of a global element and constructs the image of the composition (also a global element).
+  \[
+  \psi : (F \Com{Hask}{A}{B})\times\Com{Hask}{1}{F A} \rightarrow \Com{Hask}{1}{F B}
+  \]
+  \[
+  \psi \circ (\epsilon_{f},\epsilon_{a'}) \circ \delta \mapsto \epsilon_b'
+  \]
+
+\end{frame}
+
+\begin{frame}[fragile]{Applicatives}
+
+  \emph{The Laws of Applicatives}
+
+  From Wikibooks: \emph{Haskell} chapter on \strong{Applicative Functors}:
+  %% https://en.wikibooks.org/wiki/Haskell/Applicative_functors
+  
+  \begin{enumerate}
+  \item \strong{Identity}     \lstinline{pure id <*> v = v}
+  \item \strong{Homomorphism} \lstinline{pure f <*> pure x = pure (f x)}
+  \item \strong{Interchange}  \lstinline{u <*> pure y = pure ($ y) <*> u}
+  \item \strong{Composition}  \lstinline{pure (.) <*> u <*> v <*> w = u <*> (v <*> w)}
+  \end{enumerate}
+
+\end{frame}
+
+\begin{frame}[fragile]{Applicatives}
+
+  \emph{The Identity Law}
+
+  \lstinline{pure id <*> v = v}
+  \[
+  \lambda \circ (\phi \circ H(1_A;1,A^A),H(v;1,F A)) \circ \delta = H(v;1,F A)
+  \]
 
   \[
   \begin{tikzcd}
-    B^A \times A \arrow{r}{\lambda_{A,B}} & B
+    1 \arrow{r}{\phi}\arrow{d}[swap]{\epsilon_{1_A},\epsilon_v} & F 1 \arrow{d}{F \epsilon_{1_A},F \epsilon_v} \\
+    \Com{C}{A}{A}\times (F A) \arrow{r}{\phi,1} & F (\Com{C}{A}{A}) \times (F A) \arrow{d}{=} \\
+    & \Com{C}{F A}{(F A)} \times (F A) \arrow{d}{\lambda_{FA,FA}} \\
+    & F A
   \end{tikzcd}
   \]
 
-  Have an endofunctor $Ap : \Cat{C}\times\Cat{C} \rightarrow \Cat{C}$ such that $Ap : B^A \times A \mapsto B$, such that $ Ap(f,g) = U(f)$
+\end{frame}
+
+\begin{frame}[fragile]{Applicatives}
+
+  \emph{Homomorphism}
+
+  \lstinline{pure f <*> pure x = pure (f x)}
+
+  \[
+  \begin{tikzcd}
+    1 \arrow{r}{\epsilon_f,\epsilon_x} & \Com{C}{A}{B}\times A \arrow{r}{\phi}\arrow{d}{\lambda_{A,B}} &
+    F \Com{C}{A}{B} \times (F A) \arrow{r}{=} & \Com{C}{F A}{(F B)} \times (F A) \arrow{d}{F \lambda_{A,B}} \\
+    & B \arrow{rr}{\phi} & & F B
+  \end{tikzcd}
+  \]
+
+\end{frame}
+
+\begin{frame}[fragile]{Applicatives}
+
+  \emph{Interchange}
+
+  \lstinline{pure f <*> pure x = pure (f x)}
+
+  \[
+  \begin{tikzcd}
+    1 \arrow{r}{\epsilon_1,v} & \Com{C}{A}{A}\times A \arrow{r}{\lambda_{A,A}} & A
+  \end{tikzcd}
+  \]
+
+\end{frame}
+
+\begin{frame}[fragile]{Applicatives}
+
+  \emph{Composition}
+
+  \lstinline{pure f <*> pure x = pure (f x)}
+
+  \[
+  \begin{tikzcd}
+    1 \arrow{r}{\epsilon_1,v} & \Com{C}{A}{A}\times A \arrow{r}{\lambda_{A,A}} & A
+  \end{tikzcd}
+  \]
+
+
+\end{frame}
+
+\begin{frame}[fragile]{Applicatives}
+
+  \emph{Cartesian-Closed Categories (CCC)}
+
+
 
 \end{frame}
 
@@ -598,6 +788,7 @@ class Applicative m => Monad m where
 
 \begin{frame}[allowframebreaks]{References}
 
+  \nocite{Elkins2009}
   \bibliography{demo}
   \bibliographystyle{abbrv}
 
