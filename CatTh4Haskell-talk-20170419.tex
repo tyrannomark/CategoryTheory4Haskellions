@@ -115,13 +115,80 @@
   \tableofcontents[hideallsubsections]
 \end{frame}
 
-\section{Applicatives}
+\section{Categories}
+
+\begin{frame}[fragile]
+  \frametitle{Categories}
+
+  \emph{Categories}
+
+  A \emph{category} $\Cat{C}$ consists of
+  \begin{enumerate}
+  \item a class $\Obj{C}$ of \emph{objects}, and
+  \item for each pair of objects $A,B \in \Obj{C}$, a set $\Hom{C}{A}{B} \in
+    \Obj{Set}$ of \emph{arrows} (or \emph{morphisms}) from $A$ to $B$, known as
+    a \emph{hom-set}.
+  \end{enumerate}\vspace{-1.5\baselineskip}
+
+  \[
+    \begin{tikzcd}
+      A \arrow[shift left=2]{r}{\Hom{C}{A}{B}} \arrow{r} \arrow[shift right=2]{r} & B
+    \end{tikzcd}
+  \]
+
+  In Haskell, objects are \emph{types} (\texttt{Int}, \texttt{Char}, etc.),
+  and arrows are \emph{functions} between types (e.g.\ \texttt{ord :: Int ->
+    Char}).
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Category laws}
+  In a category $\Cat{C}$:
+  \begin{enumerate}
+  \item Given arrows $f\colon A \rightarrow B$ and $g\colon B \rightarrow C$ in
+    $\Hom{C}{A}{B}$, the \emph{composition} $g \circ f \colon A \rightarrow C$ (= \texttt{g.f}) is also in
+    $\Hom{C}{A}{B}$.
+  \item Given arrows $f\colon A \rightarrow B$, $g\colon B \rightarrow C$ and $h\colon C \rightarrow D$, $(h \circ
+    g) \circ f = h \circ (g \circ f) = h \circ g \circ f$:\vspace{-0.5\baselineskip}
+    \[
+      \begin{tikzcd}
+        A \arrow{r}{f} \arrow[sloped,near end,swap,dashed]{dr}{g \circ f} \arrow[bend
+        right=60,sloped,swap,loosely dashed]{drr}{h \circ g \circ f} \arrow[bend
+        left=60,sloped,loosely dashed]{drr}{h
+          \circ g \circ f} & B \arrow{d}{g}
+        \arrow[sloped,near start,dashed]{dr}{h \circ g} & \\
+          & C \arrow[swap]{r}{h} & D
+      \end{tikzcd}\rlap{.}
+    \]
+  \item Every object $A \in \Obj{C}$ is associated with an \emph{identity arrow}
+    $1_A \colon A \rightarrow A$ (= \texttt{id}). Given any arrow $f\colon A \rightarrow B$, we have
+    \[
+      \begin{tikzcd}
+        A \arrow[densely dotted]{r}{1_A} \arrow[bend right=30,swap]{rr}{f} & A
+        \arrow["f" description]{r}
+        \arrow[bend left=30]{rr}{f} & B \arrow[swap,densely dotted]{r}{1_B} & B
+      \end{tikzcd}\rlap{.}
+    \]
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Examples}
+  \begin{tabular}{r l l l l}\toprule
+    & $\Cat{Set}$ & $\Cat{Hask}$ & $\Cat{POrd}$ & $\Cat{Cat}$ \\\midrule
+    \textbf{Objects} & sets & types & items & small cats \\
+    \textbf{Morphisms} & functions & functions & $\leq$ & functors \\
+    \textbf{Composition} & $\circ$ & \texttt{.} & transitivity & $\circ$ \\
+    \textbf{Identity} & $1_A$ & \texttt{id} & $=$ & $1_{\Cat{C}}$ \\\bottomrule
+  \end{tabular}
+\end{frame}
 
 \begin{frame}[fragile]{Category Theory: Initial Objects}
 
   \emph{Initial Objects}
 
-  An \emph{initial object} is a type $0$ aka $I$ in category $\Cat{C}$, such that there is only a single mapping from it to any other type $A$.
+  An \emph{initial object} is a type $0$ aka $I$ in category $\Cat{C}$, such
+  that there is  only a single mapping from it to any other type $A$.
 
   \[
   \begin{tikzcd}
@@ -170,6 +237,20 @@
     () -- the type corresponding to 1, containing only itself
     terminalMap _ = ()
   \end{lstlisting}
+
+\end{frame}
+
+\begin{frame}[fragile]{Examples}
+
+  \begin{tabular}{r l l l l}\toprule
+    & $\Cat{Set}$ & $\Cat{Hask}$ & $\Cat{POrd}$ & $\Cat{Cat}$ \\\midrule
+    \textbf{Objects} & sets & types & items & small cats \\
+    \textbf{Morphisms} & functions & functions & $\leq$ & functors \\
+    \textbf{Composition} & $\circ$ & \texttt{.} & transitivity & $\circ$ \\
+    \textbf{Identity} & $1_A$ & \texttt{id} & $=$ & $1_{\Cat{C}}$ \\
+    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \texttt{Void} & lwr bnd & $\Cat{0}$ \\
+    \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \texttt{()} & uppr bnd & $\Cat{1}$ \\\bottomrule
+  \end{tabular}
 
 \end{frame}
 
@@ -226,6 +307,53 @@
   \end{lstlisting}
 
 \end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Examples}
+  \begin{tabular}{r l l l l}\toprule
+    & $\Cat{Set}$ & $\Cat{Hask}$ & $\Cat{POrd}$ & $\Cat{Cat}$ \\\midrule
+    \textbf{Objects} & sets & types & items & small cats \\
+    \textbf{Morphisms} & functions & functions & $\leq$ & functors \\
+    \textbf{Composition} & $\circ$ & \texttt{.} & transitivity & $\circ$ \\
+    \textbf{Identity} & $1_A$ & \texttt{id} & $=$ & $1_{\Cat{C}}$ \\
+    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \texttt{Void} & lwr bnd & $\Cat{0}$ \\
+    \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \texttt{()} & uppr bnd & $\Cat{1}$ \\
+    \textbf{Product} & $A \times B$ & \texttt{(A,B)} & $\min$ & $\Cat{C} \times \Cat{D}$ \\
+    \textbf{Coproduct} & $A \sqcup B$ & \texttt{A | B} & $\max$ & $\Cat{C} \sqcup \Cat{B}$ \\\bottomrule
+  \end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Exponential objects}
+  \emph{Briefly} mention CCCs.
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Curry-Howard isomorphism}
+  
+\end{frame}
+
+\section{Functors}
+
+\begin{frame}[fragile]
+  \frametitle{Examples}
+  \begin{tabular}{r l l l l}\toprule
+    & $\Cat{Set}$ & $\Cat{Hask}$ & $\Cat{POrd}$ & $\Cat{Cat}$ \\\midrule
+    \textbf{Objects} & sets & types & items & small cats \\
+    \textbf{Morphisms} & functions & functions & $\leq$ & functors \\
+    \textbf{Composition} & $\circ$ & \texttt{.} & transitivity & $\circ$ \\
+    \textbf{Identity} & $1_A$ & \texttt{id} & $=$ & $1_{\Cat{C}}$ \\
+    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \texttt{Void} & lwr bnd & $\Cat{0}$ \\
+    \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \texttt{()} & uppr bnd & $\Cat{1}$ \\
+    \textbf{Product} & $A \times B$ & \texttt{(A,B)} & $\min$ & $\Cat{C} \times \Cat{D}$ \\
+    \textbf{Coproduct} & $A \sqcup B$ & \texttt{A | B} & $\max$ & $\Cat{C} \sqcup \Cat{B}$ \\
+    \textbf{Endofunctors} & functors & type const. & \textsc{opt}s & nat.\ trans.\\\bottomrule
+  \end{tabular}
+\end{frame}
+
+\section{Natural transformations}
+
+\section{Applicatives}
 
 \begin{frame}[fragile]{Category Theory: Cartesian Closure}
 
