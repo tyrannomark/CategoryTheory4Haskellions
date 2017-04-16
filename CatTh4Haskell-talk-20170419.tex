@@ -114,6 +114,8 @@
 
 \section{Categories}
 
+\subsection{Basics}
+
 \begin{frame}[fragile]
   \frametitle{Categories}
 
@@ -133,18 +135,17 @@
     \end{tikzcd}
   \]
 
-  In Haskell, objects are \emph{types} (\texttt{Int}, \texttt{Char}, etc.),
-  and arrows are \emph{functions} between types (e.g.\ \texttt{ord :: Int ->
-    Char}).
+  In Haskell, objects are \emph{types} (\lstinline{Int}, \lstinline{Char}, etc.),
+  and arrows are \emph{functions} between types (e.g.\ \lstinline{ord :: Int -> Char}).
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Category laws}
+  \frametitle{Category Laws}
   In a category $\Cat{C}$:
   \begin{enumerate}
   \item Given arrows $f\colon A \rightarrow B$ and $g\colon B \rightarrow C$ in
-    $\Hom{C}{A}{B}$, the \emph{composition} $g \circ f \colon A \rightarrow C$ (= \texttt{g.f}) is also in
-    $\Hom{C}{A}{B}$.
+    $\Cat{C}$, the \emph{composition} $g \circ f \colon A \rightarrow C$ (= \lstinline{g.f}) is also in
+    $\Cat{C}$.
   \item Given arrows $f\colon A \rightarrow B$, $g\colon B \rightarrow C$ and $h\colon C \rightarrow D$, $(h \circ
     g) \circ f = h \circ (g \circ f) = h \circ g \circ f$:\vspace{-0.5\baselineskip}
     \[
@@ -158,7 +159,7 @@
       \end{tikzcd}\rlap{.}
     \]
   \item Every object $A \in \Obj{C}$ is associated with an \emph{identity arrow}
-    $1_A \colon A \rightarrow A$ (= \texttt{id}). Given any arrow $f\colon A \rightarrow B$, we have
+    $1_A \colon A \rightarrow A$ (= \lstinline{id}). Given any arrow $f\colon A \rightarrow B$, we have
     \[
       \begin{tikzcd}
         A \arrow[densely dotted]{r}{1_A} \arrow[bend right=30,swap]{rr}{f} & A
@@ -171,67 +172,95 @@
 
 \begin{frame}[fragile]
   \frametitle{Examples}
-  \begin{tabular}{r l l l l}\toprule
+
+  \begin{center}
+    \begin{tabular}{r l l l l}\toprule
     & $\Cat{Set}$ & $\Cat{Hask}$ & $\Cat{POrd}$ & $\Cat{Cat}$ \\\midrule
     \textbf{Objects} & sets & types & items & small cats \\
-    \textbf{Morphisms} & functions & functions & $\leq$ & functors \\
-    \textbf{Composition} & $\circ$ & \texttt{.} & transitivity & $\circ$ \\
-    \textbf{Identity} & $1_A$ & \texttt{id} & $=$ & $1_{\Cat{C}}$ \\\bottomrule
+    \textbf{Morphisms} & functions & functions & $a \leq b$ & functors \\
+    \textbf{Composition} & $f \circ g$ & \lstinline!f.g! & transitivity & $F \circ G$ \\
+    \textbf{Identity} & $1_A$ & {\lstinline!id!} & $a = a$ & $1_{\Cat{C}}$ \\\bottomrule
   \end{tabular}
+  \end{center}
+
+  $\Cat{Hask}$ is \emph{almost} $\Cat{Set}$ ($\Rightarrow$ a type is a ``set of values''),
+  but is complicated by the presence of \lstinline{Bottom} ($\bot$) in every type
+  (including \lstinline{Void}, which is ``supposed'' to be empty), and the wacky
+  behaviour of \lstinline{undefined} with respect to function composition.
 \end{frame}
 
-\begin{frame}[fragile]{Category Theory: Initial Objects}
+\subsection{Universal objects}
+
+\begin{frame}[fragile]{Initial Objects}
 
   \emph{Initial Objects}
 
-  An \emph{initial object} is a type $0$ aka $I$ in category $\Cat{C}$, such
-  that there is  only a single mapping from it to any other type $A$.
+  An \emph{initial object} is an object $0$ (a.k.a.\ $I$) in $\Obj{C}$, such
+  that there is only a single mapping from it to any other type $A$:
 
   \[
   \begin{tikzcd}
-    \forall A\in \Obj{C}, | \Hom{C}{0}{A} | = 1
+    \forall A\in \Obj{C}, \left| \Hom{C}{0}{A} \right| = 1.
   \end{tikzcd}
   \]
 
-  Initial objects in categories:
-  \begin{description}
-    \item[\Cat{Set}] the empty set
-    \item[\Cat{Grp}] the singleton group
-    \item[\Cat{Top}] the empty topological space
-    \item[\Cat{1\downarrow Set}] the singleton pointed set
-    \item[\Cat{POrd}] the minimum element (if there is one)
-  \end{description}
+  \[
+    \begin{tikzcd}[row sep=tiny]
+      & A \\
+      0 \arrow[near end]{ur}{\exists!} \arrow["\exists!" description]{r} \arrow[swap,near end]{dr}{\exists!} & B \\
+       & C
+    \end{tikzcd}
+  \]
+  
+  % Initial objects in categories:
+  % \begin{description}
+  %   \item[\Cat{Set}] the empty set
+  %   \item[\Cat{Grp}] the singleton group
+  %   \item[\Cat{Top}] the empty topological space
+  %   \item[\Cat{1\downarrow Set}] the singleton pointed set
+  %   \item[\Cat{POrd}] the minimum element (if there is one)
+  % \end{description}
 
   \begin{lstlisting}[frame=single]
-    Void -- the type corresponding to 0, containing only itself
+    Void -- the type corresponding to 0, containing no instances
     absurd :: Void -> t
+    -- | This function cannot be called
   \end{lstlisting}
 
 \end{frame}
 
-\begin{frame}[fragile]{Category Theory: Terminal Objects}
+\begin{frame}[fragile]{Terminal Objects}
 
   \emph{Terminal Objects}
 
-  A \emph{terminal object} is a type $1$ aka $T$ in category $\Cat{C}$, such that there is only a single mapping from any other type $A$ onto that type.
+  A \emph{terminal object} is a type $1$ (a.k.a.\ $T$) in $\Obj{C}$, such that there is only a single mapping from any other type $A$ onto that type:
 
   \[
   \begin{tikzcd}
-    \forall A\in \Obj{C}, | \Hom{C}{A}{1} | = 1
+    \forall A\in \Obj{C}, \left| \Hom{C}{A}{1} \right| = 1.
   \end{tikzcd}
   \]
 
-  Terminal objects in categories:
-  \begin{description}
-    \item[\Cat{Set}] the singleton set
-    \item[\Cat{Grp}] the singleton group
-    \item[\Cat{Top}] the singleton topological space
-    \item[\Cat{1\downarrow Set}] the singleton pointed set
-    \item[\Cat{POrd}] the maximum element (if there is one)
-  \end{description}
+  \[
+    \begin{tikzcd}[row sep=tiny]
+      A \arrow[near start]{dr}{\exists!} & \\
+      B \arrow["\exists!" description]{r} & 1\\
+      C \arrow[swap,near start]{ur}{\exists!} & 
+    \end{tikzcd}
+  \]
+  
+  % Terminal objects in categories:
+  % \begin{description}
+  %   \item[\Cat{Set}] the singleton set
+  %   \item[\Cat{Grp}] the singleton group
+  %   \item[\Cat{Top}] the singleton topological space
+  %   \item[\Cat{1\downarrow Set}] the singleton pointed set
+  %   \item[\Cat{POrd}] the maximum element (if there is one)
+  % \end{description}
 
   \begin{lstlisting}[frame=single]
     () -- the type corresponding to 1, containing only itself
+    terminalMap :: t -> ()
     terminalMap _ = ()
   \end{lstlisting}
 
@@ -239,68 +268,108 @@
 
 \begin{frame}[fragile]
   \frametitle{Examples}
-  \begin{tabular}{r l l l l}\toprule
+
+  \begin{center}
+    \begin{tabular}{r l l l l}\toprule
     & $\Cat{Set}$ & $\Cat{Hask}$ & $\Cat{POrd}$ & $\Cat{Cat}$ \\\midrule
     \textbf{Objects} & sets & types & items & small cats \\
-    \textbf{Morphisms} & functions & functions & $\leq$ & functors \\
-    \textbf{Composition} & $\circ$ & \texttt{.} & transitivity & $\circ$ \\
-    \textbf{Identity} & $1_A$ & \texttt{id} & $=$ & $1_{\Cat{C}}$ \\
-    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \texttt{Void} & lwr bnd & $\Cat{0}$ \\
-    \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \texttt{()} & uppr bnd & $\Cat{1}$ \\\bottomrule
+    \textbf{Morphisms} & functions & functions & $a \leq b$ & functors \\
+    \textbf{Composition} & $f \circ g$ & \lstinline!f.g! & transitivity & $F \circ G$ \\
+    \textbf{Identity} & $1_A$ & {\lstinline!id!} & $a = a$ & $1_{\Cat{C}}$ \\
+    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \lstinline!Void! & lwr bnd & $\Cat{0}$ \\
+    \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \lstinline!()! & uppr bnd & $\Cat{1}$ \\\bottomrule
   \end{tabular}
+  \end{center}
+  
 \end{frame}
 
-\begin{frame}[fragile]{Category Theory: Products}
+\begin{frame}[fragile]{Products}
 
   \emph{Pairwise Products}
 
-  Given objects $A,B$ there is an object $A\sqcap B$ such that for any arrows $a : X \rightarrow A$ and $b : X \rightarrow B$ there is a unique arrow $x : X \rightarrow A\sqcap B$ such that $a = \pi_A \circ x$ and $b = \pi_B \circ x$.
+  Given objects $A$, $B$ in $\Obj{C}$ there may be a \emph{(pairwise) product}
+  $A\sqcap B \in \Obj{C}$ and \emph{projection arrows} $\pi_A \colon A \sqcap B \rightarrow A$ and $\pi_B
+  \colon A \sqcap B \rightarrow B$ such that for any object $X \in \Obj{C}$ and arrows $a \colon X \rightarrow
+  A$ and $b \colon X \rightarrow B$ there is a \emph{unique} arrow $x : X \rightarrow A \sqcap B$ such that $a = \pi_A \circ x$ and $b = \pi_B \circ x$:
 
   \[
   \begin{tikzcd}
     A & A\sqcap B \arrow[swap]{l}{\pi_{A}} \arrow{r}{\pi_{B}} & B \\
-    & X \arrow[dotted]{u}{\exists! x} \arrow{ul}{a} \arrow[swap]{ur}{b} & \\
-  \end{tikzcd}
+    & X \arrow[dotted]{u}{\exists! x} \arrow{ul}{a} \arrow[swap]{ur}{b} & 
+  \end{tikzcd}\rlap{.}
   \]
+
+  In other words: Given a particular way of mapping $X$ to $A$ and to $B$, there's only \emph{one} way of mapping $X$ to $A \sqcap B$ such that everything's consistent.
 
 
 \end{frame}
 
-\begin{frame}[fragile]{Category Theory: Products}
+\begin{frame}[fragile]{Products}
 
   \emph{Pairwise Products}
 
-  Product in categories:
-  \begin{description}
-    \item[\Cat{Set}] the set of pairs
-    \item[\Cat{Grp}] the singleton group
-    \item[\Cat{1\downarrow Set}] the set of pairs from each subset, picking out the pair of the pointed elements
-    \item[\Cat{POrd}] the least upper bound element
-  \end{description}
+  Alternatively, the triplet $\langle {A \sqcap B, \pi_A, \pi_B} \rangle$ is a \emph{terminal object}
+  in the category whose objects are diagrams of the form
+  \[
+    \begin{tikzcd}
+      A & C \arrow{l} \arrow{r} & B
+    \end{tikzcd}\rlap{,}
+  \]
+  and whose arrows are (commutative) diagrams of the form
+  \[
+    \begin{tikzcd}[row sep=tiny]
+       & C \arrow[bend right=15]{dl} \arrow[bend left=15]{dr} & \\
+      A & & B \\
+       & D \arrow[bend left=15]{ul} \arrow[swap]{uu}{f} \arrow[bend right=15]{ur} & 
+    \end{tikzcd}\rlap{.}
+  \]
 
-  In \Cat{Hask}\ the arrows $\pi_A,\pi_B$ are called \lstinline[columns=fixed]{fst} and \lstinline[columns=fixed]{snd} respectively.
+  % Product in categories:
+  % \begin{description}
+  %   \item[\Cat{Set}] the set of pairs
+  %   \item[\Cat{Grp}] the singleton group
+  %   \item[\Cat{1\downarrow Set}] the set of pairs from each subset, picking out the pair of the pointed elements
+  %   \item[\Cat{POrd}] the least upper bound element
+  % \end{description}
+\end{frame}
 
-  \begin{lstlisting}[frame=single]
-    (a,b) -- the type containing pairs from types a and b
+\begin{frame}[fragile]
+  \frametitle{Products in Haskell}
+  \begin{lstlisting}[frame=single,mathescape=true]
+    (a,b) -- the type containing pairs from types a and b ($A \sqcap B$)
+    fst :: (a,b) -> a -- the projection function $\pi_A$
     fst (x,y) = x
+    snd :: (a,b) -> b -- the projection function $\pi_B$
     snd (x,y) = y
+    mapToA :: c -> a
+    mapToB :: c -> b -- any ol' functions
+    factorThroughProd :: c -> (a,b)
+    factorThroughProd z = (mapToA z, mapToB z)
   \end{lstlisting}
 
+  It should be obvious that\\
+  \lstinline{fst.factorThroughProd = mapToA}, and\\
+  \lstinline{snd.factorThroughProd = mapToB}.
+  
+  {\footnotesize (Extra credit: Coproducts. Hint: Disjunctive types.)}
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Examples}
-  \begin{tabular}{r l l l l}\toprule
+
+  \begin{center}
+    \begin{tabular}{r l l l l}\toprule
     & $\Cat{Set}$ & $\Cat{Hask}$ & $\Cat{POrd}$ & $\Cat{Cat}$ \\\midrule
     \textbf{Objects} & sets & types & items & small cats \\
-    \textbf{Morphisms} & functions & functions & $\leq$ & functors \\
-    \textbf{Composition} & $\circ$ & \texttt{.} & transitivity & $\circ$ \\
-    \textbf{Identity} & $1_A$ & \texttt{id} & $=$ & $1_{\Cat{C}}$ \\
-    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \texttt{Void} & lwr bnd & $\Cat{0}$ \\
-    \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \texttt{()} & uppr bnd & $\Cat{1}$ \\
-    \textbf{Product} & $A \times B$ & \texttt{(A,B)} & $\min$ & $\Cat{C} \times \Cat{D}$ \\
-    \textbf{Coproduct} & $A \sqcup B$ & \texttt{A | B} & $\max$ & $\Cat{C} \sqcup \Cat{B}$ \\\bottomrule
+    \textbf{Morphisms} & functions & functions & $a \leq b$ & functors \\
+    \textbf{Composition} & $f \circ g$ & \lstinline!f.g! & transitivity & $F \circ G$ \\
+    \textbf{Identity} & $1_A$ & {\lstinline!id!} & $a = a$ & $1_{\Cat{C}}$ \\
+    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \lstinline!Void! & lwr bnd & $\Cat{0}$ \\
+    \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \lstinline!()! & uppr bnd & $\Cat{1}$ \\
+      \textbf{Product} & $A \times B$ & \lstinline!(a,b)! & $\min(a,b)$ & $\Cat{C} \times \Cat{D}$ \\
+      \textbf{Coproduct} & $A \sqcup B$ & \lstinline!Either a b! & $\max(a,b)$ & $\Cat{C} \sqcup \Cat{B}$ \\\bottomrule
   \end{tabular}
+  \end{center}
 \end{frame}
 
 \begin{frame}[fragile]
