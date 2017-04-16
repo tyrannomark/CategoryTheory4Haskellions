@@ -312,7 +312,6 @@
 
   In other words: Given a particular way of mapping $X$ to $A$ and to $B$, there's only \emph{one} way of mapping $X$ to $A \sqcap B$ such that everything's consistent.
 
-
 \end{frame}
 
 \begin{frame}[fragile]{Products}
@@ -335,13 +334,6 @@
     \end{tikzcd}\rlap{.}
   \]
 
-  % Product in categories:
-  % \begin{description}
-  %   \item[\Cat{Set}] the set of pairs
-  %   \item[\Cat{Grp}] the singleton group
-  %   \item[\Cat{1\downarrow Set}] the set of pairs from each subset, picking out the pair of the pointed elements
-  %   \item[\Cat{POrd}] the least upper bound element
-  % \end{description}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -453,6 +445,31 @@ factoredArrow (y,x) = (\z -> arrow (y,z),x)
 \end{frame}
 
 \section{Natural transformations}
+
+\begin{frame}[fragile]{Natural Transformations}
+
+  \begin{lstlisting}[frame=single]
+    mu :: Functor f, Functor g => f a -> g a
+    mu . (fmap k) = fmap (mu . k)
+  \end{lstlisting}
+  
+  \begin{lstlisting}[frame=single]
+    nu :: Functor g => a -> g a
+    nu . k = fmap (nu . k)
+  \end{lstlisting}
+  
+\end{frame}
+
+\begin{frame}[fragile]{Category Theory: Cartesian Closure}
+
+  \emph{Cartesian-Closed Categories (CCC)}
+  include
+  \begin{description}
+    \item[\Cat{Set}] the singleton set, pairs, sets of functions
+    \item[\Cat{Hask}] \lstinline{()}, \lstinline{(a,b)}, \lstinline{a -> b}
+  \end{description}
+
+\end{frame}
 
 \section{Applicatives}
 
@@ -759,52 +776,63 @@ $(F,G)$ form an adjoint pair when there is a natural isomorphism
 
 \begin{frame}[fragile]{Monads}
 
-An adjunction $(F,G,\eta,\varepsilon)$ between two categories $\Cat{C}$ and $\Cat{D}$ where
-\begin{enumerate}
-\item $F: \Cat{C}\to \Cat{D}$
-\item $G: \Cat{D}\to \Cat{C}$
-\item $\varepsilon: GF\to 1_{\Cat{C}}$ is the counit of adjunction
-\item $\eta: 1_{\Cat{D}}\to FG$ is the unit of adjunction
-\end{enumerate}
-gives rise to a monad $(FG,\eta,F\varepsilon G)$.
+  A \emph{monad} is a triple $(T,\eta,\mu)$ where
+  \begin{enumerate}
+  \item $T: \Cat{C}\to \Cat{C}$ is an endofunctor,
+  \item $\eta: 1_{\Cat{C}} \to T$ is the counit of adjunction
+  \item $\mu: T \circ T \rightarrow T$ is the unit of adjunction
+  \end{enumerate}
+
+  \[
+  \begin{tikzcd}
+    \mathrm{M1} & T^3 \arrow{d}[swap]{\mu T}\arrow{r}{T\mu}  & T^2 \arrow{d}[swap]{\mu} &
+    \mathrm{M2} & T \arrow{d}[swap]{T\eta}\arrow{r}{\eta T}\arrow[dash,double]{dr} & T^2 \arrow{d}{\mu} \\
+    & T^2 \arrow{r}[swap]{\mu} & T & & T^2 \arrow{r}[swap]{\mu} & T
+  \end{tikzcd}
+  \]
+
+  {\small Wikipedia, Monad\_(category\_theory)}
   
 \end{frame}
 
 \begin{frame}[fragile]{Monads}
 
-  $(T,\eta,\mu〉$ is a monad over category $\Cat{C}$.
-    Create new category $\Cat{C_K} \subseteq \Cat{C}$ such that:
+  Earlier definition of monad.
+  
+  \begin{lstlisting}[frame=single]
+    class Functor m => Monad m where
+      return      :: a -> m a
+      join        :: m (m a) -> m a
+  \end{lstlisting}
 
-    \begin{enumerate}
-      \item $Obj(\Cat{C_T}) = Obj(\Cat{C})$
-      \item $Hom_{\Cat{C_T}}(A,B) = Hom_{\Cat{C}}(A,T B)$
-      \item $g \circ_{T} f = \mu_{Z} \circ T g \circ f$
-      \item $id_{X_T} = \eta_{X}$
-    \end{enumerate}
+  {\small King \& Wadler 1993}
+  
+  \begin{lstlisting}[frame=single]
+    class Applicative m => Monad m where
+    (>>=)       :: forall a b. m a -> (a -> m b) -> m b
+    return      :: a -> m a
+  \end{lstlisting}
+
+  {\small GHC.Base base-4.9.1.0}
+
+  \begin{lstlisting}[frame=single]
+    (>>=) m g = join (fmap g m)
+  \end{lstlisting}
 
 \end{frame}
 
-%% \begin{equation*}
-%% \end{equation*}
-
-\section{Haskell: Monads}
-
 \begin{frame}[fragile]{Monads}
-
-  \emph{Monads}
-
+  
   \begin{lstlisting}[frame=single]
-class Applicative m => Monad m where
-    -- | Like g(f(..)) in imperative languages
-    (>>=)       :: forall a b. m a -> (a -> m b) -> m b
-    -- | Like 'f ; g' in imperative languages
-    (>>)        :: forall a b. m a -> m b -> m b
-    m >> k      = m >>= \_ -> k
-    -- | Inject a value into the monadic type.
-    return      :: a -> m a
-    return      = pure
+    fmap (f . return) = return . f -- return is a nat trans
+    fmap (f . join) = join . $ fmap (fmap f) -- join is a nat trans
+    join . (fmap join) = join . join -- diagram M1
+    join . return = id -- bottom-left of M2
+    join . (fmap return) = id -- top-right of M2
   \end{lstlisting}
 
+  {\small King \& Wadler 1993}
+  
 \end{frame}
 
 \begin{frame}[fragile]{Other Connections}
@@ -813,9 +841,6 @@ class Applicative m => Monad m where
   \item[Comonads] 
   \item[Lens] 
   \item[Kleisli Arrows] 
-  \item[] 
-  \item[] 
-  \item[] 
   \end{description}
 \end{frame}
 
@@ -825,35 +850,10 @@ class Applicative m => Monad m where
 
   ADD: Milewski, Walters
   
-  \nocite{Elkins2009}
+  \nocite{elkins_calculating_2009}
   \bibliography{CatTh4Haskell-talk-20170419}
   \bibliographystyle{abbrv}
 
-\end{frame}
-
-\section{Maths: Kleisli}
-
-\begin{frame}[fragile]{Kleisli Adjunctions}
-
-  \emph{Every monad can be constructed from an adjunction}
-
-  If $(F,G,\epsilon,\eta)$ is an \emph{adjunction}, then $(GF,\eta)$ is a \emph{monad}.
-
-  $(T,\eta,\mu〉$ is a monad over category $\Cat{C}$.
-    Create new category $\Cat{C_K} \subseteq \Cat{C}$ such that:
-
-    \begin{enumerate}
-      \item $Obj(\Cat{C_T}) = Obj(\Cat{C})$
-      \item $Hom_{\Cat{C_T}}(A,B) = Hom_{\Cat{C}}(A,T B)$
-      \item $g \circ_{T} f = \mu_{Z} \circ T g \circ f $
-      \item $id_{TX} = \eta_{X} $
-    \end{enumerate}
-
-    Now define a functor $ F : \Cat{C} \rightarrow \Cat{C_T} $ such that $ F(X) = X, F(f:X\rightarrow Y) = \eta_Y\circ f$.
-    and also a functor $ G : \Cat{C_T} \rightarrow \Cat{C} $ such that $ G(X) = X, G(f:X\rightarrow TY) = \mu_Y\circ Tf$.
-
-    These functors can be shown form an adjoint pair $(F,G,\varepsilon,\phi)$ where $\varepsilon_{Y} = id_{TY}$ and $T = GF$.
-    
 \end{frame}
 
 \end{document}
