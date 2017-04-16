@@ -269,6 +269,28 @@
 
 \end{frame}
 
+\begin{frame}[fragile,fragile]{Global Elements}
+  %% See answer 4 here: http://stackoverflow.com/questions/17380379/where-do-values-fit-in-category-of-hask
+  \emph{Global Elements}
+
+  A \emph{global element} of an object $A$ in category $\Cat{C}$ with terminal object $1$ is an arrow $a : 1 \rightarrow A$.
+  
+  \[
+  \begin{tikzcd}
+    1 \arrow{r}{a} & A
+  \end{tikzcd}
+  \]
+
+  In \Cat{Hask}, if we have a value \lstinline{v} in some type \lstinline{A}, we
+  can upgrade it to the global element by use of \lstinline{const v}.
+
+  \begin{lstlisting}[frame=single]
+    const :: A -> (() -> A)
+    const v = \_ -> v
+  \end{lstlisting}
+
+\end{frame}
+
 \begin{frame}[fragile]
   \frametitle{Examples}
 
@@ -284,22 +306,6 @@
   \end{tabular}
   \end{center}
   
-\end{frame}
-
-\begin{frame}[fragile]{Category Theory: Global Elements}
-  %% See answer 4 here: http://stackoverflow.com/questions/17380379/where-do-values-fit-in-category-of-hask
-  \emph{Global Elements}
-
-  A \emph{global element} of an object $A$ in category $\Cat{C}$ with terminal object $1$ is an arrow $a : 1 \rightarrow A$.
-  
-  \[
-  \begin{tikzcd}
-    1 \arrow{r}{a} & A
-  \end{tikzcd}
-  \]
-
-  In \Cat{Hask}, if we have a value \lstinline{v} in some type \lstinline{A}, we can upgrade it to the global element by use of \lstinline{const v}.
-
 \end{frame}
 
 \begin{frame}[fragile]{Products}
@@ -385,8 +391,8 @@
     \textbf{Identity} & $1_A$ & {\lstinline!id!} & $a = a$ & $1_{\Cat{C}}$ \\
     \textbf{Initial obj\rlap{.}} & $\emptyset$ & \lstinline!Void! & lwr bnd & $\Cat{0}$ \\
     \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \lstinline!()! & uppr bnd & $\Cat{1}$ \\
-      \textbf{Product} & $A \times B$ & \lstinline!(a,b)! & $\min(a,b)$ & $\Cat{C} \times \Cat{D}$ \\
-      \textbf{Coproduct} & $A \sqcup B$ & \lstinline!Either a b! & $\max(a,b)$ & $\Cat{C} \sqcup \Cat{B}$ \\\bottomrule
+    \textbf{Product} & $A \times B$ & \lstinline!(a,b)! & $\min(a,b)$ & $\Cat{C} \times \Cat{D}$ \\
+    \textbf{Coproduct} & $A \sqcup B$ & \lstinline!Either a b! & $\max(a,b)$ & $\Cat{C} \sqcup \Cat{B}$ \\\bottomrule
   \end{tabular}
   \end{center}
 \end{frame}
