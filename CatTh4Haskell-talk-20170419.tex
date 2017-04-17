@@ -296,8 +296,6 @@
 
 \begin{frame}[fragile]{Products}
 
-  \emph{Pairwise Products}
-
   Given objects $A$, $B$ in $\Obj{C}$ there may be a \emph{(pairwise) product}
   $A\sqcap B \in \Obj{C}$ and \emph{projection arrows} $\pi_A \colon A \sqcap B \rightarrow A$ and $\pi_B
   \colon A \sqcap B \rightarrow B$ such that for any object $X \in \Obj{C}$ and arrows $a \colon X \rightarrow
@@ -315,8 +313,6 @@
 \end{frame}
 
 \begin{frame}[fragile]{Products}
-
-  \emph{Pairwise Products}
 
   Alternatively, the triplet $\langle {A \sqcap B, \pi_A, \pi_B} \rangle$ is a \emph{terminal object}
   in the category whose objects are diagrams of the form
@@ -369,9 +365,8 @@
     \textbf{Identity} & $1_A$ & {\lstinline!id!} & $a = a$ & $1_{\Cat{C}}$ \\
     % \textbf{Initial obj\rlap{.}} & $\emptyset$ & \lstinline!Void! & lower bound & $\Cat{0}$ \\
     \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \lstinline!()! & upper bound & $\Cat{1}$ \\
-    \textbf{Product} & $A \times B$ & \lstinline!(a,b)! & $\min(a,b)$ & $\Cat{C} \times \Cat{D}$ \\
-    % \textbf{Coproduct} & $A \sqcup B$ & \lstinline!Either a b! & $\max(a,b)$ & $\Cat{C} \sqcup \Cat{B}$ \\
-      \bottomrule
+    \textbf{Product} & $A \uplus B$ & \lstinline!(a,b)! & $\min(a,b)$ & $\Cat{C} \times \Cat{D}$ \\
+    % \textbf{Coproduct} & $A \sqcup B$ & \lstinline!Either a b! & $\max(a,b)$ & $\Cat{C} \sqcup \Cat{B}$ \\\bottomrule
   \end{tabular}
   \end{center}
 \end{frame}
@@ -383,26 +378,28 @@
   (also written $[A \rightarrow B]$) is any object such that for any object $C$ and any
   arrow $f\colon C \sqcap A \rightarrow B$,
   \[
-    \begin{tikzcd}
-      C \sqcap A \arrow[swap,densely dotted]{d}{\exists!} \arrow{dr}{f} & \\
-      B^A \sqcap A \arrow[swap]{r}{\mathrm{eval}_B^A} & B
+  \begin{tikzcd}
+    C \sqcap A \arrow[swap,densely dotted]{d}{\exists!} \arrow{dr}{f} & \\
+    B^A \sqcap A \arrow[swap]{r}{\mathrm{eval}_B^A} & B
     \end{tikzcd}\rlap{.}
   \]
-
+  
+  %% Siva, I think the below might be a bit much for our audience
+  
   Alternatively, the pair $\langle {B^A,\mathrm{eval}_B^A} \rangle$ constitutes a terminal
   object in the category whose objects are diagrams of the form
   \[
-    \begin{tikzcd}
-      C \sqcap A \arrow{r} & B
-    \end{tikzcd}\rlap{,}
+  \begin{tikzcd}
+    C \sqcap A \arrow{r} & B
+  \end{tikzcd}\rlap{,}
   \]
   and whose arrows are commutative diagrams of the form
   \[
-    \begin{tikzcd}[row sep=tiny]
-      D \sqcap A \arrow{dd} \arrow[bend left=15]{dr} & \\
-      & B \\
-      C \sqcap A \arrow[bend right=15]{ur} &
-    \end{tikzcd}\rlap{.}
+  \begin{tikzcd}[row sep=tiny]
+    D \sqcap A \arrow{dd} \arrow[bend left=15]{dr} & \\
+    & B \\
+    C \sqcap A \arrow[bend right=15]{ur} &
+  \end{tikzcd}\rlap{.}
   \]
 \end{frame}
 
@@ -547,7 +544,7 @@ fmap f (x : xs) = (f x) : (fmap f xs)
   
 \end{frame}
 
-\begin{frame}[fragile]{Category Theory: Cartesian Closure}
+\begin{frame}[fragile]{Cartesian Closed Categories}
 
   [(Re)move this slide?]
   
@@ -562,7 +559,7 @@ fmap f (x : xs) = (f x) : (fmap f xs)
 
 \section{Applicatives}
 
-\begin{frame}[fragile]{Category Theory: Cartesian Closure}
+\begin{frame}[fragile]{Cartesian Closed Categories}
 
   \emph{Cartesian-Closed Categories (CCC)}
 
@@ -583,7 +580,7 @@ fmap f (x : xs) = (f x) : (fmap f xs)
   The latter relation is called the \emph{Howard-Curry isomorphism}, or \emph{currying}.
 \end{frame}
 
-\begin{frame}[fragile]{Category Theory: Cartesian Closure}
+\begin{frame}[fragile]{Cartesian-Closed Categories}
 
   [Remove this slide? We don't know any good examples apart from $\Cat{Set}$.]
   
@@ -599,7 +596,7 @@ fmap f (x : xs) = (f x) : (fmap f xs)
 
 \end{frame}
 
-\begin{frame}[fragile]{Category Theory: Cartesian Closure}
+\begin{frame}[fragile]{Cartesian-Closed Categories}
 
   [Eh?! I thought what you've defined here is $\mathrm{eval}_B^C$. Isn't $\lambda$
 the name for the map from $\Hom{C}{A\sqcap B}{C}$ to $\Hom{C}{A}{\Com{C}{B}{C}}
@@ -615,9 +612,7 @@ the name for the map from $\Hom{C}{A\sqcap B}{C}$ to $\Hom{C}{A}{\Com{C}{B}{C}}
 
 \end{frame}
 
-\begin{frame}[fragile]{Category Theory: Endofunctors in CCCs}
-
-  \emph{Endofunctors in CCCs}
+\begin{frame}[fragile]{Endofunctors in CCCs}
 
   For any functor $F$, there is a 1-1 correspondence between natural
   transformations from the identity functor to $F$ and the global elements of
@@ -636,9 +631,7 @@ the name for the map from $\Hom{C}{A\sqcap B}{C}$ to $\Hom{C}{A}{\Com{C}{B}{C}}
 
 \end{frame}
 
-\begin{frame}[fragile]{Category Theory: Applicative Functors}
-
-  \emph{Applicative Functors}
+\begin{frame}[fragile]{Applicative Functors}
 
   An \emph{applicative} functor $F$ is a functor $\Cat{C}\rightarrow \Cat{D}$ such that:
   \begin{enumerate}
@@ -651,9 +644,7 @@ the name for the map from $\Hom{C}{A\sqcap B}{C}$ to $\Hom{C}{A}{\Com{C}{B}{C}}
 
 \end{frame}
 
-\begin{frame}[fragile]{Applicatives}
-
-  \emph{Applicatives in Haskell}
+\begin{frame}[fragile]{Applicative Functors}
 
   \begin{lstlisting}[frame=single]
 class Functor f => Applicative f where
@@ -719,88 +710,11 @@ class Functor f => Applicative f where
 
 \begin{frame}[fragile]{Applicatives}
 
-  \emph{Homomorphism}
-
-  \lstinline{pure f <*> pure x = pure (f x)}
-
-  \[
-  \begin{tikzcd}
-    1 \arrow{r}{\epsilon_f,\epsilon_x} & \Com{C}{A}{B}\times A \arrow{r}{\phi}\arrow{d}{\lambda_{A,B}} &
-    F \Com{C}{A}{B} \times (F A) \arrow{r}{=} & \Com{C}{F A}{(F B)} \times (F A) \arrow{d}{F \lambda_{A,B}} \\
-    & B \arrow{rr}{\phi} & & F B
-  \end{tikzcd}
-  \]
-
-\end{frame}
-
-\begin{frame}[fragile]{Applicatives}
-
-  \emph{Interchange}
-
-  \lstinline{pure f <*> pure x = pure (f x)}
-
-  \[
-  \begin{tikzcd}
-    1 \arrow{r}{\epsilon_1,v} & \Com{C}{A}{A}\times A \arrow{r}{\lambda_{A,A}} & A
-  \end{tikzcd}
-  \]
-
-\end{frame}
-
-\begin{frame}[fragile]{Applicatives}
-
-  \emph{Composition}
-
-  \lstinline{pure f <*> pure x = pure (f x)}
-
-  \[
-  \begin{tikzcd}
-    1 \arrow{r}{\epsilon_1,v} & \Com{C}{A}{A}\times A \arrow{r}{\lambda_{A,A}} & A
-  \end{tikzcd}
-  \]
-
-
-\end{frame}
-
-\begin{frame}[fragile]{Applicatives}
-
-  \emph{Cartesian-Closed Categories (CCC)}
-
-
-
-\end{frame}
-
-\section{Haskell: Applicatives}
-
-\begin{frame}[fragile]{Applicatives}
-
-  \emph{Applicative Functors}
-  aka \emph{Endofunctors on Cartesian-Closed Categories}
-
-  \begin{lstlisting}[frame=single]
-class Functor f => Applicative f where
-    -- | Lift a value.
-    pure :: a -> f a
-    -- | Sequential application.
-    (<*>) :: f (a -> b) -> f a -> f b
-  \end{lstlisting}
-
-  Write $(e_{X,Z},c_{X,Z})$ for the forward and backward natural transformation
-  \begin{equation}
-    Hom(X\times Y,Z) \cong Hom(X,Z^Y) \mathrm{aka} Hom(- \times Y,-) \cong Hom(-,-^Y)
-  \end{equation}
-  
-\end{frame}
-
-\begin{frame}[fragile]{Applicatives}
-
   \emph{Applicative Functors Example}
 
   \begin{lstlisting}[frame=single]
 instance Applicative Maybe where
-    -- | Apply functor Maybe to value
     pure x = Just x
-    -- | Apply domain function via fmap
     Nothing <*> _ = Nothing
     (Just f) <*> something = fmap f something
   \end{lstlisting}
@@ -813,68 +727,68 @@ instance Applicative Maybe where
 
   \begin{lstlisting}[frame=single]
 instance Applicative [] where
-    -- | Apply functor [] to value
     pure x = [ x ]
-    -- | Apply domain function via fmap
     fs <*> xs = [ f x | f <- fs, x <- xs ]
   \end{lstlisting}
 
 \end{frame}
 
-\begin{frame}[fragile]{Applicatives}
 
-  \emph{Applicative Functor Laws}
-
-  \begin{lstlisting}[frame=single]
-               v = pure id <*> v
-      pure (f x) = pure f <*> pure x
-    u <*> pure y = pure ($ y) <*> u
- u <*> (v <*> w) = pure (.) <*> u <*> v <*> w
-  \end{lstlisting}
-
-\end{frame}
-
-\begin{frame}[fragile]{Applicatives}
-
-  \emph{Monoidal Categories}
-
-  In mathematics, a monoidal category (or tensor category) is a category C equipped with a bifunctor
-⊗ : C × C → C
-  that is associative up to a natural isomorphism, and an object I that is both a left and right identity for ⊗, again up to a natural isomorphism.
-
-  \emph{Cartesian-Closed Categories}
-
-  Have an endofunctor $Ap : \Cat{C}\times\Cat{C} \rightarrow \Cat{C}$ such that $Ap : B^A \times A \mapsto B$, such that $ Ap(f,g) = U(f)$
-
-\end{frame}
-
-\begin{frame}[fragile]{Applicatives}
-
-  \emph{Endofunctors with a strength}
-
-  A strong endofunctor F:C→C over a monoidal category (C,⊗,I) is one which comes with a natural transformation σ:A⊗F(B)→F(A⊗B)σ:A⊗F(B)→F(A⊗B), satisfying some coherence conditions with respect to the associator which I will gloss over. This condition is sometimes also pronounced "FF has a strength".
-
-  A lax monoidal functor F:C→DF:C→D is a functor between two monoidal categories (C,⊗,I)(C,⊗,I) and (D,⊕,J)(D,⊕,J) with natural transformations ϕ:F(A)⊕F(B)→F(A⊗B)ϕ:F(A)⊕F(B)→F(A⊗B) and i:J→F(I)i:J→F(I), again satisfying a coherence condition with respect to the associators.
-
-  A strong monoidal functor F:C→DF:C→D is one in which ϕϕ and ii are natural isomorphisms. That is, F(A⊗B)≃F(A)⊕F(B)F(A⊗B)≃F(A)⊕F(B), with ϕϕ and its inverse describing the isomorphism.
-
-  An applicative functor, in the sense of Haskell programs, is a lax monoidal endofunctor with a strength, with the monoidal structure in question being the Cartesian products. So this is why you get the paradoxical-sounding term "strong lax monoidal functor".
-\end{frame}
-
-\section{Maths: Adjoint Functors}
+\section{Adjoint Functors}
 
 \begin{frame}[fragile]{Adjoint Functors}
 
-%%% An 4-tuple $(F,G,\eta,\varepsilon)$ is an adjunction between  two categories $\Cat{C}$ and $\Cat{D}$ (where {\displaystyle F\colon C\to D} F\colon C\to D is left adjoint to {\displaystyle G\colon D\to C} G\colon D\to C and {\displaystyle \eta } \eta  and {\displaystyle \varepsilon } \varepsilon  are respectively the unit and the counit) always defines a monad {\displaystyle (GF,\eta ,G\varepsilon F)} (GF,\eta ,G\varepsilon F).
-$(F,G)$ form an adjoint pair when there is a natural isomorphism
+  A 4-tuple $(F,G,\varepsilon,\eta)$ is an \emph{adjunction} between two categories $\Cat{C}$ and $\Cat{D}$
+  when:
+  \begin{enumerate}
+    \item $F$ is a functor from $\Cat{C}\rightarrow\Cat{D}$
+    \item $G$ is a functor from $\Cat{D}\rightarrow\Cat{C}$
+    \item $\varepsilon$ is a natural transformation from $F\circ G \rightarrow 1_{\Cat{C}}$ (the \emph{counit} of adjunction)
+    \item $\eta$ is a natural transformation from $1_{\Cat{D}} \rightarrow G\circ F$ (the \emph{unit} of adjunction)
+    \item $(\varepsilon F)\circ(F \eta) = 1_{F}$
+    \item $(G \varepsilon)\circ(\eta G) = 1_{G}$
+  \end{enumerate}
+
+  Another way of talking about adjoints is that $(F,G)$ composed with $Hom$ form an adjoint pair
+  when there is a natural isomorphism
   \[
   Hom(F-,-) \cong_{\Phi} Hom(-,G-)
   \]
   
 \end{frame}
 
+\begin{frame}[fragile]{Adjoint Functors}
+  
+\end{frame}
 
-\section{Maths: Monads}
+\begin{frame}[fragile]
+  \frametitle{Examples}
+  \begin{tabular}{r l r l}\toprule
+    \Cat{C} & $\Cat{D}$ & $F$ & $G$ \\
+    \hline
+    \Cat{Set} & \Cat{Set^2} & $\Delta$ & $\sqcap$ \\
+    \Cat{Set^2} & \Cat{Set} & $\sqcup$  & $\Delta$ \\
+    \Cat{Set} & \Cat{Grp} & Free & Forgetful \\
+    \Cat{Set} & \Cat{Top} & Discrete & Forgetful \\
+    \Cat{Top} & \Cat{Set} & Forgetful & Trivial
+  \end{tabular}
+\end{frame}
+
+\begin{frame}[fragile]{Adjoint Functors}
+
+  Although Haskell doesn't talk about adjoints as much as Monads, one adjunction-pair is fundamental to FP: the Currying adjunction.
+  \[
+  \Hom{C}{X\times Y}{Z} \cong \Hom{C}{X}{Z^Y}
+  \]
+  Think of product-with-$Y$ and to-the-power-of-$Y$ as functors, then product is the left-adjoint of power.
+  
+\end{frame}
+
+\begin{frame}[fragile]{Adjoint Functors}
+  
+\end{frame}
+
+\section{Monads}
 
 \begin{frame}[fragile]{Monads}
 
@@ -908,6 +822,8 @@ $(F,G)$ form an adjoint pair when there is a natural isomorphism
   \end{lstlisting}
 
   {\small King \& Wadler 1993}
+
+  This is how it is defined now.
   
   \begin{lstlisting}[frame=single]
     class Applicative m => Monad m where
@@ -923,7 +839,9 @@ $(F,G)$ form an adjoint pair when there is a natural isomorphism
 
 \end{frame}
 
-\begin{frame}[fragile]{Monads}
+\begin{frame}[fragile]{Monad Laws}
+
+  (omitting two that guarantee functorhood of \lstinline{f})
   
   \begin{lstlisting}[frame=single]
     fmap (f . return) = return . f -- return is a nat trans
@@ -953,6 +871,7 @@ $(F,G)$ form an adjoint pair when there is a natural isomorphism
   ADD: Milewski, Walters
   
   \nocite{elkins_calculating_2009}
+  \nocite{diel:_blog}
   \bibliography{CatTh4Haskell-talk-20170419}
   \bibliographystyle{abbrv}
 
