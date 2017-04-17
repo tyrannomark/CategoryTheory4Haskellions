@@ -544,7 +544,7 @@ fmap f (x : xs) = (f x) : (fmap f xs)
   
 \end{frame}
 
-\begin{frame}[fragile]{Cartesian Closed Categories}
+\begin{frame}[fragile]{Cartesian-Closed Categories}
 
   [(Re)move this slide?]
   
@@ -559,7 +559,7 @@ fmap f (x : xs) = (f x) : (fmap f xs)
 
 \section{Applicatives}
 
-\begin{frame}[fragile]{Cartesian Closed Categories}
+\begin{frame}[fragile]{Cartesian-Closed Categories}
 
   \emph{Cartesian-Closed Categories (CCC)}
 
@@ -639,7 +639,7 @@ the name for the map from $\Hom{C}{A\sqcap B}{C}$ to $\Hom{C}{A}{\Com{C}{B}{C}}
     \item $im(F)$ is CCC,
     \item $F$ perserves terminal objects, i.e. $F(1_{\Cat{C}})=1_{\Cat{D}}$,
     \item $F$ perserves products, i.e. $F(A\sqcap B)=F(A)\sqcap F(B)$, and
-    \item $F$ perserves the power functor, i.e. $\Com{D}{F A}{(F B)} = F \Com{C}{A}{B}$.
+    \item $F$ perserves the power functor, i.e. $\Com{D}{F A}{(F B)} = F (\Com{C}{A}{B})$.
   \end{enumerate}
 
 \end{frame}
@@ -656,7 +656,7 @@ class Functor f => Applicative f where
 
   \lstinline{pure} applies the functor to global elements (arrows from $1$ to $a$).
   \[
-  \phi : \Com{Hask}{1}{A} \rightarrow \Com{Hask}{1}{F A}
+  \phi : \Com{Hask}{1}{A} \rightarrow F(\Com{Hask}{1}{A})
   \]
   \[
   \phi \circ \epsilon_a \mapsto \epsilon_a'
@@ -664,7 +664,7 @@ class Functor f => Applicative f where
 
   \lstinline{<*>} takes the image of an arrow and of a global element and constructs the image of the composition (also a global element).
   \[
-  \psi : (F \Com{Hask}{A}{B})\times\Com{Hask}{1}{F A} \rightarrow \Com{Hask}{1}{F B}
+  \psi : F (\Com{Hask}{A}{B}) \times F(\Com{Hask}{1}{A}) \rightarrow F(\Com{Hask}{1}{B})
   \]
   \[
   \psi \circ (\epsilon_{f},\epsilon_{a'}) \circ \delta \mapsto \epsilon_b'
