@@ -407,7 +407,7 @@
 
   In $\Cat{Hask}$, the exponential object of two types \lstinline{a} and
   \lstinline{b} is the \emph{function type} \lstinline{(a -> b)} (which is
-  nothing more than the hom-set of \lstinline{a} and \lstinline{b}!). Let's see
+  nothing more than the \emph{hom-set} of \lstinline{a} and \lstinline{b}!). Let's see
   how this satisfies the above definition.
 
   \begin{lstlisting}[frame=single]
@@ -421,21 +421,76 @@
 
   It should be clear that \lstinline{eval.factoredArrow = arrow} --- and that
   \lstinline{factoredArrow} is the \emph{only} arrow for which this is true.
+
+  A category where we can find the exponential object of any two objects is
+  called a \emph{Cartesian closed category} (CCC). $\Cat{Set}$ and $\Cat{Hask}$
+  are CCCs.
 \end{frame}
 
 \section{Functors}
+
+\begin{frame}[fragile]
+  \frametitle{Functors}
+
+  \emph{Functors}
+
+  A \emph{functor} is a mapping $F\colon \Cat{C} \rightarrow \Cat{D}$ that takes objects in
+  $\Cat{C}$ to objects in $\Cat{D}$ and arrows in $\Cat{C}$ to arrows in
+  $\Cat{D}$, in such a way that
+  \begin{enumerate}
+  \item for any $A \in \Obj{C}$, $F(1_A) = 1_{F(A)}$:
+    \[
+      \begin{tikzcd}
+        A \arrow[mapsto]{d} \arrow[""' name = id]{r}{1_A} & A \arrow[mapsto]{d} \\
+        F(A) \arrow[swap,""' name = Fid]{r}{1_{F(A)}} & F(A) \arrow[mapsto,from=id,to=Fid]
+      \end{tikzcd}\rlap{;}
+    \]
+  \item for any $f\colon A \rightarrow B$ and $g\colon B \rightarrow C$ in $\Cat{C}$, $F(g \circ f) =
+    F(g) \circ F(f)$:
+    \[
+      \begin{tikzcd}[row sep=tiny]
+        & B \arrow[mapsto]{dd} \arrow{dr}{g} & \\
+        A \arrow[mapsto]{dd} \arrow{ur}{f} \arrow[crossing over,swap,near end]{rr}{g \circ f} & & C \arrow[mapsto]{dd} \\
+        & F(B) \arrow{dr}{F(g)} & \\
+        F(A) \arrow{ur}{F(f)} \arrow[swap]{rr}{F(g) \circ F(f)} & & F(C)
+      \end{tikzcd}\rlap{.}
+    \]
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile,fragile]
+  \frametitle{Functors in Haskell}
+
+  In Haskell, (endo)functors are \emph{type constructors} (e.g.\ the list
+  constructor): they take a type (\lstinline{a}) and produce another type (\lstinline{[a]}); and via \lstinline{fmap}, they take an arrow between two
+  types (\lstinline{a -> b}) and produce an arrow between the images of those
+  two types (\lstinline{[a] -> [b]}).
+
+\begin{lstlisting}[frame=single]
+data [] a = [] | a : [a] -- "[]" is the type constructor for lists
+fmap f [] = [] -- mapping f over an empty list does nothing
+fmap f (x : xs) = (f x) : (fmap f xs)
+-- to turn f into a list function, apply f to the head of the list,
+-- apply the list version of f to the tail of the list, and construct
+\end{lstlisting}
+
+  You can verify that
+  \lstinline{fmap id (x : xs) = (id x) : (fmap id xs) = id (x : xs)}, and that
+  \lstinline{fmap f (fmap g (x : xs)) = fmap f ((g x) : (fmap g xs))}
+  \lstinline{= (f g x) : (fmap f (fmap g xs)) = fmap f g (x : xs)}.
+\end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Examples}
   \begin{tabular}{r l l l l}\toprule
     & $\Cat{Set}$ & $\Cat{Hask}$ & $\Cat{POrd}$ & $\Cat{Cat}$ \\\midrule
     \textbf{Objects} & sets & types & items & small cats \\
-    \textbf{Morphisms} & functions & functions & $\leq$ & functors \\
-    \textbf{Composition} & $\circ$ & \texttt{.} & transitivity & $\circ$ \\
-    \textbf{Identity} & $1_A$ & \texttt{id} & $=$ & $1_{\Cat{C}}$ \\
-%%    \textbf{Initial obj\rlap{.}} & $\emptyset$ & \texttt{Void} & lwr bnd & $\Cat{0}$ \\
-    \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \texttt{()} & uppr bnd & $\Cat{1}$ \\
-    \textbf{Product} & $A \times B$ & \texttt{(A,B)} & $\min$ & $\Cat{C} \times \Cat{D}$ \\
+    \textbf{Morphisms} & functions & functions & $a \leq b$ & functors \\
+    \textbf{Composition} & $f \circ g$ & \lstinline!f.g! & transitivity & $F \circ G$ \\
+    \textbf{Identity} & $1_A$ & {\lstinline!id!} & $a = a$ & $1_{\Cat{C}}$ \\
+    % \textbf{Initial obj\rlap{.}} & $\emptyset$ & \lstinline!Void! & lower bound & $\Cat{0}$ \\
+    \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \lstinline!()! & upper bound & $\Cat{1}$ \\
+    \textbf{Product} & $A \times B$ & \lstinline!(a,b)! & $\min(a,b)$ & $\Cat{C} \times \Cat{D}$ \\
 %%    \textbf{Coproduct} & $A \sqcup B$ & \texttt{A | B} & $\max$ & $\Cat{C} \sqcup \Cat{B}$ \\
     \textbf{Endofunctors} & functors & type const. & \textsc{opt}s & nat.\ trans.\\\bottomrule
   \end{tabular}
@@ -443,12 +498,43 @@
 
 \section{Natural transformations}
 
-\begin{frame}[fragile]{Natural Transformations}
+\begin{frame}[fragile]
+  \frametitle{Natural Transformations}
 
+  \emph{Natural transformations}
+
+  A \emph{natural transformation} $\alpha$ is a mapping between two functors $F\colon
+  \Cat{C} \rightarrow \Cat{D}$ and $G\colon \Cat{C} \rightarrow \Cat{D}$. It consists of a family of
+  arrows in $\Cat{D}$ (the \emph{components} of $\alpha$) which map each object
+  $F(A)$ in the image of $F$ to the corresponding object $G(A)$ in the image of
+  $G$. Crucially, the following diagram always commutes:\vspace{-\baselineskip}
+
+  \[
+    \begin{tikzcd}
+      F(A) \arrow[swap]{d}{\alpha_A} \arrow{r}{F(f)} & F(B) \arrow{d}{\alpha_B} \\
+      G(A) \arrow[swap]{r}{G(f)} & G(B)
+    \end{tikzcd}\rlap{.}
+  \]
+
+  In other words, you can ``jump across'' from $F$ to $G$ at any time; it
+  doesn't matter when.
+\end{frame}
+
+\begin{frame}[fragile]{Natural Transformations in Haskell}
+
+  A natural transformation in Haskell is given by a function between two type
+  constructors. It allows us to ``unwrap'' one constructor and ``repackage'' the
+  type with the other. If \lstinline{mu} is a natural transformation, the
+  following is necessarily true (cf.\ the commutative diagram):
   \begin{lstlisting}[frame=single]
     mu :: Functor f, Functor g => f a -> g a
     mu . (fmap k) = fmap (mu . k)
   \end{lstlisting}
+
+  According to Milewski, \emph{all} functions with the above type signature are
+  natural transformations.
+
+  [Mark will explain the relevance of the following example.]
   
   \begin{lstlisting}[frame=single]
     nu :: Functor g => a -> g a
@@ -457,8 +543,12 @@
   
 \end{frame}
 
-\begin{frame}[fragile]{Cartesian Closed Categories}
+\begin{frame}[fragile]{Cartesian-Closed Categories}
 
+  [(Re)move this slide?]
+  
+  \emph{Cartesian-Closed Categories (CCC)}
+  include
   \begin{description}
     \item[\Cat{Set}] the singleton set, pairs, sets of functions
     \item[\Cat{Hask}] \lstinline{()}, \lstinline{(a,b)}, \lstinline{a -> b}
@@ -468,7 +558,7 @@
 
 \section{Applicatives}
 
-\begin{frame}[fragile]{Cartesian Closed Categories}
+\begin{frame}[fragile]{Cartesian-Closed Categories}
 
   \emph{Cartesian-Closed Categories (CCC)}
 
@@ -476,19 +566,25 @@
 
   There are binary products $\sqcap$.
 
-  There is a bi-functor taking $A,B$ onto $\Com{C}{A}{B}$, obeying the following rules:
+  There is a bi-functor taking $A \sqcap B$ onto $\Com{C}{A}{B}$, obeying the following rules:
   
   \[
-  A \cong \Com{C}{1}{A}
+    A \cong 1 \sqcap A \cong \Com{C}{1}{A}
   \]
   
   \begin{equation}
   \Hom{C}{A\sqcap B}{C} \cong \Hom{C}{A}{\Com{C}{B}{C}} \eqnlabel{exp1}
   \end{equation}
+
+  The latter relation is called the \emph{Howard-Curry isomorphism}, or \emph{currying}.
 \end{frame}
 
 \begin{frame}[fragile]{Cartesian-Closed Categories}
 
+  [Remove this slide? We don't know any good examples apart from $\Cat{Set}$.]
+  
+  \emph{Cartesian-Closed Categories (CCC)}
+  include
   \begin{description}
     \item[\Cat{Set}] the singleton set, pairs, sets of functions
     \item[\Cat{Grp}] ?
@@ -501,6 +597,12 @@
 
 \begin{frame}[fragile]{Cartesian-Closed Categories}
 
+  [Eh?! I thought what you've defined here is $\mathrm{eval}_B^C$. Isn't $\lambda$
+the name for the map from $\Hom{C}{A\sqcap B}{C}$ to $\Hom{C}{A}{\Com{C}{B}{C}}
+\eqnlabel{exp1}$ or something?]
+  
+  \emph{Cartesian-Closed Categories (CCC)}
+
   We define the arrow $\lambda$ to be the arrow from $\Com{C}{B}{C}\sqcap B$ to $C$ which corresponds to the identity arrow under the isomorphism in \eqnref{exp1}.
 
   \[
@@ -511,14 +613,19 @@
 
 \begin{frame}[fragile]{Endofunctors in CCCs}
 
-  For any functor $F$, there is a 1-1 correspondence between natural transformations from the identity functor to $F$ and the global elements of $F(1)$. Use the symbol $i$ to index over the global elements of $F(1_{\Cat{C}}$. Then we have the natural transformations:
+  For any functor $F$, there is a 1-1 correspondence between natural
+  transformations from the identity functor to $F$ and the global elements of
+  $F(1)$.\footnote{I.e., once you've determined the mapping from $1$ to $F(1)$,
+    you've determined the whole behaviour of $F$ --- and vice versa.} Use the
+  symbol $i$ to index over the global elements of $F(1)$. Then we have the
+  natural transformations $\phi_i$ whose components are:
   
   \[
-  \phi_{i,A} : A \rightarrow F A
+  \phi_{i,A} : A \rightarrow F A\rlap{,}
   \]
   where
   \[
-  f : A \rightarrow B, F(f) \circ \phi_{i,A} = \phi_{i,B} \circ f
+  f : A \rightarrow B, F(f) \circ \phi_{i,A} = \phi_{i,B} \circ f\rlap{.}
   \]
 
 \end{frame}
@@ -531,7 +638,7 @@
     \item $im(F)$ is CCC,
     \item $F$ perserves terminal objects, i.e. $F(1_{\Cat{C}})=1_{\Cat{D}}$,
     \item $F$ perserves products, i.e. $F(A\sqcap B)=F(A)\sqcap F(B)$, and
-    \item $F$ perserves the power functor, i.e. $\Com{D}{F A}{(F B)} = F \Com{C}{A}{B}$.
+    \item $F$ perserves the power functor, i.e. $\Com{D}{F A}{(F B)} = F (\Com{C}{A}{B})$.
   \end{enumerate}
 
 \end{frame}
@@ -548,7 +655,7 @@ class Functor f => Applicative f where
 
   \lstinline{pure} applies the functor to global elements (arrows from $1$ to $a$).
   \[
-  \phi : \Com{Hask}{1}{A} \rightarrow \Com{Hask}{1}{F A}
+  \phi : \Com{Hask}{1}{A} \rightarrow F(\Com{Hask}{1}{A})
   \]
   \[
   \phi \circ \epsilon_a \mapsto \epsilon_a'
@@ -556,7 +663,7 @@ class Functor f => Applicative f where
 
   \lstinline{<*>} takes the image of an arrow and of a global element and constructs the image of the composition (also a global element).
   \[
-  \psi : (F \Com{Hask}{A}{B})\times\Com{Hask}{1}{F A} \rightarrow \Com{Hask}{1}{F B}
+  \psi : F (\Com{Hask}{A}{B}) \times F(\Com{Hask}{1}{A}) \rightarrow F(\Com{Hask}{1}{B})
   \]
   \[
   \psi \circ (\epsilon_{f},\epsilon_{a'}) \circ \delta \mapsto \epsilon_b'
