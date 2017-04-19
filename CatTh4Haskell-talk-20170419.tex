@@ -148,13 +148,11 @@
 \begin{frame}[fragile]
   \frametitle{Categories}
 
-  \emph{Categories}
-
   A \emph{category} $\Cat{C}$ consists of
   \begin{enumerate}
   \item a class $\Obj{C}$ of \emph{objects}, and
-  \item for each pair of objects $A,B \in \Obj{C}$, a set $\Hom{C}{A}{B} \in
-    \Obj{Set}$ of \emph{arrows} (or \emph{morphisms}) from $A$ to $B$, known as
+  \item for each pair of objects $A,B \in \Obj{C}$, a set $\Hom{C}{A}{B}$
+    of \emph{arrows} (or \emph{morphisms}) from $A$ to $B$, known as
     a \emph{hom-set}.
   \end{enumerate}\vspace{-1.5\baselineskip}
 
@@ -164,7 +162,8 @@
     \end{tikzcd}
   \]
 
-  In Haskell, objects are \emph{types} (\lstinline{Int}, \lstinline{Char}, etc.),
+  Many familiar parts of Haskell form a category \Cat{Hask}:
+  objects are \emph{types} (\lstinline{Int}, \lstinline{Char}, etc.),
   and arrows are \emph{functions} between types (e.g.\ \lstinline{ord :: Int -> Char}).
 \end{frame}
 
@@ -212,15 +211,11 @@
   \end{tabular}
   \end{center}
 
-  $\Cat{Hask}$ is \emph{almost} $\Cat{Set}$ ($\Rightarrow$ a type is a ``set of values''),
-  but is complicated by the presence of \lstinline{Bottom} ($\bot$) in every type
-  (including \lstinline{Void}, which is ``supposed'' to be empty), and the wacky
-  behaviour of \lstinline{undefined} with respect to function composition.
+  Not everything in Haskell can be in $\Cat{Hask}$ if we want it to be a category. Every type in the language contains a \lstinline{Bottom} ($\bot$) or \lstinline{undefined} value, but these 'values' cause mayhem with the category laws (in particular the \textbf{Identity} constraint). So when we talk about \Cat{Hask} we'll be talking about vanilla \Cat{Hask} without these abnormal values.
+  {\small Haskell wiki page on \Cat{Hask}}
 \end{frame}
 
 \begin{frame}[fragile]{Category Theory: Terminal Objects}
-
-  \emph{Terminal Objects}
 
   A \emph{terminal object} is a type $1$ (a.k.a.\ $T$) in $\Obj{C}$, such that there is only a single mapping from any other type $A$ onto that type:
 
@@ -256,9 +251,7 @@
 
 \begin{frame}[fragile,fragile]{Global Elements}
   %% See answer 4 here: http://stackoverflow.com/questions/17380379/where-do-values-fit-in-category-of-hask
-  \emph{Global Elements}
-
-  A \emph{global element} of an object $A$ in category $\Cat{C}$ with terminal object $1$ is an arrow $a : 1 \rightarrow A$.
+  A \emph{global element} of an object $A$ in category $\Cat{C}$ with terminal object $1$ is an arrow $a : 1 \rightarrow A$.\vspace{-\baselineskip}
   
   \[
   \begin{tikzcd}
@@ -266,12 +259,12 @@
   \end{tikzcd}
   \]
 
-  In \Cat{Hask}, if we have a value \lstinline{v} in some type \lstinline{A}, we
+  In \Cat{Hask}, if we have a value \lstinline{v} in some type \lstinline{a}, we
   can upgrade it to the global element by use of \lstinline{const v}.
 
   \begin{lstlisting}[frame=single]
-    const :: A -> (() -> A)
-    const v = \_ -> v
+    const :: a -> b -> a -- but for our purposes, choose b = ()
+    const v = \ _ -> v
   \end{lstlisting}
 
 \end{frame}
@@ -295,10 +288,11 @@
 
 \begin{frame}[fragile]{Products}
 
-  Given objects $A$, $B$ in $\Obj{C}$ there may be a \emph{(pairwise) product}
-  $A\sqcap B \in \Obj{C}$ and \emph{projection arrows} $\pi_A \colon A \sqcap B \rightarrow A$ and $\pi_B
-  \colon A \sqcap B \rightarrow B$ such that for any object $X \in \Obj{C}$ and arrows $a \colon X \rightarrow
-  A$ and $b \colon X \rightarrow B$ there is a \emph{unique} arrow $x : X \rightarrow A \sqcap B$ such that $a = \pi_A \circ x$ and $b = \pi_B \circ x$:
+  Given objects $A$, $B$ in $\Cat{C}$ there may be a \emph{(pairwise) product}
+  $A\sqcap B \in \Obj{C}$ and \emph{projection arrows} $\pi_A \colon A \sqcap B \rightarrow A$ and
+  $\pi_B \colon A \sqcap B \rightarrow B$ such that for any object $X$ in the same category and arrows
+  $a \colon X \rightarrow  A$ and $b \colon X \rightarrow B$
+  there is a \emph{unique} arrow $x : X \rightarrow A \sqcap B$ such that $a = \pi_A \circ x$ and $b = \pi_B \circ x$:
 
   \[
   \begin{tikzcd}
@@ -339,17 +333,14 @@
     fst (x,y) = x
     snd :: (a,b) -> b -- the projection function $\pi_B$
     snd (x,y) = y
-    mapToA :: c -> a
-    mapToB :: c -> b -- any ol' functions
-    factorThroughProd :: c -> (a,b)
-    factorThroughProd z = (mapToA z, mapToB z)
+    factorThroughProd :: (c -> a) -> (c -> b) -> (c -> (a,b))
+    factorThroughProd f g = \ x -> (f x,g x)
   \end{lstlisting}
 
   It should be obvious that\\
-  \lstinline{fst.factorThroughProd = mapToA}, and\\
-  \lstinline{snd.factorThroughProd = mapToB}.
+  \lstinline{fst.(factorThroughProd f g) = f}, and\\
+  \lstinline{snd.(factorThroughProd f g) = g}.
   
-  {\footnotesize (Extra credit: Coproducts. Hint: Disjunctive types.)}
 \end{frame}
 
 \begin{frame}[fragile]
@@ -364,8 +355,9 @@
     \textbf{Identity} & $1_A$ & {\lstinline!id!} & $a = a$ & $1_{\Cat{C}}$ \\
     % \textbf{Initial obj\rlap{.}} & $\emptyset$ & \lstinline!Void! & lower bound & $\Cat{0}$ \\
     \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \lstinline!()! & upper bound & $\Cat{1}$ \\
-    \textbf{Product} & $A \uplus B$ & \lstinline!(a,b)! & $\min(a,b)$ & $\Cat{C} \times \Cat{D}$ \\
-    % \textbf{Coproduct} & $A \sqcup B$ & \lstinline!Either a b! & $\max(a,b)$ & $\Cat{C} \sqcup \Cat{B}$ \\\bottomrule
+    \textbf{Product} & $A \times B$ & \lstinline!(a,b)! & $\min(a,b)$ & $\Cat{C} \times \Cat{D}$ \\
+    % \textbf{Coproduct} & $A \uplus B$ & \lstinline!Either a b! & $\max(a,b)$ & $\Cat{C} \sqcup \Cat{B}$ \\
+    \bottomrule
   \end{tabular}
   \end{center}
 \end{frame}
@@ -373,17 +365,15 @@
 \begin{frame}[fragile]
   \frametitle{Exponential Objects}
 
-  Given objects $A$ and $B$ in $\Obj{C}$, an \emph{exponential object} $B^A$
-  (also written $[A \rightarrow B]$) is any object such that for any object $C$ and any
-  arrow $f\colon C \sqcap A \rightarrow B$,
+  Given objects $A$ and $B$ in $\Cat{C}$, an \emph{exponential object} $B^A$
+  (also written $[A \rightarrow B]$) is an object with an arrow $\mathrm{eval}_B^A$
+  such that for any $C$ and any arrow $f\colon C \sqcap A \rightarrow B$,
   \[
   \begin{tikzcd}
     C \sqcap A \arrow[swap,densely dotted]{d}{\exists!} \arrow{dr}{f} & \\
     B^A \sqcap A \arrow[swap]{r}{\mathrm{eval}_B^A} & B
     \end{tikzcd}\rlap{.}
   \]
-  
-  %% Siva, I think the below might be a bit much for our audience
   
   Alternatively, the pair $\langle {B^A,\mathrm{eval}_B^A} \rangle$ constitutes a terminal
   object in the category whose objects are diagrams of the form
@@ -406,33 +396,27 @@
   \frametitle{Exponential Objects in Haskell}
 
   In $\Cat{Hask}$, the exponential object of two types \lstinline{a} and
-  \lstinline{b} is the \emph{function type} \lstinline{(a -> b)} (which is
-  nothing more than the \emph{hom-set} of \lstinline{a} and \lstinline{b}!). Let's see
+  \lstinline{b} is the \emph{function type} \lstinline{(a -> b)} (it's akin to
+  the \emph{hom-set} of \lstinline{a} and \lstinline{b}). Let's see
   how this satisfies the above definition.
 
   \begin{lstlisting}[frame=single]
     eval :: ((a -> b),a) -> b
     eval (f,x) = f x
-    arrow :: (c,a) -> b -- some ol' function
-    factoredArrow :: (c,a) -> ((a -> b),a)
-    factoredArrow (y,x) = (\z -> arrow (y,z),x)
+    factoredArrow :: ((c,a) -> b) -> ((c,a) -> ((a -> b),a))
+    factoredArrow f = \ (y,x) -> ((\ x' -> f(y,x')),x)
   \end{lstlisting}
   {\footnotesize{(Spot the currying!)}}
 
-  It should be clear that \lstinline{eval.factoredArrow = arrow} --- and that
+  It can be proven that \lstinline{eval . (factoredArrow f) = f} --- and that
   \lstinline{factoredArrow} is the \emph{only} arrow for which this is true.
 
-  A category where we can find the exponential object of any two objects is
-  called a \emph{Cartesian closed category} (CCC). $\Cat{Set}$ and $\Cat{Hask}$
-  are CCCs.
 \end{frame}
 
 \section{Functors}
 
 \begin{frame}[fragile]
   \frametitle{Functors}
-
-  \emph{Functors}
 
   A \emph{functor} is a mapping $F\colon \Cat{C} \rightarrow \Cat{D}$ that takes objects in
   $\Cat{C}$ to objects in $\Cat{D}$ and arrows in $\Cat{C}$ to arrows in
@@ -461,11 +445,11 @@
 \begin{frame}[fragile,fragile]
   \frametitle{Functors in Haskell}
 
-  In Haskell, (endo)functors are \emph{type constructors} (e.g.\ the list
-  constructor): they take a type (\lstinline{a}) and produce another type (\lstinline{[a]}); and via \lstinline{fmap}, they take an arrow between two
+  In Haskell, functors are \emph{type constructors}: they take a type (\lstinline{a}) and produce another type (\lstinline{F a}); and via \lstinline{fmap}, they take an arrow between two
   types (\lstinline{a -> b}) and produce an arrow between the images of those
-  two types (\lstinline{[a] -> [b]}).
+  two types (\lstinline{F a -> F b}).
 
+  E.g. the list constructor:
 \begin{lstlisting}[frame=single]
 data [] a = [] | a : [a] -- "[]" is the type constructor for lists
 fmap f [] = [] -- mapping f over an empty list does nothing
@@ -474,9 +458,9 @@ fmap f (x : xs) = (f x) : (fmap f xs)
 -- apply the list version of f to the tail of the list, and construct
 \end{lstlisting}
 
-  You can verify that
-  \lstinline{fmap id (x : xs) = (id x) : (fmap id xs) = id (x : xs)}, and that
-  \lstinline{fmap f (fmap g (x : xs)) = fmap f ((g x) : (fmap g xs))}
+  You can verify the functor laws in \Cat{Hask}:\\
+  \lstinline{fmap id (x : xs) = (id x) : (fmap id xs) = id (x : xs)}, and that\\
+  \lstinline{fmap f (fmap g (x : xs)) = fmap f ((g x) : (fmap g xs))}\\
   \lstinline{= (f g x) : (fmap f (fmap g xs)) = fmap f g (x : xs)}.
 \end{frame}
 
@@ -500,8 +484,6 @@ fmap f (x : xs) = (f x) : (fmap f xs)
 
 \begin{frame}[fragile]
   \frametitle{Natural Transformations}
-
-  \emph{Natural transformations}
 
   A \emph{natural transformation} $\alpha$ is a mapping between two functors $F\colon
   \Cat{C} \rightarrow \Cat{D}$ and $G\colon \Cat{C} \rightarrow \Cat{D}$. It consists of a family of
@@ -534,7 +516,7 @@ fmap f (x : xs) = (f x) : (fmap f xs)
   According to Milewski, \emph{all} functions with the above type signature are
   natural transformations.
 
-  [Mark will explain the relevance of the following example.]
+  In the special case where \lstinline{f} is the identity functor \lstinline{id}:
   
   \begin{lstlisting}[frame=single]
     nu :: Functor g => a -> g a
@@ -543,30 +525,15 @@ fmap f (x : xs) = (f x) : (fmap f xs)
   
 \end{frame}
 
-\begin{frame}[fragile]{Cartesian-Closed Categories}
+\section{Cartesian-Closed Categories}
 
-  [(Re)move this slide?]
-  
-  \emph{Cartesian-Closed Categories (CCC)}
-  include
-  \begin{description}
-    \item[\Cat{Set}] the singleton set, pairs, sets of functions
-    \item[\Cat{Hask}] \lstinline{()}, \lstinline{(a,b)}, \lstinline{a -> b}
-  \end{description}
-
-\end{frame}
-
-\section{Applicatives}
-
-\begin{frame}[fragile]{Cartesian-Closed Categories}
-
-  \emph{Cartesian-Closed Categories (CCC)}
+\begin{frame}[fragile]{Cartesian-Closed Categories (CCC)}
 
   There is a terminal object $1$.
 
   There are binary products $\sqcap$.
 
-  There is a bi-functor taking $A \sqcap B$ onto $\Com{C}{A}{B}$, obeying the following rules:
+  There is a two-argument functor taking $A \sqcap B$ onto $\Com{C}{A}{B}$, obeying the following rules:
   
   \[
     A \cong 1 \sqcap A \cong \Com{C}{1}{A}
@@ -581,54 +548,36 @@ fmap f (x : xs) = (f x) : (fmap f xs)
 
 \begin{frame}[fragile]{Cartesian-Closed Categories}
 
-  [Remove this slide? We don't know any good examples apart from $\Cat{Set}$.]
-  
-  \emph{Cartesian-Closed Categories (CCC)}
-  include
   \begin{description}
     \item[\Cat{Set}] the singleton set, pairs, sets of functions
-    \item[\Cat{Grp}] ?
-    \item[\Cat{1\downarrow Set}] ?
-    \item[\Cat{POrd}] ?
     \item[\Cat{Hask}] \lstinline{()}, \lstinline{(a,b)}, \lstinline{a -> b}
   \end{description}
 
+  There are more examples, but they're pretty complicated.
+
 \end{frame}
 
-\begin{frame}[fragile]{Cartesian-Closed Categories}
+%% \begin{frame}[fragile]{Endofunctors in CCCs}
 
-  [Eh?! I thought what you've defined here is $\mathrm{eval}_B^C$. Isn't $\lambda$
-the name for the map from $\Hom{C}{A\sqcap B}{C}$ to $\Hom{C}{A}{\Com{C}{B}{C}}
-\eqnlabel{exp1}$ or something?]
+%%   For any functor $F$, there is a 1-1 correspondence between natural
+%%   transformations from the identity functor to $F$ and the global elements of
+%%   $F(1)$.
+%%   Once you've determined the mapping from $\mathrm{id}(1)$ to $F(1)$,
+%%   you've determined the whole behaviour of $F$ --- and vice versa.
+%%   Use the symbol $i$ to index over the global elements of $F(1)$.
+%%   Then we have the natural transformations $\phi_i$ whose components are:
   
-  \emph{Cartesian-Closed Categories (CCC)}
+%%   \[
+%%   \phi_{i,A} \colon A \rightarrow F(A)\rlap{,}
+%%   \]
+%%   where
+%%   \[
+%%   f \colon A \rightarrow B, F(f) \circ \phi_{i,A} = \phi_{i,B} \circ f\rlap{.}
+%%   \]
 
-  We define the arrow $\lambda$ to be the arrow from $\Com{C}{B}{C}\sqcap B$ to $C$ which corresponds to the identity arrow under the isomorphism in \eqnref{exp1}.
+%% \end{frame}
 
-  \[
-  \lambda : \Com{C}{B}{C}\sqcap B \rightarrow C \cong 1_{\Com{C}{B}{C}}
-  \]
-
-\end{frame}
-
-\begin{frame}[fragile]{Endofunctors in CCCs}
-
-  For any functor $F$, there is a 1-1 correspondence between natural
-  transformations from the identity functor to $F$ and the global elements of
-  $F(1)$.\footnote{I.e., once you've determined the mapping from $1$ to $F(1)$,
-    you've determined the whole behaviour of $F$ --- and vice versa.} Use the
-  symbol $i$ to index over the global elements of $F(1)$. Then we have the
-  natural transformations $\phi_i$ whose components are:
-  
-  \[
-  \phi_{i,A} : A \rightarrow F A\rlap{,}
-  \]
-  where
-  \[
-  f : A \rightarrow B, F(f) \circ \phi_{i,A} = \phi_{i,B} \circ f\rlap{.}
-  \]
-
-\end{frame}
+\section{Applicatives}
 
 \begin{frame}[fragile]{Applicative Functors}
 
@@ -730,6 +679,8 @@ instance Applicative [] where
     fs <*> xs = [ f x | f <- fs, x <- xs ]
   \end{lstlisting}
 
+  This definition of applicative \lstinline{[]} only holds for lists of the same length.
+  
 \end{frame}
 
 
@@ -753,24 +704,23 @@ instance Applicative [] where
   \[
   Hom(F-,-) \cong_{\Phi} Hom(-,G-)
   \]
-  
-\end{frame}
 
-\begin{frame}[fragile]{Adjoint Functors}
-  
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Examples}
-  \begin{tabular}{r l r l}\toprule
-    \Cat{C} & $\Cat{D}$ & $F$ & $G$ \\
-    \hline
-    \Cat{Set} & \Cat{Set^2} & $\Delta$ & $\sqcap$ \\
-    \Cat{Set^2} & \Cat{Set} & $\sqcup$  & $\Delta$ \\
-    \Cat{Set} & \Cat{Grp} & Free & Forgetful \\
-    \Cat{Set} & \Cat{Top} & Discrete & Forgetful \\
-    \Cat{Top} & \Cat{Set} & Forgetful & Trivial
-  \end{tabular}
+  \begin{center}
+    \begin{tabular}{r l r l}\toprule
+      \Cat{C} & $\Cat{D}$ & $F$ & $G$ \\
+      \hline
+      \Cat{Set} & \Cat{Set^2} & $\Delta$ & $\sqcap$ \\
+      \Cat{Set^2} & \Cat{Set} & $\sqcup$  & $\Delta$ \\
+      \Cat{Set} & \Cat{Grp} & Free & Forgetful \\
+      \Cat{Set} & \Cat{Top} & Discrete & Forgetful \\
+      \Cat{Top} & \Cat{Set} & Forgetful & Trivial \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
 \end{frame}
 
 \begin{frame}[fragile]{Adjoint Functors}
@@ -780,10 +730,6 @@ instance Applicative [] where
   \Hom{C}{X\times Y}{Z} \cong \Hom{C}{X}{Z^Y}
   \]
   Think of product-with-$Y$ and to-the-power-of-$Y$ as functors, then product is the left-adjoint of power.
-  
-\end{frame}
-
-\begin{frame}[fragile]{Adjoint Functors}
   
 \end{frame}
 
@@ -855,22 +801,24 @@ instance Applicative [] where
 \end{frame}
 
 \begin{frame}[fragile]{Other Connections}
-  \begin{description}
-  \item[Arrows] 
-  \item[Comonads] 
-  \item[Lens] 
-  \item[Kleisli Arrows] 
-  \end{description}
+  \begin{center}
+    \begin{itemize}
+    \item Arrows 
+    \item Comonads
+    \item Lens
+    \item Kleisli Arrows
+    \end{itemize}
+  \end{center}
 \end{frame}
 
 \section{Further Reading}
 
 \begin{frame}[fragile]{Further Reading}
 
-  ADD: Milewski, Walters
-  
   \nocite{elkins_calculating_2009}
-  \nocite{diel:_blog}
+  \nocite{diel:blog}
+  \nocite{milewski2014}
+
   \bibliography{CatTh4Haskell-talk-20170419}
   \bibliographystyle{abbrv}
 
