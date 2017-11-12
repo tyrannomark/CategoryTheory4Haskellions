@@ -1,0 +1,15 @@
+\frametitle{Adjoint Functors}
+
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Examples}
+  \begin{tabular}{r l r l}\toprule
+    \Cat{C} & $\Cat{D}$ & $F$ & $G$ \\
+    \hline
+    \Cat{Set} & \Cat{Set^2} & $\Delta$ & $\sqcap$ \\
+    \Cat{Set^2} & \Cat{Set} & $\sqcup$  & $\Delta$ \\
+    \Cat{Set} & \Cat{Grp} & Free & Forgetful \\
+    \Cat{Set} & \Cat{Top} & Discrete & Forgetful \\
+    \Cat{Top} & \Cat{Set} & Forgetful & Trivial
+  \end{tabular}
