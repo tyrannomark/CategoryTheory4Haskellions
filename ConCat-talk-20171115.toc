@@ -1,5 +1,14 @@
 \beamer@sectionintoc {1}{Categories}{4}{0}{1}
 \beamer@subsectionintoc {1}{1}{Basics}{5}{0}{1}
-\beamer@sectionintoc {2}{Functors}{17}{0}{2}
-\beamer@sectionintoc {3}{Cartesian-Closed Categories}{21}{0}{3}
-\beamer@sectionintoc {4}{Further Reading}{24}{0}{4}
+\beamer@sectionintoc {2}{Functors}{16}{0}{2}
+\beamer@sectionintoc {3}{Cartesian-Closed Categories}{20}{0}{3}
+\beamer@sectionintoc {4}{From Haskell to CCC}{23}{0}{4}
+\beamer@sectionintoc {5}{Example: Syntactic Analysis}{34}{0}{5}
+\beamer@sectionintoc {6}{Example: Interval Analysis}{35}{0}{6}
+\beamer@sectionintoc {7}{Example: Category Products}{36}{0}{7}
+\beamer@sectionintoc {8}{Example: Linear maps}{37}{0}{8}
+\beamer@sectionintoc {9}{Example: Automatic differentiation}{40}{0}{9}
+\beamer@sectionintoc {10}{Example: Compiling to hardware}{44}{0}{10}
+\beamer@sectionintoc {11}{Future Work}{46}{0}{11}
+\beamer@sectionintoc {12}{Conclusions}{47}{0}{12}
+\beamer@sectionintoc {13}{Further Reading}{48}{0}{13}

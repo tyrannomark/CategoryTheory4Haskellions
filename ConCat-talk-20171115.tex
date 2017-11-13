@@ -129,14 +129,9 @@
     \textbf{Function} & \textbf{Morphism} \\
     \textbf{\Cat{Hask}} & \textbf{\Cat{Set}} \\
     \textbf{...} & \textbf{Terminal Objects} \\
-    \textbf{Value} & \textbf{Global Element} \\
     \textbf{Tuple} & \textbf{Product} \\
     \textbf{Currying, Function Application} & \textbf{Cartesian Closure} \\
     \textbf{Type Constructor, Functor} & \textbf{Functor} \\
-    \textbf{...} & \textbf{Natural Transformation} \\
-    \textbf{Applicative} & \textbf{...} \\
-    \textbf{...} & \textbf{Adjoint Functor Pair} \\
-    \textbf{Monad} & \textbf{Monad} \\
     \bottomrule
   \end{tabular}
 
@@ -213,7 +208,7 @@
   \end{center}
 
   Not everything in Haskell can be in $\Cat{Hask}$ if we want it to be a category. Every type in the language contains a \lstinline{Bottom} ($\bot$) or \lstinline{undefined} value, but these 'values' cause mayhem with the category laws (in particular the \textbf{Identity} constraint). So when we talk about \Cat{Hask} we'll be talking about vanilla \Cat{Hask} without these abnormal values.
-  {\small Haskell wiki page on \Cat{Hask}}
+  {\small (Haskell wiki page on \Cat{Hask}.)}
 \end{frame}
 
 \begin{frame}[fragile]{Category Theory: Terminal Objects}
@@ -246,26 +241,6 @@
     () -- the type corresponding to 1, containing only itself
     terminalMap :: t -> ()
     terminalMap _ = ()
-  \end{lstlisting}
-
-\end{frame}
-
-\begin{frame}[fragile,fragile]{Global Elements}
-  %% See answer 4 here: http://stackoverflow.com/questions/17380379/where-do-values-fit-in-category-of-hask
-  A \emph{global element} of an object $A$ in category $\Cat{C}$ with terminal object $1$ is an arrow $a : 1 \rightarrow A$.\vspace{-\baselineskip}
-  
-  \[
-  \begin{tikzcd}
-    1 \arrow{r}{a} & A
-  \end{tikzcd}
-  \]
-
-  In \Cat{Hask}, if we have a value \lstinline{v} in some type \lstinline{a}, we
-  can upgrade it to the global element by use of \lstinline{const v}.
-
-  \begin{lstlisting}[frame=single]
-    const :: a -> b -> a -- but for our purposes, choose b = ()
-    const v = \ _ -> v
   \end{lstlisting}
 
 \end{frame}
@@ -551,7 +526,100 @@ fmap f (x : xs) = (f x) : (fmap f xs)
 
 \section{Example: Category Products} %% Mark
 
-\section{} %% Siva - Linear maps, derivatives; mention translation to hardware
+\section{Example: Linear maps} %% Siva - Linear maps, derivatives; mention
+%% translation to hardware
+
+\begin{frame}[fragile]{}
+  \frametitle{Linear maps as a category}
+
+  A \textbf{linear map} is a function $f\colon \mathbb{R}^m \rightarrow \mathbb{R}^n$
+  such that $f(x + y) = f(x) + f(y)$ and $f(cx) = c\,f(x)$.
+  It can also be thought of as an $n \times m$ matrix (where the columns tell you
+  what the basis vectors of the domain space map to).
+
+  Linear maps form a category, because:
+  \begin{enumerate}
+  \item Given $f\colon \mathbb{R}^m \rightarrow \mathbb{R}^n$ and $g\colon \mathbb{R}^n \rightarrow
+    \mathbb{R}^p$, we can define the composition $g \circ f \colon \mathbb{R}^m \rightarrow
+    \mathbb{R}^p$, which is also a linear map.
+  \item Composition of linear maps (alternatively: matrix multiplication) is
+    associative.
+  \item For any vector space $\mathbb{R}^n$, the identity function
+    $1_{\mathbb{R}^n}\colon \mathbb{R}^n \rightarrow \mathbb{R}^n$ is a linear map, and
+    has the properties we expect of an identity.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Implementation of linear maps in Haskell}
+
+  Help!! I don't get this! What on earth is \emph{V s a}?
+\end{frame}
+
+\section{Example: Automatic differentiation}
+
+\begin{frame}[fragile]
+  \frametitle{Types of differentiation}
+
+  \begin{description}
+  \item[Symbolic differentiation] What you learn when you learn calculus;
+    cumbersome for computers.
+  \item[Numeric differentiation] Evaluate the function at two nearby points and
+    compute the slope of the resulting line; easy for computers, not so useful
+    for humans.
+  \item[Automatic differentiation] Tell the computer how to compute the
+    derivatives of simple functions, and it will give you the analytic
+    derivative of any composition of those functions. Easy for a computer,
+    useful for humans.
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{The chain rule}
+
+  \[(g \circ f)' = (g' \circ f) (f')\]
+
+  In higher dimensions, the derivative of a function is a vector or a matrix,
+  and the derivative of a composition of two functions is the product of the two
+  matrices that give the derivatives of the individual functions.
+
+  Here's another way of thinking about it: The derivative of a function is a
+  lnear map (a line, plane, linear subspace). In the category of linear maps,
+  composition is multiplication (of matrices, which reduces to scalar
+  multiplication for $1 \times 1$ matrices). Differentiation is just a functor
+  $D\colon \Cat{Set} \rightarrow \Cat{LMap}$, with the property that
+
+  \[
+    D(g \circ f) = (D g) \circ (D f).
+  \]
+
+  Thus, if we know how to apply $D$ to all our atomic functions, then we know
+  how to apply $D$ to all compositions of these functions, by just doing matrix multiplication.
+  
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Implementation of automatic differentiation in Haskell}
+
+  Help!! I'm not getting this! I guess you represent each function $f\colon
+  \mathbb{R}^m \rightarrow \mathbb{R}^n$ as a function from $\mathbb{R}^m$ to
+  $\mathbb{R}^n \times {\left(\mathbb{R}^n\right)}^{\mathbb{R}^m}$, i.e.\ a function
+  that takes a value in the domain of $f$ and gives you not only the value of
+  $f$ at that point, but also a linear map representing the derivative of $f$ at
+  that point. Beyond that, I'm not following it.
+\end{frame}
+
+\section{Example: Compiling to hardware}
+
+\begin{frame}[fragile]
+  \frametitle{Hardware: a preview}
+
+  The basic idea is that we have a language for describing circuit diagrams, and
+  so we can compile a CCC into a graph, and compile this graph into the
+  circuit-description language. But I don't get how the graph category is
+  implemented.
+  
+\end{frame}
 
 \section{Future Work} %% Mark
 
