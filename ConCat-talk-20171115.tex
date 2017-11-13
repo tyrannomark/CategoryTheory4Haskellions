@@ -33,6 +33,24 @@
 \newcommand{\term}[1]{\emph{#1}}
 \newcommand{\strong}[1]{\textbf{#1}}
 
+%% BEGIN Conal Elliott paper macros
+\newcommand{\program}[1]{\texttt{#1}}
+\newcommand{\id}{\mathtt{id}}
+\newcommand{\apply}{\mathtt{apply}}
+\newcommand{\curry}{\mathtt{curry}}
+\newcommand{\uncurry}{\mathtt{uncurry}}
+\newcommand{\exl}{\mathtt{exl}}
+\newcommand{\exr}{\mathtt{exr}}
+\newcommand{\termin}{\mathtt{1}}
+\newcommand{\termarr}{\mathtt{it}}
+\newcommand{\unitarrow}{\ensuremath{\mathtt{unitarrow}}}
+\newcommand{\lamf}[2]{\ensuremath{\lambda\, #1 \mapsto #2}}
+\newcommand{\lamtoccc}[1]{\ensuremath{\frak{K}(#1)}}
+\newcommand{\delprod}[2]{\ensuremath{#1\,\Delta\,#2}}
+\newcommand{\const}{\ensuremath{\mathtt{const}}}
+\newcommand{\constFun}{\ensuremath{\mathtt{constFun}}}
+%% END Conal Elliott paper macros
+
 \newcommand{\eqnlabel}[1]{\label{eq:#1}}
 \newcommand{\eqnref}[1]{(\ref{eq:#1})}
 \newcommand{\deflabel}[1]{\label{def:#1}}
@@ -488,9 +506,133 @@ fmap f (x : xs) = (f x) : (fmap f xs)
 
 \end{frame}
 
+\section{CCC Constructions and the $\lambda$-Calculus} %% Mark
+
+\begin{frame}[fragile]{CCC Constructions in the $\lambda$-Calculus}
+
+  We can give a $\lambda$-calculus expression which corresponds to each construction in the CCC.
+
+  But the reverse is also true.
+
+  We can map any $\lambda$-calcululus expression onto a construction in a CCC. The computation resulting from that construction just depends on what that CCC happens to be.
+  
+\end{frame}
+
+\begin{frame}[fragile]{Category Definition}
+  \begin{itemize}
+  \item identity $\id = \lamf{x}{x} $,
+  \item composition $g \circ f = \lamf{x}{g(f(x))}$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{The Product}
+  \begin{itemize}
+  \item fork $\delprod{f}{g} = \lamf{x}{(f\,x,g\,x)}$,
+  \item extract-left $\exl = \lamf{(a,b)}{a}$,
+  \item extract-right $\exr = \lamf{(a,b)}{b}$.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{A Terminal Object}
+  \begin{itemize}
+  \item terminal $\termin$ is the terminal object in the category,
+  \item terminal arrow $\termarr = \lamf{a}{()}$.
+  \item unitarrow $\unitarrow\, b = \lamf{()}{b}$.
+  \item constants $\const\, b = (\unitarrow\, b) \circ \termarr$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Exponential Objects}
+  \begin{itemize}
+  \item apply $\apply\, (f,x) = f\,x$
+  \item curry $\curry\, f = \lamf{a b}{f\,(a,b)}$
+  \item uncurry $\uncurry\, f = \lamf{(a,b)}{f\,a\,b}$
+  \item constant functions $\constFun\, f = \curry (f \circ exr) = \lamf{x}{f}$ ignores $x$, returns a function
+  \end{itemize}
+\end{frame}
+
+\section{From $\lambda$-Calculus to CCCs}
+
+\begin{frame}[fragile]{From $\lambda$-Calculus to CCCs}
+  This direction is simpler.
+
+  There are only 5 main cases we need to deal with.
+
+  The mapping operation is symbolised as $\frak{K}$.
+
+  Each transformation either reduces the size of the body of $\lambda$-expression,
+  or eliminates a $\lambda$.
+  Consequently, the transformation process must terminate.
+\end{frame}
+
+\begin{frame}[fragile]{1. Expression Body is a Single Variable}
+  $\lamtoccc{\lamf{x}{x}} = \id$
+\end{frame}
+
+\begin{frame}[fragile]{2. Expression Body is an Application}
+  $\lamtoccc{\lamf{x}{U\,V}} = \apply \circ (\delprod{\lamtoccc{\lamf{x}{U}}}{\lamtoccc{\lamf{x}{V}}})$
+\end{frame}
+
+\begin{frame}[fragile]{3. Expression Body is a Pair}
+  $\lamtoccc{\lamf{x}{\lamf{y}{U}}} = \curry\, \lamtoccc{\lamf{(x,y)}{U}}$
+\end{frame}
+
+\begin{frame}[fragile]{4. Case Expressions}
+  (more complexity than we wish to cover here)
+\end{frame}
+
+\begin{frame}[fragile]{5a. Simple Constants}
+  $\lamtoccc{\lamf{x}{c}} = \const\, c$
+\end{frame}
+
+\begin{frame}[fragile]{5b. Constant Functions}
+  $\lamtoccc{\lamf{x}{f}} = \constFun\, \lamtoccc{f}$
+
+  $f$ may need to be \emph{Curried} to reduce its argument dimensionality.
+\end{frame}
+
 \section{From Haskell to CCC} %% Mark
 
+\begin{frame}[fragile]{Haskell to CCC Constructions}
+  \begin{itemize}
+    \item \program{ghc} compiles haskell code to lambda-calculus
+    \item \program{simplifier} reduces the lambda-calculus size where possible
+    \item \program{concat} intervenes in the simplifier and converts the lambda calculus to CCC constructions
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Looking at GHC Intermediate Stages}
+  Following the stackoverflow answer: \url{https://stackoverflow.com/questions/27635111}.
+  \begin{itemize}
+    \item use the \lstinline{GHC} module
+    \item functions \lstinline{compileToCoreModule} or \lstinline{compileToCoreSimplified} to compile a file
+    \item the code has been reproduced as \lstinline{processor.hs} in the repository with today's talk. You need to compile it with
+      \begin{lstlisting}
+        $ ghc -package ghc -package ghc-paths processor.hs
+      \end{lstlisting}
+  \end{itemize}
+\end{frame}
+
 \begin{frame}[fragile]{Haskell to $\lambda$-Calculus}
+  \begin{lstlisting}[frame=single]
+  example :: Int -> Int -> Int
+  example x y = x + y
+  \end{lstlisting}
+
+  \begin{lstlisting}[frame=single]
+  example = \ (x :: Int) (y :: Int) -> + @ Int $fNumInt x y
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Haskell to $\lambda$-Calculus}
+  \begin{lstlisting}[frame=single]
+  example :: Int -> Int -> Int
+  example x y = x + y
+  \end{lstlisting}
+
+  \begin{lstlisting}[frame=single]
+  example = \ (x :: Int) (y :: Int) -> + @ Int $fNumInt x y
+  \end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]{$\lambda$-Calculus to CCC Constructions}
@@ -625,8 +767,6 @@ fmap f (x : xs) = (f x) : (fmap f xs)
 
 \section{Conclusions} %% Mark
 
-\end{frame}
-
 \section{Further Reading}
 
 \begin{frame}[fragile]{Further Reading}
@@ -635,7 +775,7 @@ fmap f (x : xs) = (f x) : (fmap f xs)
   \nocite{diel:blog}
   \nocite{milewski2014}
 
-  \bibliography{CatTh4Haskell-talk-20170419}
+  \bibliography{ConCat-talk-20171115}
   \bibliographystyle{abbrv}
 
 \end{frame}
