@@ -495,7 +495,7 @@
   $\lamtoccc{\lamf{x}{U\,V}} = \apply \circ (\delprod{\lamtoccc{\lamf{x}{U}}}{\lamtoccc{\lamf{x}{V}}})$
 \end{frame}
 
-\begin{frame}[fragile]{3. Expression Body is a Pair}
+\begin{frame}[fragile]{3. Lambda Abstraction}
   $\lamtoccc{\lamf{x}{\lamf{y}{U}}} = \curry\, \lamtoccc{\lamf{(x,y)}{U}}$
 \end{frame}
 
@@ -581,12 +581,111 @@
 \begin{frame}[fragile]{}
 \end{frame}
 
+\section{Example: Syntactic Analysis} %% Mark
+
 \begin{frame}[fragile]{}
 \end{frame}
 
-\section{Example: Syntactic Analysis} %% Mark
-
 \section{Example: Interval Analysis} %% Mark
+
+\begin{frame}[fragile]{Negation}
+  \begin{lstlisting}[frame=single]
+  instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
+    negateC = pack (\ (al,ah) -> (-ah, -al))
+    ..
+    {-# INLINE negateC #-}
+    ..
+  \end{lstlisting}
+  \includegraphics{neg-iv.pdf}
+\end{frame}
+
+\begin{frame}[fragile]{Addition}
+  \begin{lstlisting}[frame=single]
+  instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
+    ..
+    addC = pack (\ ((al,ah),(bl,bh)) -> (al+bl,ah+bh))
+    ..
+    {-# INLINE addC #-}
+    ..
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Addition}
+  \begin{lstlisting}[frame=single]
+    runSynME "add" $ toCcc $ ivFun $ uncurry ((+) @Int)
+  \end{lstlisting}
+  \begin{lstlisting}[frame=single]
+     uncurry (curry (apply . (exl &&& exr))) .
+     (curry
+      (
+       (add . (exl . exl &&& exl . exr)
+        &&&
+        add . (exr . exl &&& exr . exr)
+       ) . exr
+      ) &&& id
+     )
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Addition}
+  \begin{lstlisting}[frame=single]
+    runSynCirc "add" $ toCcc $ ivFun $ uncurry ((+) @Int)
+  \end{lstlisting}
+  \includegraphics{add-iv.pdf}
+\end{frame}
+
+\begin{frame}[fragile]{Subtraction}
+  \begin{lstlisting}[frame=single]
+  instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
+    ..
+    subC = addC . second negateC
+    ..
+    {-# INLINE subC #-}
+    ..
+  \end{lstlisting}
+  \includegraphics{sub-iv.pdf}
+\end{frame}
+
+\begin{frame}[fragile]{Multiplication}
+  \begin{lstlisting}[frame=single]
+  instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
+    mulC = pack (\ ((al,ah),(bl,bh)) ->
+               let cs = ((al*bl,al*bh),(ah*bl,ah*bh)) in
+                 (min4 cs, max4 cs))
+    ..
+    {-# INLINE mulC #-}
+  \end{lstlisting}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{mul-iv.pdf}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Thrice}
+  \begin{lstlisting}[frame=single]
+     runSynCirc "thrice-iv" $ toCcc $ ivFun $ \ x -> 3 * x :: Int
+  \end{lstlisting}
+  \begin{center}
+    \includegraphics[width=0.8\textwidth]{thrice-iv.pdf}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Square}
+  \begin{lstlisting}[frame=single]
+    runSynCirc "sqr-iv"    $ toCcc $ ivFun $ sqr @Int
+  \end{lstlisting}
+  \begin{center}
+    \includegraphics[width=1.0\textwidth]{sqr-iv.pdf}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Magic Square}
+  \begin{lstlisting}[frame=single]
+    runSynCirc "magSqr-iv" $ toCcc $ ivFun $ magSqr @Int
+  \end{lstlisting}
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{magSqr-iv.pdf}
+  \end{center}
+\end{frame}
 
 \section{Example: Category Products} %% Mark
 
@@ -686,6 +785,18 @@
 \end{frame}
 
 \section{Future Work} %% Mark
+
+\begin{frame}[fragile]{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+\end{frame}
 
 \section{Conclusions} %% Mark
 
