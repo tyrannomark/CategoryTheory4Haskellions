@@ -90,7 +90,7 @@
 
 
 \title{Compiling to Categories}
-\subtitle{mathematically-principled program transformation}
+\subtitle{Mathematically-principled program transformation}
 % \subtitle{Our attempt to explain what Conal Elliott is up to}
 \date{\today}
 \author{T. Mark Ellison and Siva Kalyan}
@@ -138,7 +138,8 @@
 \begin{frame}[fragile]
   \frametitle{Haskell and Category Theory}
 
-  \begin{tabular}{lr}
+  \begin{center}
+    \begin{tabular}{lr}
     \toprule
     Haskell & Category Theory \\
     \midrule
@@ -149,9 +150,9 @@
     \textbf{...} & \textbf{Terminal Objects} \\
     \textbf{Tuple} & \textbf{Product} \\
     \textbf{Currying, Function Application} & \textbf{Cartesian Closure} \\
-    \textbf{Type Constructor, Functor} & \textbf{Functor} \\
     \bottomrule
   \end{tabular}
+  \end{center}
 
 \end{frame}
 
@@ -407,96 +408,17 @@
 
 \end{frame}
 
-\section{Functors}
-
-\begin{frame}[fragile]
-  \frametitle{Functors}
-
-  A \emph{functor} is a mapping $F\colon \Cat{C} \rightarrow \Cat{D}$ that takes objects in
-  $\Cat{C}$ to objects in $\Cat{D}$ and arrows in $\Cat{C}$ to arrows in
-  $\Cat{D}$, in such a way that
-  \begin{enumerate}
-  \item for any $A \in \Obj{C}$, $F(1_A) = 1_{F(A)}$:
-    \[
-      \begin{tikzcd}
-        A \arrow[mapsto]{d} \arrow[""' name = id]{r}{1_A} & A \arrow[mapsto]{d} \\
-        F(A) \arrow[swap,""' name = Fid]{r}{1_{F(A)}} & F(A) \arrow[mapsto,from=id,to=Fid]
-      \end{tikzcd}\rlap{;}
-    \]
-  \item for any $f\colon A \rightarrow B$ and $g\colon B \rightarrow C$ in $\Cat{C}$, $F(g \circ f) =
-    F(g) \circ F(f)$:
-    \[
-      \begin{tikzcd}[row sep=tiny]
-        & B \arrow[mapsto]{dd} \arrow{dr}{g} & \\
-        A \arrow[mapsto]{dd} \arrow{ur}{f} \arrow[crossing over,swap,near end]{rr}{g \circ f} & & C \arrow[mapsto]{dd} \\
-        & F(B) \arrow{dr}{F(g)} & \\
-        F(A) \arrow{ur}{F(f)} \arrow[swap]{rr}{F(g) \circ F(f)} & & F(C)
-      \end{tikzcd}\rlap{.}
-    \]
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}[fragile,fragile]
-  \frametitle{Functors in Haskell}
-
-  In Haskell, functors are \emph{type constructors}: they take a type (\lstinline{a}) and produce another type (\lstinline{F a}); and via \lstinline{fmap}, they take an arrow between two
-  types (\lstinline{a -> b}) and produce an arrow between the images of those
-  two types (\lstinline{F a -> F b}).
-
-  E.g. the list constructor:
-\begin{lstlisting}[frame=single]
-data [] a = [] | a : [a] -- "[]" is the type constructor for lists
-fmap f [] = [] -- mapping f over an empty list does nothing
-fmap f (x : xs) = (f x) : (fmap f xs)
--- to turn f into a list function, apply f to the head of the list,
--- apply the list version of f to the tail of the list, and construct
-\end{lstlisting}
-
-  You can verify the functor laws in \Cat{Hask}:\\
-  \lstinline{fmap id (x : xs) = (id x) : (fmap id xs) = id (x : xs)}, and that\\
-  \lstinline{fmap f (fmap g (x : xs)) = fmap f ((g x) : (fmap g xs))}\\
-  \lstinline{= (f g x) : (fmap f (fmap g xs)) = fmap f g (x : xs)}.
-\end{frame}
-
-\begin{frame}[fragile]
-  \frametitle{Examples}
-  \begin{tabular}{r l l l l}\toprule
-    & $\Cat{Set}$ & $\Cat{Hask}$ & $\Cat{POrd}$ & $\Cat{Cat}$ \\\midrule
-    \textbf{Objects} & sets & types & items & small cats \\
-    \textbf{Morphisms} & functions & functions & $a \leq b$ & functors \\
-    \textbf{Composition} & $f \circ g$ & \lstinline!f.g! & transitivity & $F \circ G$ \\
-    \textbf{Identity} & $1_A$ & {\lstinline!id!} & $a = a$ & $1_{\Cat{C}}$ \\
-    % \textbf{Initial obj\rlap{.}} & $\emptyset$ & \lstinline!Void! & lower bound & $\Cat{0}$ \\
-    \textbf{Terminal obj\rlap{.}} & $\{*\}$ & \lstinline!()! & upper bound & $\Cat{1}$ \\
-    \textbf{Product} & $A \times B$ & \lstinline!(a,b)! & $\min(a,b)$ & $\Cat{C} \times \Cat{D}$ \\
-%%    \textbf{Coproduct} & $A \sqcup B$ & \texttt{A | B} & $\max$ & $\Cat{C} \sqcup \Cat{B}$ \\
-    \textbf{Endofunctors} & functors & type const. & \textsc{opt}s & nat.\ trans.\\\bottomrule
-  \end{tabular}
-\end{frame}
-
 \section{Cartesian-Closed Categories}
 
 \begin{frame}[fragile]{Cartesian-Closed Categories (CCC)}
 
   There is a terminal object $1$.
 
-  There are binary products $\sqcap$.
+  There are binary products $\sqcap$ (and hence all finite products).
 
-  There is a two-argument functor taking $A \sqcap B$ onto $\Com{C}{A}{B}$, obeying the following rules:
-  
-  \[
-    A \cong 1 \sqcap A \cong \Com{C}{1}{A}
-  \]
-  
-  \begin{equation}
-  \Hom{C}{A\sqcap B}{C} \cong \Hom{C}{A}{\Com{C}{B}{C}} \eqnlabel{exp1}
-  \end{equation}
+  For any two objects $A$ and $B$, there is an exponential object $B^A$.
 
-  The latter relation is called the \emph{Howard-Curry isomorphism}, or \emph{currying}.
-\end{frame}
-
-\begin{frame}[fragile]{Cartesian-Closed Categories}
-
+  Examples:
   \begin{description}
     \item[\Cat{Set}] the singleton set, pairs, sets of functions
     \item[\Cat{Hask}] \lstinline{()}, \lstinline{(a,b)}, \lstinline{a -> b}
@@ -545,7 +467,7 @@ fmap f (x : xs) = (f x) : (fmap f xs)
 \begin{frame}[fragile]{Exponential Objects}
   \begin{itemize}
   \item apply $\apply\, (f,x) = f\,x$
-  \item curry $\curry\, f = \lamf{a b}{f\,(a,b)}$
+  \item curry $\curry\, f = \lamf{a\,b}{f\,(a,b)}$
   \item uncurry $\uncurry\, f = \lamf{(a,b)}{f\,a\,b}$
   \item constant functions $\constFun\, f = \curry (f \circ exr) = \lamf{x}{f}$ ignores $x$, returns a function
   \end{itemize}
@@ -560,7 +482,7 @@ fmap f (x : xs) = (f x) : (fmap f xs)
 
   The mapping operation is symbolised as $\frak{K}$.
 
-  Each transformation either reduces the size of the body of $\lambda$-expression,
+  Each transformation either reduces the size of the body of the $\lambda$-expression,
   or eliminates a $\lambda$.
   Consequently, the transformation process must terminate.
 \end{frame}
@@ -595,9 +517,9 @@ fmap f (x : xs) = (f x) : (fmap f xs)
 
 \begin{frame}[fragile]{Haskell to CCC Constructions}
   \begin{itemize}
-    \item \program{ghc} compiles haskell code to lambda-calculus
-    \item \program{simplifier} reduces the lambda-calculus size where possible
-    \item \program{concat} intervenes in the simplifier and converts the lambda calculus to CCC constructions
+    \item \program{ghc} compiles Haskell code to $\lambda$-calculus
+    \item \program{simplifier} reduces the $\lambda$-calculus size where possible
+    \item \program{concat} intervenes in the simplifier and converts the $\lambda$-calculus to CCC constructions
   \end{itemize}
 \end{frame}
 
@@ -668,7 +590,7 @@ fmap f (x : xs) = (f x) : (fmap f xs)
 
 \section{Example: Category Products} %% Mark
 
-\section{Example: Linear maps} %% Siva - Linear maps, derivatives; mention
+\section{Example: Linear maps and automatic differentiation} %% Siva - Linear maps, derivatives; mention
 %% translation to hardware
 
 \begin{frame}[fragile]{}
@@ -693,24 +615,16 @@ fmap f (x : xs) = (f x) : (fmap f xs)
 \end{frame}
 
 \begin{frame}[fragile]
-  \frametitle{Implementation of linear maps in Haskell}
-
-  Help!! I don't get this! What on earth is \emph{V s a}?
-\end{frame}
-
-\section{Example: Automatic differentiation}
-
-\begin{frame}[fragile]
   \frametitle{Types of differentiation}
 
   \begin{description}
-  \item[Symbolic differentiation] What you learn when you learn calculus;
-    cumbersome for computers.
+  \item[Symbolic differentiation] Rule-based manipulation of algebraic
+    expressions; cumbersome for computers.
   \item[Numeric differentiation] Evaluate the function at two nearby points and
     compute the slope of the resulting line; easy for computers, not so useful
     for humans.
   \item[Automatic differentiation] Tell the computer how to compute the
-    derivatives of simple functions, and it will give you the analytic
+    derivatives of simple functions, and it will tell you how to compute the
     derivative of any composition of those functions. Easy for a computer,
     useful for humans.
   \end{description}
@@ -719,48 +633,56 @@ fmap f (x : xs) = (f x) : (fmap f xs)
 \begin{frame}[fragile]
   \frametitle{The chain rule}
 
-  \[(g \circ f)' = (g' \circ f) (f')\]
+  \[(g \circ f)' = (g' \circ f) \cdot (f')\]
 
-  In higher dimensions, the derivative of a function is a vector or a matrix,
+  \[\frac{dz}{dx} = \frac{dz}{dy} \frac{dy}{dx}\]
+
+  \[\frac{d\,g(f(x))}{dx} = \frac{d\,g(f(x))}{d\,f(x)} \frac{d\,f(x)}{dx}\]
+
+  In higher dimensions, the derivative of a function is a vector or matrix of
+  partial derivatives,
   and the derivative of a composition of two functions is the product of the two
   matrices that give the derivatives of the individual functions.
 
-  Here's another way of thinking about it: The derivative of a function is a
-  lnear map (a line, plane, linear subspace). In the category of linear maps,
-  composition is multiplication (of matrices, which reduces to scalar
-  multiplication for $1 \times 1$ matrices). Differentiation is just a functor
-  $D\colon \Cat{Set} \rightarrow \Cat{LMap}$, with the property that
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Derivatives, linear maps, and the chain rule}
+  
+  The derivative of a function at a point is a \textbf{linear map} (a line,
+  plane, linear subspace; equivalently, a matrix giving the slope corresponding
+  to a unit move in each dimension). In the category of linear maps,
+  composition is \textbf{multiplication} (of matrices, which reduces to scalar
+  multiplication for $1 \times 1$ matrices). Differentiation is an operation $D$ with the property that
 
   \[
-    D(g \circ f) = (D g) \circ (D f).
+    D(g \circ f) = (D g \circ f) \circ (D f).
   \]
 
+  where the second $\circ$ on the right-hand side is in the category of linear maps
+  (i.e.\ matrix multiplication). {\small (NB: \textbf{not} a functor!)}
+
   Thus, if we know how to apply $D$ to all our atomic functions, then we know
-  how to apply $D$ to all compositions of these functions, by just doing matrix multiplication.
+  how to apply $D$ to all compositions of these functions.
   
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Implementation of automatic differentiation in Haskell}
 
-  Help!! I'm not getting this! I guess you represent each function $f\colon
-  \mathbb{R}^m \rightarrow \mathbb{R}^n$ as a function from $\mathbb{R}^m$ to
-  $\mathbb{R}^n \times {\left(\mathbb{R}^n\right)}^{\mathbb{R}^m}$, i.e.\ a function
-  that takes a value in the domain of $f$ and gives you not only the value of
-  $f$ at that point, but also a linear map representing the derivative of $f$ at
-  that point. Beyond that, I'm not following it.
-\end{frame}
+  Instead of letting functions have types such as $a \rightarrow b$, we require them to
+  have the type (roughly) $a \rightarrow b \times (a \rightarrow b)$. In other words, take an input
+  value, and return not only the value of the function at that point, but also
+  another (linear) function that gives you the derivative at that point.
 
-\section{Example: Compiling to hardware}
+  Chain rule:
+  \[
+    Dg \circ Df = D (\lamf{a}{\text{let } \{(b, f') = f\,a; (c,g') = g\,b\} \text{
+        in }
+    (c, g' \circ f')})
+\]
 
-\begin{frame}[fragile]
-  \frametitle{Hardware: a preview}
-
-  The basic idea is that we have a language for describing circuit diagrams, and
-  so we can compile a CCC into a graph, and compile this graph into the
-  circuit-description language. But I don't get how the graph category is
-  implemented.
-  
+(Now that we've redefined functions, it turns out $D$ is a functor after all.)
 \end{frame}
 
 \section{Future Work} %% Mark

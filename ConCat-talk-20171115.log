@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2017.11.9)  13 NOV 2017 22:06
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Debian) (preloaded format=xelatex 2017.11.9)  14 NOV 2017 21:35
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1543,8 +1543,23 @@ Overfull \vbox (13.79993pt too high) detected at line 130
 
 [1
 
-] (./ConCat-talk-20171115.toc)
-Overfull \vbox (158.32686pt too high) detected at line 135
+] (./ConCat-talk-20171115.toc
+LaTeX Font Info:    Try loading font information for U+msa on input line 4.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 4.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <7> not available
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 4.
+LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <5> not available
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 4.
+)
+Overfull \vbox (157.39679pt too high) detected at line 135
  []
 
 [2
@@ -1556,25 +1571,12 @@ Overfull \vbox (158.32686pt too high) detected at line 135
 *************************************************
 * fontspec warning: "addfontfeatures-ignored"
 * 
-* \addfontfeature(s) ignored on line 3; it cannot be used with a font that
+* \addfontfeature(s) ignored on line 4; it cannot be used with a font that
 * wasn't selected by a fontspec command.
 *  
 *  The current font is "\TU/lmss/m/n/7 ".
 *   The requested feature is "Numbers={Monospaced}". 
 *************************************************
-LaTeX Font Info:    Try loading font information for U+msa on input line 3.
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 3.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <7> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 3.
-LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <5> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 3.
 ) [3
 
 ] [4
@@ -1582,8 +1584,7 @@ LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <5> not available
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
-
-(./ConCat-talk-20171115.vrb
+ (./ConCat-talk-20171115.vrb
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <9> not available
 (Font)              Font shape `TU/lmss/m/sl' tried instead on input line 19.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <6> not available
@@ -1594,7 +1595,7 @@ LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <6> not available
 \openout4 = `ConCat-talk-20171115.vrb'.
 
  (./ConCat-talk-20171115.vrb)
-Overfull \vbox (21.56502pt too high) detected at line 213
+Overfull \vbox (21.56502pt too high) detected at line 214
  []
 
 [6
@@ -1669,7 +1670,7 @@ Overfull \vbox (21.56502pt too high) detected at line 213
 \openout4 = `ConCat-talk-20171115.vrb'.
 
  (./ConCat-talk-20171115.vrb)
-Overfull \vbox (16.82344pt too high) detected at line 387
+Overfull \vbox (16.82344pt too high) detected at line 388
  []
 
 [14
@@ -1688,73 +1689,81 @@ Overfull \vbox (16.82344pt too high) detected at line 387
 [17
 
 ]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb) [18
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb
-*************************************************
-* fontspec warning: "addfontfeatures-ignored"
-* 
-* \addfontfeature(s) ignored on line 2; it cannot be used with a font that
-* wasn't selected by a fontspec command.
-*  
-*  The current font is "\TU/lmss/m/n/7 ".
-*   The requested feature is "Numbers={Monospaced}". 
-*************************************************
-
-LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <10> not available
-(Font)              Font shape `TU/lmr/m/sc' tried instead on input line 12.
-
-) [19
-
-] [20
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb) [21
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb)
-[22
-
-]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 509.
+(hyperref)                removing `math shift' on input line 431.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 509.
+(hyperref)                removing `\lambda' on input line 431.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 509.
+(hyperref)                removing `math shift' on input line 431.
 
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <14.4> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 509.
-[23
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 431.
+[18
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
  (./ConCat-talk-20171115.vrb)
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <12> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 519.
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 441.
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
-(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 519.
- [24
+(Font)              Font shape `TU/lmss/m/sl' tried instead on input line 441.
+ [19
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [25
+ (./ConCat-talk-20171115.vrb) [20
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+
+(./ConCat-talk-20171115.vrb) [21
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [22
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+
+(./ConCat-talk-20171115.vrb) [23
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 476.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\lambda' on input line 476.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 476.
+
+[24
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb
+
+Package amsfonts Warning: Obsolete command \frak; \mathfrak should be used inst
+ead on input line 6.
+
+LaTeX Font Info:    Try loading font information for U+euf on input line 6.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)) [25
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
@@ -1774,43 +1783,22 @@ LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <8> not available
 (./ConCat-talk-20171115.vrb) [28
 
 ]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 554.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lambda' on input line 554.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 554.
-
-[29
-
-]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb
-
-Package amsfonts Warning: Obsolete command \frak; \mathfrak should be used inst
-ead on input line 6.
-
-LaTeX Font Info:    Try loading font information for U+euf on input line 6.
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)) [30
+ (./ConCat-talk-20171115.vrb) [29
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [31
+(./ConCat-talk-20171115.vrb) [30
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [32
+ (./ConCat-talk-20171115.vrb) [31
+
+] [32
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
@@ -1834,73 +1822,63 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 
  (./ConCat-talk-20171115.vrb) [36
 
-] [37
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+
+(./ConCat-talk-20171115.vrb) [37
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [38
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [38
+(./ConCat-talk-20171115.vrb) [39
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [39
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
-
-(./ConCat-talk-20171115.vrb) [40
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb) [41
+ (./ConCat-talk-20171115.vrb) [40
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [42
+(./ConCat-talk-20171115.vrb) [41
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [43
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
-
-(./ConCat-talk-20171115.vrb) [44
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb) [45
+ (./ConCat-talk-20171115.vrb) [42
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [46
+(./ConCat-talk-20171115.vrb) [43
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [47
+ (./ConCat-talk-20171115.vrb) [44
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [48
+(./ConCat-talk-20171115.vrb) [45
 
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
+] [46
 
- (./ConCat-talk-20171115.vrb) [49
+] [47
+
+] [48
+
+] [49
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
@@ -1909,101 +1887,32 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 (./ConCat-talk-20171115.vrb) [50
 
 ]
-Overfull \hbox (50.28687pt too wide) in paragraph at lines 665--665
-[][][]  
- []
+\openout4 = `ConCat-talk-20171115.vrb'.
 
-[51
-
-]
-Overfull \hbox (50.28687pt too wide) in paragraph at lines 667--667
-[][][]  
- []
-
-[52
-
-]
-Overfull \hbox (50.28687pt too wide) in paragraph at lines 669--669
-[][][]  
- []
-
-[53
-
-]
-Overfull \hbox (50.28687pt too wide) in paragraph at lines 671--671
-[][][]  
- []
-
-[54
+ (./ConCat-talk-20171115.vrb) [51
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [55
+
+(./ConCat-talk-20171115.vrb) [52
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [56
-
-]
-Overfull \hbox (62.85858pt too wide) in paragraph at lines 701--701
-[][][]  
- []
-
-[57
+ (./ConCat-talk-20171115.vrb) [53
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [58
 
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
+(./ConCat-talk-20171115.vrb) [54
 
- (./ConCat-talk-20171115.vrb)
-Overfull \vbox (17.02625pt too high) detected at line 741
- []
+] [55
 
-[59
+] [56
 
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb) [60
-
-]
-Overfull \hbox (81.71448pt too wide) in paragraph at lines 754--754
-[][][]  
- []
-
-[61
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb) [62
-
-]
-Overfull \hbox (87.99866pt too wide) in paragraph at lines 766--766
-[][][]  
- []
-
-[63
-
-]
-Overfull \hbox (87.99866pt too wide) in paragraph at lines 768--768
-[][][]  
- []
-
-[64
-
-]
-Overfull \hbox (87.99866pt too wide) in paragraph at lines 770--770
-[][][]  
- []
-
-[65
+] [57
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
@@ -2019,7 +1928,7 @@ LaTeX Warning: Citation `diel:blog' undefined on input line 4.
 LaTeX Warning: Citation `milewski2014' undefined on input line 5.
 
 No file ConCat-talk-20171115.bbl.
-) [66
+) [58
 
 ]
 \tf@nav=\write6
@@ -2031,23 +1940,23 @@ No file ConCat-talk-20171115.bbl.
 \tf@snm=\write8
 \openout8 = `ConCat-talk-20171115.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 783.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 783.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 705.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 705.
  (./ConCat-talk-20171115.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 783.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 783.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 705.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 705.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 46825 strings out of 492998
- 1089162 string characters out of 6136605
- 1290009 words of memory out of 5000000
- 49919 multiletter control sequences out of 15000+600000
- 542992 words of font info for 114 fonts, out of 8000000 for 9000
+ 46700 strings out of 492998
+ 1085912 string characters out of 6136605
+ 1273964 words of memory out of 5000000
+ 49806 multiletter control sequences out of 15000+600000
+ 542984 words of font info for 113 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  71i,15n,98p,10416b,1559s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on ConCat-talk-20171115.pdf (66 pages).
+Output written on ConCat-talk-20171115.pdf (58 pages).
