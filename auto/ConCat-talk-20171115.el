@@ -5,17 +5,17 @@
                      '(("beamer" "10pt")))
    (TeX-add-to-alist 'LaTeX-provided-package-options
                      '(("ccicons" "scale=2")))
-   (add-to-list 'LaTeX-verbatim-environments-local "lstlisting")
    (add-to-list 'LaTeX-verbatim-environments-local "semiverbatim")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "lstinline")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
-   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
+   (add-to-list 'LaTeX-verbatim-environments-local "lstlisting")
    (add-to-list 'LaTeX-verbatim-macros-with-braces-local "path")
-   (add-to-list 'LaTeX-verbatim-macros-with-delims-local "lstinline")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "url")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "nolinkurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperbaseurl")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperimage")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "hyperref")
+   (add-to-list 'LaTeX-verbatim-macros-with-braces-local "lstinline")
    (add-to-list 'LaTeX-verbatim-macros-with-delims-local "path")
+   (add-to-list 'LaTeX-verbatim-macros-with-delims-local "lstinline")
    (TeX-run-style-hooks
     "latex2e"
     "beamer"
@@ -38,6 +38,10 @@
     '("deflabel" 1)
     '("eqnref" 1)
     '("eqnlabel" 1)
+    '("delprod" 2)
+    '("lamtoccc" 1)
+    '("lamf" 2)
+    '("program" 1)
     '("strong" 1)
     '("term" 1)
     '("FuncIm" 1)
@@ -55,13 +59,23 @@
     '("Hom" 3)
     '("Obj" 1)
     '("Cat" 1)
-    "MDL")
+    "MDL"
+    "id"
+    "apply"
+    "curry"
+    "uncurry"
+    "exl"
+    "exr"
+    "termin"
+    "termarr"
+    "unitarrow"
+    "const"
+    "constFun")
    (LaTeX-add-labels
     "eq:#1"
     "def:#1"
     "th:#1")
-   (LaTeX-add-bibliographies
-    "CatTh4Haskell-talk-20170419")
+   (LaTeX-add-bibliographies)
    (LaTeX-add-amsthm-newtheorems
     "xca"
     "remark")

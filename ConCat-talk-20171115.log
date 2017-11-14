@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.24)  14 NOV 2017 14:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.24)  14 NOV 2017 15:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1268,7 +1268,7 @@ line 6.
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 ))
-Overfull \vbox (124.82445pt too high) detected at line 135
+Overfull \vbox (214.49115pt too high) detected at line 135
  []
 
 
@@ -1303,7 +1303,7 @@ LaTeX Font Warning: Font shape `OML/cmss/m/n' undefined
 \openout4 = `ConCat-talk-20171115.vrb'.
 
  (./ConCat-talk-20171115.vrb)
-Overfull \vbox (22.55505pt too high) detected at line 218
+Overfull \vbox (22.55505pt too high) detected at line 213
  []
 
 [6
@@ -1322,17 +1322,7 @@ Overfull \vbox (22.55505pt too high) detected at line 218
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 15.
-
-LaTeX Font Info:    No file OMScmss.fd. on input line 15.
-
-
-LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbackslash' on input line 15.
-
-) [9
+(./ConCat-talk-20171115.vrb) [9
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
@@ -1342,13 +1332,22 @@ LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [11
+
+(./ConCat-talk-20171115.vrb) [11
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
+ (./ConCat-talk-20171115.vrb
+LaTeX Font Info:    Try loading font information for OMS+cmss on input line 9.
+LaTeX Font Info:    No file OMScmss.fd. on input line 9.
 
-(./ConCat-talk-20171115.vrb) [12
+
+LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbackslash' on input line 9.
+
+) [12
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
@@ -1358,35 +1357,29 @@ LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
-
-(./ConCat-talk-20171115.vrb) [14
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
  (./ConCat-talk-20171115.vrb)
-Overfull \vbox (16.06557pt too high) detected at line 412
+Overfull \vbox (16.06557pt too high) detected at line 387
  []
 
-[15
+[14
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [16
+ (./ConCat-talk-20171115.vrb) [15
 
-] [17
+] [16
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
  (./ConCat-talk-20171115.vrb)
-[18
+[17
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [19
+ (./ConCat-talk-20171115.vrb) [18
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
@@ -1396,35 +1389,40 @@ Overfull \vbox (16.06557pt too high) detected at line 412
 LaTeX Font Warning: Font shape `OT1/cmss/m/sc' in size <10> not available
 (Font)              Font shape `OT1/cmr/m/sc' tried instead on input line 12.
 
-) [20
+) [19
 
-] [21
+] [20
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [22
+ (./ConCat-talk-20171115.vrb) [21
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
  (./ConCat-talk-20171115.vrb)
-[23
+[22
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 534.
+(hyperref)                removing `math shift' on input line 509.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\lambda' on input line 534.
+(hyperref)                removing `\lambda' on input line 509.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 534.
+(hyperref)                removing `math shift' on input line 509.
 
-[24
+[23
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [24
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
@@ -1434,39 +1432,34 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [26
+
+(./ConCat-talk-20171115.vrb) [26
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [27
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [27
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb) [28
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
-
-(./ConCat-talk-20171115.vrb) [29
+(./ConCat-talk-20171115.vrb) [28
 
 ]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 579.
+(hyperref)                removing `math shift' on input line 554.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\lambda' on input line 579.
+(hyperref)                removing `\lambda' on input line 554.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 579.
+(hyperref)                removing `math shift' on input line 554.
 
-[30
+[29
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
@@ -1479,118 +1472,118 @@ ead on input line 6.
 LaTeX Font Info:    Try loading font information for U+euf on input line 6.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/ueuf.fd
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)) [31
+)) [30
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [32
+(./ConCat-talk-20171115.vrb) [31
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [33
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
-
-(./ConCat-talk-20171115.vrb) [34
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb) [35
+ (./ConCat-talk-20171115.vrb) [32
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [36
+(./ConCat-talk-20171115.vrb) [33
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [37
-
-] [38
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
-
-(./ConCat-talk-20171115.vrb) [39
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb) [40
+ (./ConCat-talk-20171115.vrb) [34
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [41
+(./ConCat-talk-20171115.vrb) [35
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [42
+ (./ConCat-talk-20171115.vrb) [36
 
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
-
-(./ConCat-talk-20171115.vrb) [43
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb) [44
+] [37
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [45
+(./ConCat-talk-20171115.vrb) [38
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [46
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
-
-(./ConCat-talk-20171115.vrb) [47
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb) [48
+ (./ConCat-talk-20171115.vrb) [39
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [49
+(./ConCat-talk-20171115.vrb) [40
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [50
-
-] [51
+ (./ConCat-talk-20171115.vrb) [41
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [52
+(./ConCat-talk-20171115.vrb) [42
 
-] [53
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [43
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+
+(./ConCat-talk-20171115.vrb) [44
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [45
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+
+(./ConCat-talk-20171115.vrb) [46
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [47
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+
+(./ConCat-talk-20171115.vrb) [48
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [49
+
+] [50
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+
+(./ConCat-talk-20171115.vrb) [51
+
+] [52
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
@@ -1609,14 +1602,19 @@ LaTeX Font Warning: Font shape `OMS/cmss/m/it' undefined
 (Font)              using `OMS/cmss/m/n' instead
 (Font)              for symbol `textbraceleft' on input line 6.
 
-<neg-iv.pdf, id=393, 304.13625pt x 100.375pt>
+<neg-iv.pdf, id=408, 304.13625pt x 100.375pt>
 File: neg-iv.pdf Graphic file (type pdf)
  <use neg-iv.pdf>
 Package pdftex.def Info: neg-iv.pdf used on input line 9.
 (pdftex.def)             Requested size: 304.1355pt x 100.37474pt.
-) [54
+) [53
 
  <./neg-iv.pdf>]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [54
+
+]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
  (./ConCat-talk-20171115.vrb) [55
@@ -1624,124 +1622,150 @@ Package pdftex.def Info: neg-iv.pdf used on input line 9.
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [56
 
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
-
-(./ConCat-talk-20171115.vrb <add-iv.pdf, id=420, 277.035pt x 120.45pt>
+(./ConCat-talk-20171115.vrb <add-iv.pdf, id=434, 277.035pt x 120.45pt>
 File: add-iv.pdf Graphic file (type pdf)
 
 <use add-iv.pdf>
 Package pdftex.def Info: add-iv.pdf used on input line 5.
 (pdftex.def)             Requested size: 277.03432pt x 120.44969pt.
-) [57
+) [56
 
  <./add-iv.pdf>]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
  (./ConCat-talk-20171115.vrb
-<sub-iv.pdf, id=432, 277.035pt x 120.45pt>
+<sub-iv.pdf, id=447, 277.035pt x 120.45pt>
 File: sub-iv.pdf Graphic file (type pdf)
  <use sub-iv.pdf>
 Package pdftex.def Info: sub-iv.pdf used on input line 10.
 (pdftex.def)             Requested size: 277.03432pt x 120.44969pt.
-) [58
+) [57
 
  <./sub-iv.pdf>]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb <mul-iv.pdf, id=449, 722.7pt x 420.57124pt>
+ (./ConCat-talk-20171115.vrb <mul-iv.pdf, id=463, 722.7pt x 420.57124pt>
 File: mul-iv.pdf Graphic file (type pdf)
 
 <use mul-iv.pdf>
 Package pdftex.def Info: mul-iv.pdf used on input line 11.
 (pdftex.def)             Requested size: 245.83282pt x 143.06291pt.
 )
-Overfull \vbox (27.59831pt too high) detected at line 764
+Overfull \vbox (27.59831pt too high) detected at line 739
  []
 
-[59
+[58
 
  <./mul-iv.pdf>]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
  (./ConCat-talk-20171115.vrb
-<thrice-iv.pdf, id=465, 505.89pt x 251.94125pt>
+<thrice-iv.pdf, id=479, 505.89pt x 251.94125pt>
 File: thrice-iv.pdf Graphic file (type pdf)
  <use thrice-iv.pdf>
 Package pdftex.def Info: thrice-iv.pdf used on input line 6.
 (pdftex.def)             Requested size: 245.83282pt x 122.4297pt.
-) [60
+) [59
 
  <./thrice-iv.pdf>]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
  (./ConCat-talk-20171115.vrb
-<sqr-iv.pdf, id=481, 722.7pt x 437.635pt>
+<sqr-iv.pdf, id=495, 722.7pt x 437.635pt>
 File: sqr-iv.pdf Graphic file (type pdf)
  <use sqr-iv.pdf>
 Package pdftex.def Info: sqr-iv.pdf used on input line 6.
 (pdftex.def)             Requested size: 307.28987pt x 186.08255pt.
 )
-Overfull \vbox (7.36836pt too high) detected at line 782
+Overfull \vbox (7.36836pt too high) detected at line 757
  []
 
-[61
+[60
 
  <./sqr-iv.pdf>]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
  (./ConCat-talk-20171115.vrb
-<magSqr-iv.pdf, id=498, 654.445pt x 722.7pt>
+<magSqr-iv.pdf, id=511, 654.445pt x 722.7pt>
 File: magSqr-iv.pdf Graphic file (type pdf)
  <use magSqr-iv.pdf>
 Package pdftex.def Info: magSqr-iv.pdf used on input line 6.
 (pdftex.def)             Requested size: 153.64493pt x 169.6691pt.
-) [62
+) [61
 
- <./magSqr-iv.pdf>] [63
+ <./magSqr-iv.pdf>] [62
 
-] [64
-
-] [65
+] [63
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [66
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
-
-(./ConCat-talk-20171115.vrb) [67
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb) [68
+ (./ConCat-talk-20171115.vrb) [64
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [69
+(./ConCat-talk-20171115.vrb) [65
+
+] [66
 
 ]
-Overfull \hbox (12.6226pt too wide) in paragraph at lines 811--811
-[][][]  
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [67
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+
+(./ConCat-talk-20171115.vrb)
+Overfull \vbox (16.77925pt too high) detected at line 840
  []
 
-[70
+[68
 
 ]
-Overfull \hbox (12.6226pt too wide) in paragraph at lines 813--813
-[][][]  
- []
+\openout4 = `ConCat-talk-20171115.vrb'.
 
+ (./ConCat-talk-20171115.vrb) [69
+
+] [70
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb)
 [71
+
+] [72
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [73
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb)
+[74
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [75
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [76
+
+]
+[77
+
+] [78
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
@@ -1757,7 +1781,7 @@ LaTeX Warning: Citation `diel:blog' undefined on input line 4.
 LaTeX Warning: Citation `milewski2014' undefined on input line 5.
 
 No file ConCat-talk-20171115.bbl.
-) [72
+) [79
 
 ]
 \tf@nav=\write6
@@ -1769,14 +1793,20 @@ No file ConCat-talk-20171115.bbl.
 \tf@snm=\write8
 \openout8 = `ConCat-talk-20171115.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 826.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 826.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 894.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 894.
  (./ConCat-talk-20171115.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 826.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 826.
-Package rerunfilecheck Info: File `ConCat-talk-20171115.out' has not changed.
-(rerunfilecheck)             Checksum: 596B3446A8E8DF095357988113B4B3D6;719.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 894.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 894.
 
+
+Package rerunfilecheck Warning: File `ConCat-talk-20171115.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `ConCat-talk-20171115.out':
+(rerunfilecheck)             Before: F68461263E2405DFBC48BA65C841C8A6;914
+(rerunfilecheck)             After:  961D5ADCF7356AA8C0375DFFA1EF59FA;914.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
@@ -1787,46 +1817,54 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 826.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 894.
  ) 
 Here is how much of TeX's memory you used:
- 34096 strings out of 493014
- 809591 string characters out of 6133351
+ 34133 strings out of 493014
+ 809761 string characters out of 6133351
  994413 words of memory out of 5000000
- 36648 multiletter control sequences out of 15000+600000
+ 36658 multiletter control sequences out of 15000+600000
  25716 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,16n,87p,1738b,1564s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb>
-</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
-/usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
-usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/l
-ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></u
-sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local
-/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/
-texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/tex
-live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/local/texliv
-e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2
-016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/201
-6/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2016/t
-exmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on ConCat-talk-20171115.pdf (72 pages, 381957 bytes).
+pdfTeX warning (dest): name{Outline0.1.1.6} has been referenced but does not 
+exist, replaced by a fixed one
+
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
+ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/loc
+al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
+ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
+l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
+016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/201
+6/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2016/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2016/tex
+mf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2016/t
+exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on ConCat-talk-20171115.pdf (79 pages, 394213 bytes).
 PDF statistics:
- 687 PDF objects out of 1000 (max. 8388607)
- 556 compressed objects within 6 object streams
- 160 named destinations out of 1000 (max. 500000)
- 182 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 755 PDF objects out of 1000 (max. 8388607)
+ 614 compressed objects within 7 object streams
+ 177 named destinations out of 1000 (max. 500000)
+ 206 words of extra memory for PDF output out of 10000 (max. 10000000)
 
