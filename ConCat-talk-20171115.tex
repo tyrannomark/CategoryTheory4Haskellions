@@ -159,7 +159,7 @@
 
 \end{frame}
 
-\section{Categories}
+\section{Closed Cartesian Categories in Category Theory}
 
 \subsection{Basics}
 
@@ -411,8 +411,6 @@
 
 \end{frame}
 
-\section{Cartesian-Closed Categories}
-
 \begin{frame}[fragile]{Cartesian-Closed Categories (CCC)}
 
   There is a terminal object $1$.
@@ -438,14 +436,9 @@
 
   It is well-known that Haskell (or a near-complete subset of it) has category-theoretic semantics (e.g. our last talk), given in terms of a single category $\Cat{Hask}$.
 
-  Conal Elliott shows that Category Theory can not only provide semantics, but a range of compile-to domains to which \emph{the same code} can be compiled.
+  Elliott's (2017) paper \emph{Compiling to Categories} (hereafter C2C) shows that Category Theory can not only provide semantics, but a range of compile-to domains to which \emph{the same code} can be compiled.
 
-<<<<<<< HEAD
-  Single most exciting paper in the interpretation of programming languages.
-=======
   We can map any $\lambda$-calculus expression onto a construction in a CCC. The computation resulting from that construction just depends on what that CCC happens to be.
-  
->>>>>>> 1fa7e3b0075c2ad1a0fb8384e27a0f67349821de
 \end{frame}
 
 \begin{frame}[fragile]{Compiling to Categories}
@@ -455,15 +448,18 @@
 \end{frame}
 
 \begin{frame}[fragile]{Compiling to Categories}
+  How it works (black box):
   \begin{itemize}
     \item you specify (using Haskell classes) the application category
     \item then Haskell code is compiled to constructions in that category
-    \item compile your Haskell code to: \emph{category theory} (for e.g. theorem proving), \emph{interval analysis} (for correctness proof), \emph{hardware} (!!!), incrementalisation, \emph{automatic differentiation}, and more.
+    \item while the constructions reflect the structure of your program, they do not simply implement it.
   \end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Compiling to Categories}
-  In various levels of prototype, you can compile to these categories
+  Why this is exciting:
+  
+  By choosing different CCCs, you can do these things (CCC names not the same as in C2C, but you can work it out):
   \begin{description}
   \item[free CCC] pretty-printing, syntax-highlighting, or proving correctness
   \item[intervals] verification
@@ -475,17 +471,16 @@
 \end{frame}
 
 \begin{frame}[fragile]{Compiling to Categories: Overview}
+  How it works (under the hood):
   \begin{itemize}
   \item compile Haskell $\rightarrow$ $\lambda$-expressions (grab intermediate output from GHC)
   \item $\lambda$-expressions $\rightarrow$ CCC-constructions
-  \item apply CCC-constructions
-  \item write result
+  \item CCC-constructions applied in category of choice
+  \item output result
   \end{itemize}
 \end{frame}
 
-\section{Declaring Our CCCs}
-
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Declaring CCCs}
   Example: we want to compile numeric expressions/functions into something that tells us about the bounds on outputs (minimum possible output and maximum possible output).
 
   This cannot be achieved with a black-box 2nd-order function, except by enumerating possible inputs.
@@ -493,7 +488,7 @@
   But can be achieved by compilation to categories.
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Declaring CCCs}
   First we define the \lstinline{type family} of intervals. Here \lstinline{:*} is a pairing operator.
   \begin{lstlisting}[frame=single]
     type family Iv a
@@ -504,15 +499,15 @@
   \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Declaring CCCs}
   Now we define our category. First the data type \lstinline{IF} which contains our morphisms.
   \begin{lstlisting}[frame=single]
     data IF a b = IF { unIF :: Iv a -> Iv b }
   \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{}
-  I'm using \lstinline{pack0}, \lstinline{pack1}, \lstinline{pack2} to map functions of 0-, 1- and 2-arguments in $\Cat{Hask}$ into the new category. CE uses \lstinline{pack}, \lstinline{inNew} and \lstinline{inNew2}.
+\begin{frame}[fragile]{Declaring CCCs}
+  I'm using \lstinline{pack0}, \lstinline{pack1}, \lstinline{pack2} to map functions of 0-, 1- and 2-arguments in $\Cat{Hask}$ into the new category. Elliott's code uses \lstinline{pack}, \lstinline{inNew} and \lstinline{inNew2}.
   \begin{lstlisting}[frame=single]
 instance Category IF where
   id = pack0 id
@@ -520,7 +515,7 @@ instance Category IF where
   \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Declaring CCCs}
   \begin{lstlisting}[frame=single]
 instance ProductCat IF where
   exl = pack0 exl
@@ -529,7 +524,7 @@ instance ProductCat IF where
   \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Declaring CCCs}
   \begin{lstlisting}[frame=single]
 instance ClosedCat IF where
   apply = pack0 apply
@@ -538,7 +533,7 @@ instance ClosedCat IF where
   \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Declaring CCCs}
   \begin{lstlisting}[frame=single]
 instance Iv b ~ (b :* b) => ConstCat IF b where
   const b = pack0 (const (b,b))
@@ -547,7 +542,7 @@ instance Iv b ~ (b :* b) => ConstCat IF b where
 \end{frame}
 
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Declaring CCCs}
   Now define how some atomic Haskell functions map into the CCC.
   \begin{lstlisting}[frame=single]
 instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
@@ -559,8 +554,6 @@ instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
                  (min4 cs, max4 cs))
   \end{lstlisting}
 \end{frame}
-
-\section{Haskell to Lambda Calculus}
 
 \begin{frame}[fragile]{Compiling to $\lambda$-expressions}
   \credit{Credit: \url{https://stackoverflow.com/questions/27635111}.}
@@ -595,9 +588,6 @@ instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
   example = \ (x :: Int) (y :: Int) -> + @ Int $fNumInt x y
   \end{lstlisting}
 \end{frame}
-
-
-\section{From $\lambda$-Expressions to CCC Constructions}
 
 
 \begin{frame}[fragile]{From $\lambda$-Calculus to CCCs}
@@ -745,7 +735,7 @@ instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
   \end{description}
 \end{frame}
 
-\section{Example: Syntactic Analysis} %% Mark
+\section{Examples} %% Mark
 
 \begin{frame}[fragile]{Syntactic Analysis}
   The simplest application is just to build a tree structure of the functions applying in the CCC.
@@ -753,41 +743,101 @@ instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
   Each function just records a label (the same as its name) on a tree node, and then builds substrees from any arguments.
 \end{frame}
 
-\begin{frame}[fragile]{}
-\end{frame}
-
-\begin{frame}[fragile]{}
-\end{frame}
-
-\begin{frame}[fragile]{}
-\end{frame}
-
-\begin{frame}[fragile]{}
-\end{frame}
-
-\begin{frame}[fragile]{}
-\end{frame}
-
-\begin{frame}[fragile]{}
-\end{frame}
-
-\begin{frame}[fragile]{}
-\end{frame}
-
-\section{Example: Interval Analysis} %% Mark
-
-\begin{frame}[fragile]{Negation}
-  \begin{lstlisting}[frame=single]
-  instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
-    negateC = pack (\ (al,ah) -> (-ah, -al))
-    ..
-    {-# INLINE negateC #-}
-    ..
+\begin{frame}[fragile]{Syntactic Analysis}
+  \begin{lstlisting}
+appt :: String -> [DocTree] -> DocTree
+appt = Node . const . text
+-- appt s ts = Node (const (text s)) ts
   \end{lstlisting}
-  \includegraphics{neg-iv.pdf}
 \end{frame}
 
-\begin{frame}[fragile]{Addition}
+\begin{frame}[fragile]{Syntactic Analysis}
+  \begin{lstlisting}
+atom :: Pretty a => a -> Syn a b
+atom a = Syn (Node (ppretty a) [])
+
+app0 :: String -> Syn a b
+app0 s = Syn (appt s [])
+
+app1 :: String -> Syn a b -> Syn c d
+app1 s (Syn p) = Syn (appt s [p])
+
+app2 :: String -> Syn a b -> Syn c d -> Syn e f
+app2 s (Syn p) (Syn q) = Syn (appt s [p,q])
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Syntactic Analysis}
+  \begin{lstlisting}
+instance Category Syn where
+  id  = app0 "id"
+  (.) = app2 "."
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Syntactic Analysis}
+  \begin{lstlisting}
+instance ProductCat Syn where
+  exl     = app0 "exl"
+  exr     = app0 "exr"
+  (&&&)   = app2 "&&&"
+  ...
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Syntactic Analysis}
+  \begin{lstlisting}
+instance TerminalCat Syn where
+  it = app0 "it"
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Syntactic Analysis}
+  \begin{lstlisting}
+instance ClosedCat Syn where
+  apply   = app0 "apply"
+  curry   = app1 "curry"
+  uncurry = app1 "uncurry"
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Syntactic Analysis}
+  \begin{lstlisting}
+instance BoolCat Syn where
+  notC = app0 "not"
+  andC = app0 "andC"
+  orC  = app0 "orC"
+  xorC = app0 "xorC"
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Syntactic Analysis}
+  \begin{lstlisting}
+instance NumCat Syn a where
+  negateC = app0 "negate"
+  addC    = app0 "add"
+  subC    = app0 "sub"
+  mulC    = app0 "mul"
+  powIC   = app0 "powI"
+  \end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Syntactic Analysis}
+  and more code to do with pretty printing, etc.
+\end{frame}
+
+\begin{frame}[fragile]{Program Graphs}
+  Transforms programs into data-flow graphs, which can be visualised via graphviz.
+\end{frame}
+
+
+\begin{frame}[fragile]{Interval Analysis}
+  We used this example in showing the declaration of CCCs.
+
+  Here some example outputs, shown as syntax tree, and in graph form.
+\end{frame}
+
+\begin{frame}[fragile]{Interval Analysis}
   \begin{lstlisting}[frame=single]
   instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
     ..
@@ -798,7 +848,7 @@ instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
   \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{Addition}
+\begin{frame}[fragile]{Interval Analysis}
   \begin{lstlisting}[frame=single]
     runSynME "add" $ toCcc $ ivFun $ uncurry ((+) @Int)
   \end{lstlisting}
@@ -815,14 +865,14 @@ instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
   \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{Addition}
+\begin{frame}[fragile]{Interval Analysis}
   \begin{lstlisting}[frame=single]
     runSynCirc "add" $ toCcc $ ivFun $ uncurry ((+) @Int)
   \end{lstlisting}
   \includegraphics{add-iv.pdf}
 \end{frame}
 
-\begin{frame}[fragile]{Subtraction}
+\begin{frame}[fragile]{Interval Analysis}
   \begin{lstlisting}[frame=single]
   instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
     ..
@@ -834,7 +884,7 @@ instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
   \includegraphics{sub-iv.pdf}
 \end{frame}
 
-\begin{frame}[fragile]{Multiplication}
+\begin{frame}[fragile]{Interval Analysis}
   \begin{lstlisting}[frame=single]
   instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
     mulC = pack (\ ((al,ah),(bl,bh)) ->
@@ -848,7 +898,7 @@ instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
   \end{center}
 \end{frame}
 
-\begin{frame}[fragile]{Thrice}
+\begin{frame}[fragile]{Interval Analysis}
   \begin{lstlisting}[frame=single]
      runSynCirc "thrice-iv" $ toCcc $ ivFun $ \ x -> 3 * x :: Int
   \end{lstlisting}
@@ -857,7 +907,7 @@ instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
   \end{center}
 \end{frame}
 
-\begin{frame}[fragile]{Square}
+\begin{frame}[fragile]{Interval Analysis}
   \begin{lstlisting}[frame=single]
     runSynCirc "sqr-iv"    $ toCcc $ ivFun $ sqr @Int
   \end{lstlisting}
@@ -866,7 +916,7 @@ instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
   \end{center}
 \end{frame}
 
-\begin{frame}[fragile]{Magic Square}
+\begin{frame}[fragile]{Interval Analysis}
   \begin{lstlisting}[frame=single]
     runSynCirc "magSqr-iv" $ toCcc $ ivFun $ magSqr @Int
   \end{lstlisting}
@@ -875,26 +925,91 @@ instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
   \end{center}
 \end{frame}
 
-\section{Example: Hardware} %% Mark
-
-\begin{frame}[fragile]{Hardware}
+\begin{frame}[fragile]{Compiling to Hardware}
   Verilog: a language for integrated circuit design.
+
+  Verilog code can be realised in a CCC. So Haskell programs can be compiled to silicon.
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Compiling to Hardware}
+  \begin{lstlisting}
+    runVerilog' "adder" $ \ (x :: Int, y :: Int) -> x + y
+  \end{lstlisting}
+  \begin{lstlisting}[
+    basicstyle=\footnotesize, %or \small or \footnotesize etc.
+]
+module adder (clk, n0_0_d, n0_1_d, n1_0_q);
+  input clk;
+  input [31:0] n0_0_d;
+  input [31:0] n0_1_d;
+  output [31:0] n1_0_q;
+  reg [31:0] n0_0;
+  reg [31:0] n0_1;
+  reg [31:0] n1_0_q;
+  always @(posedge clk)
+    begin
+      n0_0 <= n0_0_d;
+      n0_1 <= n0_1_d;
+      n1_0_q <= n1_0;
+    end
+  assign n1_0 = n0_0 + n0_1;
+endmodule
+  \end{lstlisting}
 \end{frame}
 
-\section{Example: Category Products} %% Mark
-
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Compiling to Hardware}
+  \begin{lstlisting}
+    runVerilog' "cond" $ \ (p :: Bool, x :: Int, y :: Int) -> if p then x else y
+  \end{lstlisting}
+  \begin{lstlisting}[
+    basicstyle=\footnotesize, %or \small or \footnotesize etc.
+]
+module cond (clk, n0_0_d, n0_1_d, n0_2_d, n1_0_q);
+  input clk;
+  input n0_0_d;
+  input [31:0] n0_1_d;
+  input [31:0] n0_2_d;
+  output [31:0] n1_0_q;
+  reg n0_0;
+  reg [31:0] n0_1;
+  reg [31:0] n0_2;
+  reg [31:0] n1_0_q;
+  always @(posedge clk)
+    begin
+      n0_0 <= n0_0_d;
+      n0_1 <= n0_1_d;
+      n0_2 <= n0_2_d;
+      n1_0_q <= n1_0;
+    end
+  assign n1_0 = n0_0 ? n0_1 : n0_2;
+endmodule
+  \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Compiling to Hardware}
+  \begin{lstlisting}
+    runVerilog' "odd" $ \ (x :: Int) -> x `mod` 2
+  \end{lstlisting}
+  \begin{lstlisting}[
+    basicstyle=\footnotesize, %or \small or \footnotesize etc.
+]
+module odd (clk, n0_0_d, n2_0_q);
+  input clk;
+  input [31:0] n0_0_d;
+  output [31:0] n2_0_q;
+  reg [31:0] n0_0;
+  reg [31:0] n2_0_q;
+  wire [31:0] n1_0;
+  always @(posedge clk)
+    begin
+      n0_0 <= n0_0_d;
+      n2_0_q <= n2_0;
+    end
+  assign n1_0 = 32'h2;
+  assign n2_0 = n0_0 % n1_0;
+endmodule
+  \end{lstlisting}
 \end{frame}
-
-
-\section{Example: Linear maps and automatic differentiation} %% Siva - Linear maps, derivatives; mention
-%% translation to hardware
 
 \begin{frame}[fragile]{}
   \frametitle{Linear maps as a category}
@@ -1013,42 +1128,59 @@ compose differentiable functions.)
   \begin{description}
   \item[CCC] like the Syntax CCC, but constructing code according to the rules of language $X$ (where $X$ is Python, JavaScript, TypeScript, PHP, R, etc.)
   \item[Use] writing type-checked code which can be used in language-specific environments (e.g. JavaScript in browser, R because you need to use an R-only library, PostScript for your printer, etc.)
-  \item[Difficulties] Missing abstractions in some languages (higher order functions in FORTRAN)
   \end{description}
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Probabilistic Modelling}
   \begin{description}
   \item[CCC] each type $a$ replaced by $\Dist{a}$, the distribution over values of type $a$. Function $f$ from $a$ to $b$ replaced by function $f'$ from distributions over $a$ to the resulting distribution over $b$ under the action of $f$.
   \item[Use] take a model mapping independent variables to dependent variables, supply distributions to the independent variables, work out expected distribution of outputs. Calculate $z$-scores (likelihoods) trivially from deterministic models and distributions over dependent inputs.
-  \item[Difficulties] The mapping of distributions may be difficult for some primitive functions.
   \end{description}
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Correctness Proofs}
   \begin{description}
   \item[CCC] objects are predicates over a possibly-composite value, maps are deductions from predicates over inputs to predicates over outputs
   \item[Use] proving program correctness - each computational step maps onto the deduction about output that it corresponds to
   \end{description}
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Rigour}
   This approach to compilation extends the mathematical rigour of Haskell (et al) to implementation domains.
 \end{frame}
 
-\section{Conclusions} %% Mark
+\section{Summary and Conclusion} %% Mark
 
-\section{Further Reading}
+\begin{frame}[fragile]{}
+  C2C offers a mathematically principled way to do program transformation by
+  \begin{enumerate}
+  \item defining the implementation level as a class of categories (CCCs)
+  \item showing how any Haskell program can be mapped onto constructions in those categories
+  \item offering some exciting sample translators for programs:
+    \begin{itemize}
+    \item syntactic trees
+    \item data-flow graphs
+    \item bound calculation
+    \item hardware implementation
+    \item linear approximation maps
+    \item automatic differentiation
+    \item incremental adjustment
+    \end{itemize}
+    with more possibilities to come
+  \item showing the way to mathematically principled remapping of code.
+  \end{enumerate}
+\end{frame}
 
-\begin{frame}[fragile]{Further Reading}
+\begin{frame}[fragile]{Links}
 
-  \nocite{elkins_calculating_2009}
-  \nocite{diel:blog}
-  \nocite{milewski2014}
-
+  \begin{itemize}
+  \item \url{http://conal.net/papers/compiling-to-categories/} is the homepage for this project. There you will find links to the paper we've discussed here, slides from Elliott's own talk on this, links to a youtube lecture, and the link to the repository which we drew code/output from.
+  \item \url{https://github.com/tyrannomark/CategoryTheory4Haskellions} has the slides for this talk as \texttt{ConCat-talk-20171115.pdf}.
+  \end{itemize}
+  
+  \nocite{Elliott-2017-compiling-to-categories}
   \bibliography{ConCat-talk-20171115}
   \bibliographystyle{abbrv}
-
 \end{frame}
 
 \end{document}
