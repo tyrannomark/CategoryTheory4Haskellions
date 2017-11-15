@@ -1,15 +1,6 @@
-\BOOKMARK [2][]{Outline0.1}{Categories}{}% 1
+\BOOKMARK [2][]{Outline0.1}{Closed Cartesian Categories in Category Theory}{}% 1
 \BOOKMARK [3][]{Outline0.1.1.5}{Basics}{Outline0.1}% 2
-\BOOKMARK [2][]{Outline0.2}{Cartesian-Closed Categories}{}% 3
-\BOOKMARK [2][]{Outline0.3}{Conal Elliott: Compiling to Categories}{}% 4
-\BOOKMARK [2][]{Outline0.4}{Declaring Our CCCs}{}% 5
-\BOOKMARK [2][]{Outline0.5}{Haskell to Lambda Calculus}{}% 6
-\BOOKMARK [2][]{Outline0.6}{From -Expressions to CCC Constructions}{}% 7
-\BOOKMARK [2][]{Outline0.7}{Example: Syntactic Analysis}{}% 8
-\BOOKMARK [2][]{Outline0.8}{Example: Interval Analysis}{}% 9
-\BOOKMARK [2][]{Outline0.9}{Example: Hardware}{}% 10
-\BOOKMARK [2][]{Outline0.10}{Example: Category Products}{}% 11
-\BOOKMARK [2][]{Outline0.11}{Example: Linear maps and automatic differentiation}{}% 12
-\BOOKMARK [2][]{Outline0.12}{Possibilities}{}% 13
-\BOOKMARK [2][]{Outline0.13}{Conclusions}{}% 14
-\BOOKMARK [2][]{Outline0.14}{Further Reading}{}% 15
+\BOOKMARK [2][]{Outline0.2}{Conal Elliott: Compiling to Categories}{}% 3
+\BOOKMARK [2][]{Outline0.3}{Examples}{}% 4
+\BOOKMARK [2][]{Outline0.4}{Possibilities}{}% 5
+\BOOKMARK [2][]{Outline0.5}{Summary and Conclusion}{}% 6
