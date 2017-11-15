@@ -438,7 +438,7 @@
 
   Elliott's (2017) paper \emph{Compiling to Categories} (hereafter C2C) shows that Category Theory can not only provide semantics, but a range of compile-to domains to which \emph{the same code} can be compiled.
 
-  We can map any $\lambda$-calculus expression onto a construction in a CCC. The computation resulting from that construction just depends on what that CCC happens to be.
+  Single most exciting paper in the interpretation of programming languages.
 \end{frame}
 
 \begin{frame}[fragile]{Compiling to Categories}
@@ -1081,35 +1081,40 @@ endmodule
 
   where the second $\circ$ on the right-hand side is in the category of linear maps
   (i.e.\ matrix multiplication). {\small (NB: \textbf{not} a functor!)}
-
-  Thus, if we know how to apply $deriv$ to all our atomic functions, then we
-  know how to apply $deriv$ to all compositions of these functions.
   
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Differentiation as a functor}
 
-  But we want differentiation to be a functor! The solution is to represent
-  every differentiable function as a \emph{pair} $(f,f')$, $(g,g')$, etc., and
-  define composition as
+  But we want differentiation to be a functor! The solution is to first map
+  every differentiable function $f$ to a pair $(f,f')$ (via $andDeriv$), and
+  define composition of such pairs as
 
   \[
     (g,g') \circ (f,f') = (g \circ f, (g' \circ f) \cdot f').
   \]
 
-  Then $deriv$ is just $snd \circ andDeriv$ (more explanation to come). It is
-  obviously a functor.
+  Then $deriv$ is just $snd \circ andDeriv$---and this is obviously a functor.
   
 \end{frame}
 
 \begin{frame}[fragile]
   \frametitle{Implementation of automatic differentiation in Haskell}
 
-  Instead of letting functions have types such as $a \rightarrow b$, we require them to
-  have the type $a \rightarrow b \times (a \multimap_s b)$. In other words, take an input
-  value, and return not only the value of the function at that point, but also
-  another (linear) function that gives you the derivative at that point.
+  \[
+    deriv :: (a \rightarrow b) \rightarrow (a \rightarrow (a \multimap_s b))
+  \]
+
+  So $deriv$ takes a differentiable function and returns a function that
+  associates each input value with a linear map.
+
+  \[
+    andDeriv\,f = D (\delprod{f}{deriv\, f})
+  \]
+
+  $D$ is a type constructor for function/derivative pairs. As mentioned before,
+  $deriv = snd \circ andDeriv$. {\small NB: not quite.}
 
   Chain rule:
   \[
@@ -1118,8 +1123,9 @@ endmodule
     (c, g' \circ f')})
 \]
 
-(The expression following $D$ on the right-hand side defines how we
-compose differentiable functions.)
+(This is exactly the expression from the previous slide. Confusingly, $f$ and
+$g$ now refer to function/derivative pairs, but $f'$ and $g'$ refer to the
+derivatives.)
 \end{frame}
 
 \section{Possibilities} %% Mark

@@ -1,9 +1,10 @@
-\frametitle{Further Reading}
+\frametitle{Links}
 
-  \nocite{elkins_calculating_2009}
-  \nocite{diel:blog}
-  \nocite{milewski2014}
+  \begin{itemize}
+  \item \url{http://conal.net/papers/compiling-to-categories/} is the homepage for this project. There you will find links to the paper we've discussed here, slides from Elliott's own talk on this, links to a youtube lecture, and the link to the repository which we drew code/output from.
+  \item \url{https://github.com/tyrannomark/CategoryTheory4Haskellions} has the slides for this talk as \texttt{ConCat-talk-20171115.pdf}.
+  \end{itemize}
 
+  \nocite{Elliott-2017-compiling-to-categories}
   \bibliography{ConCat-talk-20171115}
   \bibliographystyle{abbrv}
-

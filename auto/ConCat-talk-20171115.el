@@ -38,6 +38,8 @@
     '("deflabel" 1)
     '("eqnref" 1)
     '("eqnlabel" 1)
+    '("Dist" 1)
+    '("credit" 1)
     '("delprod" 2)
     '("lamtoccc" 1)
     '("lamf" 2)
@@ -69,6 +71,7 @@
     "termin"
     "termarr"
     "unitarrow"
+    "ccc"
     "const"
     "constFun")
    (LaTeX-add-labels
@@ -80,6 +83,11 @@
     "xca"
     "remark")
    (LaTeX-add-xcolor-definecolors
-    "identifierColor"))
+    "identifierColor"
+    "0.3"
+    "brown"
+    "green"
+    "red"
+    "blue"))
  :latex)
 
