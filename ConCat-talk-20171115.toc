@@ -11,6 +11,6 @@
 \beamer@sectionintoc {9}{Example: Hardware}{69}{0}{9}
 \beamer@sectionintoc {10}{Example: Category Products}{72}{0}{10}
 \beamer@sectionintoc {11}{Example: Linear maps and automatic differentiation}{75}{0}{11}
-\beamer@sectionintoc {12}{Possibilities}{81}{0}{12}
-\beamer@sectionintoc {13}{Conclusions}{86}{0}{13}
-\beamer@sectionintoc {14}{Further Reading}{87}{0}{14}
+\beamer@sectionintoc {12}{Possibilities}{82}{0}{12}
+\beamer@sectionintoc {13}{Conclusions}{87}{0}{13}
+\beamer@sectionintoc {14}{Further Reading}{88}{0}{14}

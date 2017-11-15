@@ -440,7 +440,12 @@
 
   Conal Elliott shows that Category Theory can not only provide semantics, but a range of compile-to domains to which \emph{the same code} can be compiled.
 
+<<<<<<< HEAD
   Single most exciting paper in the interpretation of programming languages.
+=======
+  We can map any $\lambda$-calculus expression onto a construction in a CCC. The computation resulting from that construction just depends on what that CCC happens to be.
+  
+>>>>>>> 1fa7e3b0075c2ad1a0fb8384e27a0f67349821de
 \end{frame}
 
 \begin{frame}[fragile]{Compiling to Categories}
@@ -897,7 +902,7 @@ instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
   A \textbf{linear map} is a function $f\colon \mathbb{R}^m \rightarrow \mathbb{R}^n$
   such that $f(x + y) = f(x) + f(y)$ and $f(cx) = c\,f(x)$.
   It can also be thought of as an $n \times m$ matrix (where the columns tell you
-  what the basis vectors of the domain space map to).
+  what the basis vectors of $\mathbb{R}^m$ map to).
 
   Linear maps form a category, because:
   \begin{enumerate}
@@ -924,7 +929,8 @@ instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
   \item[Automatic differentiation] Tell the computer how to compute the
     derivatives of simple functions, and it will tell you how to compute the
     derivative of any composition of those functions. Easy for a computer,
-    useful for humans.
+    useful for humans. But takes more work to set up, and only works for
+    functions that are analytically differentiable.
   \end{description}
 \end{frame}
 
@@ -948,20 +954,37 @@ instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
   \frametitle{Derivatives, linear maps, and the chain rule}
   
   The derivative of a function at a point is a \textbf{linear map} (a line,
-  plane, linear subspace; equivalently, a matrix giving the slope corresponding
-  to a unit move in each dimension). In the category of linear maps,
-  composition is \textbf{multiplication} (of matrices, which reduces to scalar
-  multiplication for $1 \times 1$ matrices). Differentiation is an operation $D$ with the property that
+  plane, linear subspace; equivalently, a matrix giving the slope(s)
+  corresponding to a unit move in each dimension). In the category of linear
+  maps, composition is \textbf{multiplication} (of matrices, which reduces to
+  scalar multiplication for $1 \times 1$ matrices). Differentiation is an operation
+  $deriv$ with the property that
 
   \[
-    D(g \circ f) = (D g \circ f) \circ (D f).
+    deriv(g \circ f) = (deriv\, g \circ f) \circ (deriv\, f).
   \]
 
   where the second $\circ$ on the right-hand side is in the category of linear maps
   (i.e.\ matrix multiplication). {\small (NB: \textbf{not} a functor!)}
 
-  Thus, if we know how to apply $D$ to all our atomic functions, then we know
-  how to apply $D$ to all compositions of these functions.
+  Thus, if we know how to apply $deriv$ to all our atomic functions, then we
+  know how to apply $deriv$ to all compositions of these functions.
+  
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Differentiation as a functor}
+
+  But we want differentiation to be a functor! The solution is to represent
+  every differentiable function as a \emph{pair} $(f,f')$, $(g,g')$, etc., and
+  define composition as
+
+  \[
+    (g,g') \circ (f,f') = (g \circ f, (g' \circ f) \cdot f').
+  \]
+
+  Then $deriv$ is just $snd \circ andDeriv$ (more explanation to come). It is
+  obviously a functor.
   
 \end{frame}
 
@@ -969,7 +992,7 @@ instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
   \frametitle{Implementation of automatic differentiation in Haskell}
 
   Instead of letting functions have types such as $a \rightarrow b$, we require them to
-  have the type (roughly) $a \rightarrow b \times (a \rightarrow b)$. In other words, take an input
+  have the type $a \rightarrow b \times (a \multimap_s b)$. In other words, take an input
   value, and return not only the value of the function at that point, but also
   another (linear) function that gives you the derivative at that point.
 
@@ -980,7 +1003,8 @@ instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
     (c, g' \circ f')})
 \]
 
-(Now that we've redefined functions, it turns out $D$ is a functor after all.)
+(The expression following $D$ on the right-hand side defines how we
+compose differentiable functions.)
 \end{frame}
 
 \section{Possibilities} %% Mark
