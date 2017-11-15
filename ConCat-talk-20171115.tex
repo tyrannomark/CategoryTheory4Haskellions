@@ -45,10 +45,13 @@
 \newcommand{\termarr}{\mathtt{it}}
 \newcommand{\unitarrow}{\ensuremath{\mathtt{unitarrow}}}
 \newcommand{\lamf}[2]{\ensuremath{\lambda\, #1 \mapsto #2}}
-\newcommand{\lamtoccc}[1]{\ensuremath{\frak{K}(#1)}}
+\newcommand{\ccc}{\ensuremath{\mathtt{ccc}}}
+\newcommand{\lamtoccc}[1]{\ensuremath{\ccc (#1)}}
 \newcommand{\delprod}[2]{\ensuremath{#1\,\Delta\,#2}}
 \newcommand{\const}{\ensuremath{\mathtt{const}}}
 \newcommand{\constFun}{\ensuremath{\mathtt{constFun}}}
+\newcommand{\credit}[1]{{\footnotesize #1}}
+\newcommand{\Dist}[1]{\ensuremath{\mathtt{Dist}\,#1}}
 %% END Conal Elliott paper macros
 
 \newcommand{\eqnlabel}[1]{\label{eq:#1}}
@@ -428,103 +431,134 @@
 
 \end{frame}
 
-\section{CCC Constructions and the $\lambda$-Calculus} %% Mark
+\section{Conal Elliott: Compiling to Categories} %% Mark
 
-\begin{frame}[fragile]{CCC Constructions in the $\lambda$-Calculus}
+\begin{frame}[fragile]{Compiling to Categories}
+  So far, we have introduced concepts from standard category theory, with a bit of Haskell flavour.
 
-  We can give a $\lambda$-calculus expression which corresponds to each construction in the CCC.
+  It is well-known that Haskell (or a near-complete subset of it) has category-theoretic semantics (e.g. our last talk), given in terms of a single category $\Cat{Hask}$.
 
-  But the reverse is also true.
+  Conal Elliott shows that Category Theory can not only provide semantics, but a range of compile-to domains to which \emph{the same code} can be compiled.
 
-  We can map any $\lambda$-calcululus expression onto a construction in a CCC. The computation resulting from that construction just depends on what that CCC happens to be.
-  
+  Single most exciting paper in the interpretation of programming languages.
 \end{frame}
 
-\begin{frame}[fragile]{Category Definition}
+\begin{frame}[fragile]{Compiling to Categories}
+  \begin{center}
+    \includegraphics[width=1.0\textwidth]{compiling-to-categories-headpic.png}
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Compiling to Categories}
   \begin{itemize}
-  \item identity $\id = \lamf{x}{x} $,
-  \item composition $g \circ f = \lamf{x}{g(f(x))}$.
+    \item you specify (using Haskell classes) the application category
+    \item then Haskell code is compiled to constructions in that category
+    \item compile your Haskell code to: \emph{category theory} (for e.g. theorem proving), \emph{interval analysis} (for correctness proof), \emph{hardware} (!!!), incrementalisation, \emph{automatic differentiation}, and more.
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{The Product}
+\begin{frame}[fragile]{Compiling to Categories}
+  In various levels of prototype, you can compile to these categories
+  \begin{description}
+  \item[free CCC] pretty-printing, syntax-highlighting, or proving correctness
+  \item[intervals] verification
+  \item[delta] partial memoisation
+  \item[hardware] translate software into hardware
+  \item[linear spaces] linear approximations to complex numeric functions
+  \item[differentials] differentiate any haskell numeric function - automatically
+  \end{description}
+\end{frame}
+
+\begin{frame}[fragile]{Compiling to Categories: Overview}
   \begin{itemize}
-  \item fork $\delprod{f}{g} = \lamf{x}{(f\,x,g\,x)}$,
-  \item extract-left $\exl = \lamf{(a,b)}{a}$,
-  \item extract-right $\exr = \lamf{(a,b)}{b}$.
+  \item compile Haskell $\rightarrow$ $\lambda$-expressions (grab intermediate output from GHC)
+  \item $\lambda$-expressions $\rightarrow$ CCC-constructions
+  \item apply CCC-constructions
+  \item write result
   \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{A Terminal Object}
-  \begin{itemize}
-  \item terminal $\termin$ is the terminal object in the category,
-  \item terminal arrow $\termarr = \lamf{a}{()}$.
-  \item unitarrow $\unitarrow\, b = \lamf{()}{b}$.
-  \item constants $\const\, b = (\unitarrow\, b) \circ \termarr$
-  \end{itemize}
+\section{Declaring Our CCCs}
+
+\begin{frame}[fragile]{}
+  Example: we want to compile numeric expressions/functions into something that tells us about the bounds on outputs (minimum possible output and maximum possible output).
+
+  This cannot be achieved with a black-box 2nd-order function, except by enumerating possible inputs.
+
+  But can be achieved by compilation to categories.
 \end{frame}
 
-\begin{frame}[fragile]{Exponential Objects}
-  \begin{itemize}
-  \item apply $\apply\, (f,x) = f\,x$
-  \item curry $\curry\, f = \lamf{a\,b}{f\,(a,b)}$
-  \item uncurry $\uncurry\, f = \lamf{(a,b)}{f\,a\,b}$
-  \item constant functions $\constFun\, f = \curry (f \circ exr) = \lamf{x}{f}$ ignores $x$, returns a function
-  \end{itemize}
+\begin{frame}[fragile]{}
+  First we define the \lstinline{type family} of intervals. Here \lstinline{:*} is a pairing operator.
+  \begin{lstlisting}[frame=single]
+    type family Iv a
+    type instance Iv ()     = ()
+    type instance Iv Float  = Float  :* Float
+    type instance Iv Double = Double :* Double
+    type instance Iv Int    = Int    :* Int
+  \end{lstlisting}
 \end{frame}
 
-\section{From $\lambda$-Calculus to CCCs}
-
-\begin{frame}[fragile]{From $\lambda$-Calculus to CCCs}
-  This direction is simpler.
-
-  There are only 5 main cases we need to deal with.
-
-  The mapping operation is symbolised as $\frak{K}$.
-
-  Each transformation either reduces the size of the body of the $\lambda$-expression,
-  or eliminates a $\lambda$.
-  Consequently, the transformation process must terminate.
+\begin{frame}[fragile]{}
+  Now we define our category. First the data type \lstinline{IF} which contains our morphisms.
+  \begin{lstlisting}[frame=single]
+    data IF a b = IF { unIF :: Iv a -> Iv b }
+  \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{1. Expression Body is a Single Variable}
-  $\lamtoccc{\lamf{x}{x}} = \id$
+\begin{frame}[fragile]{}
+  I'm using \lstinline{pack0}, \lstinline{pack1}, \lstinline{pack2} to map functions of 0-, 1- and 2-arguments in $\Cat{Hask}$ into the new category. CE uses \lstinline{pack}, \lstinline{inNew} and \lstinline{inNew2}.
+  \begin{lstlisting}[frame=single]
+instance Category IF where
+  id = pack0 id
+  (.) = pack2 (.)
+  \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{2. Expression Body is an Application}
-  $\lamtoccc{\lamf{x}{U\,V}} = \apply \circ (\delprod{\lamtoccc{\lamf{x}{U}}}{\lamtoccc{\lamf{x}{V}}})$
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[frame=single]
+instance ProductCat IF where
+  exl = pack0 exl
+  exr = pack0 exr
+  (&&&) = pack2 (&&&)
+  \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{3. Lambda Abstraction}
-  $\lamtoccc{\lamf{x}{\lamf{y}{U}}} = \curry\, \lamtoccc{\lamf{(x,y)}{U}}$
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[frame=single]
+instance ClosedCat IF where
+  apply = pack0 apply
+  curry = pack1 curry
+  uncurry = pack1 uncurry
+  \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{4. Case Expressions}
-  (more complexity than we wish to cover here)
+\begin{frame}[fragile]{}
+  \begin{lstlisting}[frame=single]
+instance Iv b ~ (b :* b) => ConstCat IF b where
+  const b = pack0 (const (b,b))
+  unitArrow b = pack0 (unitArrow (b,b))
+  \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{5a. Simple Constants}
-  $\lamtoccc{\lamf{x}{c}} = \const\, c$
+
+\begin{frame}[fragile]{}
+  Now define how some atomic Haskell functions map into the CCC.
+  \begin{lstlisting}[frame=single]
+instance (Iv a ~ (a :* a), Num a, Ord a) => NumCat IF a where
+  negateC = pack0 (\ (al,ah) -> (-ah, -al))
+  addC = pack0 (\ ((al,ah),(bl,bh)) -> (al+bl,ah+bh))
+  subC = addC . second negateC
+  mulC = pack0 (\ ((al,ah),(bl,bh)) ->
+               let cs = ((al*bl,al*bh),(ah*bl,ah*bh)) in
+                 (min4 cs, max4 cs))
+  \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{5b. Constant Functions}
-  $\lamtoccc{\lamf{x}{f}} = \constFun\, \lamtoccc{f}$
+\section{Haskell to Lambda Calculus}
 
-  $f$ may need to be \emph{Curried} to reduce its argument dimensionality.
-\end{frame}
-
-\section{From Haskell to CCC} %% Mark
-
-\begin{frame}[fragile]{Haskell to CCC Constructions}
-  \begin{itemize}
-    \item \program{ghc} compiles Haskell code to $\lambda$-calculus
-    \item \program{simplifier} reduces the $\lambda$-calculus size where possible
-    \item \program{concat} intervenes in the simplifier and converts the $\lambda$-calculus to CCC constructions
-  \end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]{Looking at GHC Intermediate Stages}
-  Following the stackoverflow answer: \url{https://stackoverflow.com/questions/27635111}.
+\begin{frame}[fragile]{Compiling to $\lambda$-expressions}
+  \credit{Credit: \url{https://stackoverflow.com/questions/27635111}.}
   \begin{itemize}
     \item use the \lstinline{GHC} module
     \item functions \lstinline{compileToCoreModule} or \lstinline{compileToCoreSimplified} to compile a file
@@ -557,31 +591,180 @@
   \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{$\lambda$-Calculus to CCC Constructions}
+
+\section{From $\lambda$-Expressions to CCC Constructions}
+
+
+\begin{frame}[fragile]{From $\lambda$-Calculus to CCCs}
+  The mapping operation is implemented as a pseudo-function $\ccc$.
+
+  Each transformation either reduces the size of the body of the $\lambda$-expression,
+  or eliminates a $\lambda$.
+
+  Consequently, the transformation process must terminate.
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Category Definition}
+  \[
+    \begin{tikzcd}
+      A \arrow[shift left=2]{r}{\Hom{C}{A}{B}} \arrow{r} \arrow[shift right=2]{r} & B
+    \end{tikzcd}
+  \]
+  \[
+  \begin{tikzcd}
+    A \arrow{r}{f} \arrow[sloped,near end,swap,dashed]{dr}{g \circ f} \arrow[bend
+      right=60,sloped,swap,loosely dashed]{drr}{h \circ g \circ f} \arrow[bend
+      left=60,sloped,loosely dashed]{drr}{h
+      \circ g \circ f} & B \arrow{d}{g}
+    \arrow[sloped,near start,dashed]{dr}{h \circ g} & \\
+    & C \arrow[swap]{r}{h} & D
+  \end{tikzcd}\rlap{.}
+  \]
+  \[
+  \begin{tikzcd}
+    A \arrow[densely dotted]{r}{1_A} \arrow[bend right=30,swap]{rr}{f} & A
+    \arrow["f" description]{r}
+    \arrow[bend left=30]{rr}{f} & B \arrow[swap,densely dotted]{r}{1_B} & B
+  \end{tikzcd}\rlap{.}
+  \]
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Category Definition}
+  \begin{itemize}
+  \item composition $g \circ f = \lamf{x}{g(f(x))}$.
+  \item identity $\id = \lamf{x}{x} $,
+  \end{itemize}
+  
+  Laws:\\
+  \begin{itemize}
+  \item $\id \circ f \equiv f \circ \id \equiv f$
+  \item $h \circ (g \circ f) \equiv (h \circ g) \circ f$
+  \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Expression Body is a Single Variable}
+  $\lamtoccc{\lamf{x}{x}} = \id$
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{A Terminal Object}
+  \begin{center}
+    \[
+    \begin{tikzcd}[row sep=tiny]
+      A \arrow[near start]{dr}{\exists!} & \\
+      B \arrow["\exists!" description]{r} & 1\\
+      C \arrow[swap,near start]{ur}{\exists!} & 
+    \end{tikzcd}
+    \]
+  \end{center}
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{A Terminal Object}
+  \begin{itemize}
+  \item terminal $\termin$ is the terminal object in the category,
+  \item terminal arrow $\termarr = \lamf{a}{()}$.
+  \item unitarrow $\unitarrow\, b = \lamf{()}{b}$.
+  \item constants $\const\, b = (\unitarrow\, b) \circ \termarr$
+  \end{itemize}
+  
+  Laws:\\
+  \begin{itemize}
+  \item $\termarr \circ f \equiv \termarr$
+  \end{itemize}
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Simple Constants}
+  $\lamtoccc{\lamf{x}{c}} = \const\, c$
 \end{frame}
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{The Product}
+  \[
+    \begin{tikzcd}[row sep=tiny]
+       & C \arrow[bend right=15]{dl} \arrow[bend left=15]{dr} & \\
+      A & & B \\
+       & D \arrow[bend left=15]{ul} \arrow[swap]{uu}{f} \arrow[bend right=15]{ur} & 
+    \end{tikzcd}\rlap{.}
+  \]
+\end{frame}
+
+\begin{frame}[fragile]{The Product}
+  \begin{itemize}
+  \item fork $\delprod{f}{g} = \lamf{x}{(f\,x,g\,x)}$,
+  \item extract-left $\exl = \lamf{(a,b)}{a}$,
+  \item extract-right $\exr = \lamf{(a,b)}{b}$.
+  \end{itemize}
+  
+  Laws:\\
+  \begin{itemize}
+  \item $\exl\circ(\delprod{f}{g}) \equiv f$
+  \item $\exr\circ(\delprod{f}{g}) \equiv g$
+  \item $\delprod{\exl\circ h}{\exr\circ h} \equiv h$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Exponential Objects}
+  \begin{center}
+    \[
+    \begin{tikzcd}
+      C \sqcap A \arrow[swap,densely dotted]{d}{\exists!} \arrow{dr}{f} & \\
+      B^A \sqcap A \arrow[swap]{r}{\mathrm{eval}_B^A} & B
+    \end{tikzcd}\rlap{.}
+    \]
+  \end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Exponential Objects}
+  \begin{itemize}
+  \item apply or eval $\apply\, (f,x) = f\,x$
+  \item $\curry\, f = \lamf{a\,b}{f\,(a,b)}$
+  \item $\uncurry\, f = \lamf{(a,b)}{f\,a\,b}$
+  \item constant functions $\constFun\, f = \curry (f \circ exr) = \lamf{x}{f}$ ignores $x$, returns a function
+  \end{itemize}
+  
+  Laws:\\
+  \begin{itemize}
+  \item $\uncurry\,(\curry\,f) \equiv f$
+  \item $\curry\,(\uncurry\,f) \equiv f$
+  \item $\apply \circ (\delprod{\curry\,f\circ\exl}{\exr}) \equiv f$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Expression Body is an Application}
+  \begin{description}
+    \item[Expression body is an application]
+      $$\lamtoccc{\lamf{x}{U\,V}} = \apply \circ (\delprod{\lamtoccc{\lamf{x}{U}}}{\lamtoccc{\lamf{x}{V}}})$$
+    \item[Lambda abstraction]
+      $$\lamtoccc{\lamf{x}{\lamf{y}{U}}} = \curry\, \lamtoccc{\lamf{(x,y)}{U}}$$
+    \item[Constant functions]
+      $$\lamtoccc{\lamf{x}{f}} = \constFun\, \lamtoccc{f}$$
+      $f$ may need to be \emph{Curried} to reduce its argument dimensionality.
+  \end{description}
 \end{frame}
 
 \section{Example: Syntactic Analysis} %% Mark
+
+\begin{frame}[fragile]{Syntactic Analysis}
+  The simplest application is just to build a tree structure of the functions applying in the CCC.
+
+  Each function just records a label (the same as its name) on a tree node, and then builds substrees from any arguments.
+\end{frame}
+
+\begin{frame}[fragile]{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+\end{frame}
 
 \begin{frame}[fragile]{}
 \end{frame}
@@ -687,7 +870,23 @@
   \end{center}
 \end{frame}
 
+\section{Example: Hardware} %% Mark
+
+\begin{frame}[fragile]{Hardware}
+  Verilog: a language for integrated circuit design.
+\end{frame}
+
+\begin{frame}[fragile]{}
+\end{frame}
+
 \section{Example: Category Products} %% Mark
+
+\begin{frame}[fragile]{}
+\end{frame}
+
+\begin{frame}[fragile]{}
+\end{frame}
+
 
 \section{Example: Linear maps and automatic differentiation} %% Siva - Linear maps, derivatives; mention
 %% translation to hardware
@@ -784,18 +983,33 @@
 (Now that we've redefined functions, it turns out $D$ is a functor after all.)
 \end{frame}
 
-\section{Future Work} %% Mark
+\section{Possibilities} %% Mark
 
-\begin{frame}[fragile]{}
+\begin{frame}[fragile]{Language-to-Language Translation}
+  \begin{description}
+  \item[CCC] like the Syntax CCC, but constructing code according to the rules of language $X$ (where $X$ is Python, JavaScript, TypeScript, PHP, R, etc.)
+  \item[Use] writing type-checked code which can be used in language-specific environments (e.g. JavaScript in browser, R because you need to use an R-only library, PostScript for your printer, etc.)
+  \item[Difficulties] Missing abstractions in some languages (higher order functions in FORTRAN)
+  \end{description}
 \end{frame}
 
 \begin{frame}[fragile]{}
+  \begin{description}
+  \item[CCC] each type $a$ replaced by $\Dist{a}$, the distribution over values of type $a$. Function $f$ from $a$ to $b$ replaced by function $f'$ from distributions over $a$ to the resulting distribution over $b$ under the action of $f$.
+  \item[Use] take a model mapping independent variables to dependent variables, supply distributions to the independent variables, work out expected distribution of outputs. Calculate $z$-scores (likelihoods) trivially from deterministic models and distributions over dependent inputs.
+  \item[Difficulties] The mapping of distributions may be difficult for some primitive functions.
+  \end{description}
 \end{frame}
 
 \begin{frame}[fragile]{}
+  \begin{description}
+  \item[CCC] objects are predicates over a possibly-composite value, maps are deductions from predicates over inputs to predicates over outputs
+  \item[Use] proving program correctness - each computational step maps onto the deduction about output that it corresponds to
+  \end{description}
 \end{frame}
 
 \begin{frame}[fragile]{}
+  This approach to compilation extends the mathematical rigour of Haskell (et al) to implementation domains.
 \end{frame}
 
 \section{Conclusions} %% Mark
