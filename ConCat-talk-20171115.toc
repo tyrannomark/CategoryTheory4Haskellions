@@ -1,13 +1,16 @@
+\beamer@endinputifotherversion {3.36pt}
 \beamer@sectionintoc {1}{Categories}{4}{0}{1}
 \beamer@subsectionintoc {1}{1}{Basics}{5}{0}{1}
 \beamer@sectionintoc {2}{Cartesian-Closed Categories}{16}{0}{2}
-\beamer@sectionintoc {3}{CCC Constructions and the $\lambda $-Calculus}{18}{0}{3}
-\beamer@sectionintoc {4}{From $\lambda $-Calculus to CCCs}{24}{0}{4}
-\beamer@sectionintoc {5}{From Haskell to CCC}{32}{0}{5}
-\beamer@sectionintoc {6}{Example: Syntactic Analysis}{45}{0}{6}
-\beamer@sectionintoc {7}{Example: Interval Analysis}{47}{0}{7}
-\beamer@sectionintoc {8}{Example: Category Products}{57}{0}{8}
-\beamer@sectionintoc {9}{Example: Linear maps and automatic differentiation}{58}{0}{9}
-\beamer@sectionintoc {10}{Future Work}{65}{0}{10}
-\beamer@sectionintoc {11}{Conclusions}{70}{0}{11}
-\beamer@sectionintoc {12}{Further Reading}{71}{0}{12}
+\beamer@sectionintoc {3}{Conal Elliott: Compiling to Categories}{18}{0}{3}
+\beamer@sectionintoc {4}{Declaring Our CCCs}{24}{0}{4}
+\beamer@sectionintoc {5}{Haskell to Lambda Calculus}{33}{0}{5}
+\beamer@sectionintoc {6}{From $\lambda $-Expressions to CCC Constructions}{37}{0}{6}
+\beamer@sectionintoc {7}{Example: Syntactic Analysis}{50}{0}{7}
+\beamer@sectionintoc {8}{Example: Interval Analysis}{59}{0}{8}
+\beamer@sectionintoc {9}{Example: Hardware}{69}{0}{9}
+\beamer@sectionintoc {10}{Example: Category Products}{72}{0}{10}
+\beamer@sectionintoc {11}{Example: Linear maps and automatic differentiation}{75}{0}{11}
+\beamer@sectionintoc {12}{Possibilities}{82}{0}{12}
+\beamer@sectionintoc {13}{Conclusions}{87}{0}{13}
+\beamer@sectionintoc {14}{Further Reading}{88}{0}{14}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.6.26)  15 NOV 2017 15:59
 entering extended mode
  restricted \write18 enabled.
@@ -13,10 +14,29 @@ Document Class: beamer 2017/08/22 v3.43 A class for typesetting presentations
 Package: etoolbox 2017/01/02 v2.4 e-TeX tools for LaTeX (JAW)
 \etb@tempcnta=\count79
 )
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.8.24)  15 NOV 2017 15:39
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**ConCat-talk-20171115
+(./ConCat-talk-20171115.tex
+LaTeX2e <2016/03/31>
+Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamer.cls
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasercs.sty
+Package: beamerbasercs 2015/03/08 (rcs-revision 368aa9ba9d38)
+)
+Document Class: beamer 2015/01/05 3.36 A class for typesetting presentations (r
+cs-revision 8a39122e1f63)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasemodes.sty
+Package: beamerbasemodes 2013/09/03 (rcs-revision 768f2d98ca64)
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 \beamer@tempbox=\box26
-\beamer@tempcount=\count80
-\c@beamerpauses=\count81
+\beamer@tempcount=\count79
+\c@beamerpauses=\count80
 
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbasedecode.sty
 \beamer@slideinframe=\count82
 \beamer@minimum=\count83
@@ -43,6 +63,36 @@ Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 \beamer@vboxoffset=\dimen115
 \beamer@descdefault=\dimen116
 \beamer@descriptionwidth=\dimen117
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasedecode.sty
+Package: beamerbasedecode 2010/05/01 (rcs-revision efa082c6111d)
+\beamer@slideinframe=\count81
+\beamer@minimum=\count82
+)
+\beamer@commentbox=\box27
+\beamer@modecount=\count83
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
+)
+\headheight=\dimen102
+\headdp=\dimen103
+\footheight=\dimen104
+\sidebarheight=\dimen105
+\beamer@tempdim=\dimen106
+\beamer@finalheight=\dimen107
+\beamer@animht=\dimen108
+\beamer@animdp=\dimen109
+\beamer@animwd=\dimen110
+\beamer@leftmargin=\dimen111
+\beamer@rightmargin=\dimen112
+\beamer@leftsidebar=\dimen113
+\beamer@rightsidebar=\dimen114
+\beamer@boxsize=\dimen115
+\beamer@vboxoffset=\dimen116
+\beamer@descdefault=\dimen117
+\beamer@descriptionwidth=\dimen118
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 \beamer@lastskip=\skip41
 \beamer@areabox=\box28
 \beamer@animcurrent=\box29
@@ -50,6 +100,7 @@ Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 \beamer@sectionbox=\box31
 \beamer@logobox=\box32
 \beamer@linebox=\box33
+<<<<<<< HEAD
 \beamer@sectioncount=\count85
 \beamer@subsubsectionmax=\count86
 \beamer@subsectionmax=\count87
@@ -71,12 +122,38 @@ Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbaseoptions.sty
 (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics/keyval.sty
+=======
+\beamer@sectioncount=\count84
+\beamer@subsubsectionmax=\count85
+\beamer@subsectionmax=\count86
+\beamer@sectionmax=\count87
+\beamer@totalheads=\count88
+\beamer@headcounter=\count89
+\beamer@partstartpage=\count90
+\beamer@sectionstartpage=\count91
+\beamer@subsectionstartpage=\count92
+\beamer@animationtempa=\count93
+\beamer@animationtempb=\count94
+\beamer@xpos=\count95
+\beamer@ypos=\count96
+\beamer@showpartnumber=\count97
+\beamer@currentsubsection=\count98
+\beamer@coveringdepth=\count99
+\beamer@sectionadjust=\count100
+\beamer@tocsectionnumber=\count101
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbaseoptions.sty
+Package: beamerbaseoptions 2013/03/10 (rcs-revision 47431932db0d)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 ))
 \beamer@paperwidth=\skip42
 \beamer@paperheight=\skip43
 
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
 
@@ -85,21 +162,32 @@ Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
 (/usr/local/texlive/2017/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-\Gm@cnth=\count103
-\Gm@cntv=\count104
-\c@Gm@tempcnt=\count105
-\Gm@bindingoffset=\dimen118
-\Gm@wd@mp=\dimen119
-\Gm@odd@mp=\dimen120
-\Gm@even@mp=\dimen121
-\Gm@layoutwidth=\dimen122
-\Gm@layoutheight=\dimen123
-\Gm@layouthoffset=\dimen124
-\Gm@layoutvoffset=\dimen125
+\Gm@cnth=\count102
+\Gm@cntv=\count103
+\c@Gm@tempcnt=\count104
+\Gm@bindingoffset=\dimen119
+\Gm@wd@mp=\dimen120
+\Gm@odd@mp=\dimen121
+\Gm@even@mp=\dimen122
+\Gm@layoutwidth=\dimen123
+\Gm@layoutheight=\dimen124
+\Gm@layouthoffset=\dimen125
+\Gm@layoutvoffset=\dimen126
 \Gm@dimlist=\toks15
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
@@ -120,18 +208,55 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
-))
-\Gin@req@height=\dimen126
-\Gin@req@width=\dimen127
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 96.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count105
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
+))
+\Gin@req@height=\dimen127
+\Gin@req@width=\dimen128
+)
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
 (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 x
 \pgfutil@everybye=\toks16
-\pgfutil@tempdima=\dimen128
-\pgfutil@tempdimb=\dimen129
+\pgfutil@tempdima=\dimen129
+\pgfutil@tempdimb=\dimen130
 
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
 sts.tex))
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
@@ -149,17 +274,36 @@ Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 \pgfkeys@temptoks=\toks18
 
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
+sts.tex))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box34
+(/usr/local/texlive/2016/texmf-dist/tex/latex/ms/everyshi.sty
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
+Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
+))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks17
+\pgfkeys@temptoks=\toks18
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 ode.tex
 \pgfkeys@tmptoks=\toks19
 ))
-\pgf@x=\dimen130
-\pgf@y=\dimen131
-\pgf@xa=\dimen132
-\pgf@ya=\dimen133
-\pgf@xb=\dimen134
-\pgf@yb=\dimen135
-\pgf@xc=\dimen136
-\pgf@yc=\dimen137
+\pgf@x=\dimen131
+\pgf@y=\dimen132
+\pgf@xa=\dimen133
+\pgf@ya=\dimen134
+\pgf@xb=\dimen135
+\pgf@yb=\dimen136
+\pgf@xc=\dimen137
+\pgf@yc=\dimen138
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
 \c@pgf@counta=\count106
@@ -170,6 +314,7 @@ ode.tex
 \t@pgf@tokb=\toks21
 \t@pgf@tokc=\toks22
 
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
@@ -184,11 +329,28 @@ df.def
 File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 )))
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-p
+df.def
+File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
+)))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 code.tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
 \pgfsyssoftpath@smallbuffer@items=\count110
 \pgfsyssoftpath@bigbuffer@items=\count111
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
 code.tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
@@ -196,6 +358,15 @@ File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.cfg
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.
+code.tex
+File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
+)) (/usr/local/texlive/2016/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -209,6 +380,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
@@ -216,12 +388,22 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen138
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen139
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 \pgfmath@count=\count112
 \pgfmath@box=\box35
 \pgfmath@toks=\toks23
 \pgfmath@stack@operand=\toks24
 \pgfmath@stack@operation=\toks25
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
 tex
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
@@ -262,18 +444,68 @@ File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
 \pgf@zy=\dimen152
 )
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex)))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count113
+))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.co
+de.tex
+File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
+\pgf@picminx=\dimen140
+\pgf@picmaxx=\dimen141
+\pgf@picminy=\dimen142
+\pgf@picmaxy=\dimen143
+\pgf@pathminx=\dimen144
+\pgf@pathmaxx=\dimen145
+\pgf@pathminy=\dimen146
+\pgf@pathmaxy=\dimen147
+\pgf@xx=\dimen148
+\pgf@xy=\dimen149
+\pgf@yx=\dimen150
+\pgf@yy=\dimen151
+\pgf@zx=\dimen152
+\pgf@zy=\dimen153
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconst
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 ruct.code.tex
 File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
-\pgf@path@lastx=\dimen153
-\pgf@path@lasty=\dimen154
+\pgf@path@lastx=\dimen154
+\pgf@path@lasty=\dimen155
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 .code.tex
 File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
-\pgf@shorten@end@additional=\dimen155
-\pgf@shorten@start@additional=\dimen156
+\pgf@shorten@end@additional=\dimen156
+\pgf@shorten@start@additional=\dimen157
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.co
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 de.tex
 File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box36
@@ -281,18 +513,27 @@ File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgf@layerbox@main=\box38
 \pgf@picture@serial@count=\count114
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicst
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 ate.code.tex
 File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
-\pgflinewidth=\dimen157
+\pgflinewidth=\dimen158
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransform
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 ations.code.tex
 File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
-\pgf@pt@x=\dimen158
-\pgf@pt@y=\dimen159
-\pgf@pt@temp=\dimen160
+\pgf@pt@x=\dimen159
+\pgf@pt@y=\dimen160
+\pgf@pt@temp=\dimen161
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
 e.tex
 File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
@@ -306,10 +547,26 @@ ssing.code.tex
 File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 )
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.cod
+e.tex
+File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.c
+ode.tex
+File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathproce
+ssing.code.tex
+File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.co
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 de.tex
 File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
-\pgfarrowsep=\dimen161
+\pgfarrowsep=\dimen162
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
 e.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
@@ -321,10 +578,24 @@ e.tex
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
 
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.cod
+e.tex
+File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
+\pgf@max=\dimen163
+\pgf@sys@shading@range@num=\count115
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.cod
+e.tex
+File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 code.tex
 File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
 \pgfexternal@startupbox=\box39
 ))
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
 de.tex
 File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
@@ -338,10 +609,26 @@ code.tex
 File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
 )))
 (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/xxcolor.sty
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.co
+de.tex
+File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretranspare
+ncy.code.tex
+File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.
+code.tex
+File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
+)))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/utilities/xxcolor.sty
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 Package: xxcolor 2003/10/24 ver 0.1
 \XC@nummixins=\count116
 \XC@countmixins=\count117
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
 
@@ -359,6 +646,19 @@ Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
 
 
 (/usr/local/texlive/2017/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/atbegshi.sty
+Package: atbegshi 2016/05/16 v1.17 At begin shipout hook (HO)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2016/05/05 v6.83n Hypertext links for LaTeX
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
 Package hobsub Info: Skipping package `infwarerr' (already loaded).
@@ -375,7 +675,7 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
+Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -392,10 +692,12 @@ Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
 Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
 Package: xcolor-patch 2016/05/16 xcolor patch
 Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
 Package hobsub Info: Skipping package `atbegshi' (already loaded).
 Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
@@ -412,17 +714,36 @@ File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
 \Hy@SavedSpaceFactor=\count120
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen164
+\Hy@linkcounter=\count118
+\Hy@pagecounter=\count119
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2016/05/05 v6.83n Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count120
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Option `bookmarks' set `true' on input line 4374.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 4374.
-Package hyperref Info: Option `implicit' set `false' on input line 4374.
-Package hyperref Info: Hyper figures OFF on input line 4498.
-Package hyperref Info: Link nesting OFF on input line 4503.
-Package hyperref Info: Hyper index ON on input line 4506.
-Package hyperref Info: Plain pages OFF on input line 4513.
-Package hyperref Info: Backreferencing OFF on input line 4518.
+Package hyperref Info: Option `bookmarks' set `true' on input line 4322.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 4322.
+Package hyperref Info: Option `implicit' set `false' on input line 4322.
+Package hyperref Info: Hyper figures OFF on input line 4446.
+Package hyperref Info: Link nesting OFF on input line 4451.
+Package hyperref Info: Hyper index ON on input line 4454.
+Package hyperref Info: Plain pages OFF on input line 4461.
+Package hyperref Info: Backreferencing OFF on input line 4466.
 Package hyperref Info: Implicit mode OFF; no redefinition of LaTeX internals.
+<<<<<<< HEAD
 Package hyperref Info: Bookmarks ON on input line 4751.
 \c@Hy@tempcnt=\count121
 
@@ -444,6 +765,29 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6383.
 Package hyperref Info: PDF/A mode OFF on input line 6388.
 LaTeX Info: Redefining \ref on input line 6428.
 LaTeX Info: Redefining \pageref on input line 6432.
+=======
+Package hyperref Info: Bookmarks ON on input line 4691.
+\c@Hy@tempcnt=\count121
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5044.
+\XeTeXLinkMargin=\dimen165
+\Fld@menulength=\count122
+\Field@Width=\dimen166
+\Fld@charsize=\dimen167
+Package hyperref Info: Hyper figures OFF on input line 6298.
+Package hyperref Info: Link nesting OFF on input line 6303.
+Package hyperref Info: Hyper index ON on input line 6306.
+Package hyperref Info: backreferencing OFF on input line 6313.
+Package hyperref Info: Link coloring OFF on input line 6318.
+Package hyperref Info: Link coloring with OCG OFF on input line 6323.
+Package hyperref Info: PDF/A mode OFF on input line 6328.
+LaTeX Info: Redefining \ref on input line 6368.
+LaTeX Info: Redefining \pageref on input line 6372.
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 \Hy@abspage=\count123
 
 
@@ -453,16 +797,26 @@ Package hyperref Message: Stopped early.
 
 Package hyperref Message: Driver (autodetected): hpdftex.
 
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
 \Fld@listcount=\count124
 \c@bookmark@seq@number=\count125
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2016/05/05 v6.83n Hyperref driver for pdfTeX
+\Fld@listcount=\count124
+\c@bookmark@seq@number=\count125
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 ))
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbaserequires.sty
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbasecompatibility.st
 y) (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbasefont.sty
@@ -470,6 +824,21 @@ y) (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbasefont.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbaserequires.sty
+Package: beamerbaserequires 2010/05/01  (rcs-revision efa082c6111d)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasecompatibility.st
+y
+Package: beamerbasecompatibility 2012/05/01  (rcs-revision 67c48b3b652d)
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasefont.sty
+Package: beamerbasefont 2015/01/05  (rcs-revision b4b4bee242e2)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks26
 \symAMSa=\mathgroup4
@@ -477,6 +846,7 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
 Package: sansmathaccent 2013/03/28
 (/usr/local/texlive/2017/texmf-dist/tex/latex/filehook/filehook.sty
@@ -491,31 +861,72 @@ uage-mappings.tex)))
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbasemisc.sty)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/sansmathaccent/sansmathaccent.sty
+Package: sansmathaccent 2013/03/28
+(/usr/local/texlive/2016/texmf-dist/tex/latex/filehook/filehook.sty
+Package: filehook 2011/10/12 v0.5d Hooks for input files
+)))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasetranslator.sty
+Package: beamerbasetranslator 2010/06/11  (rcs-revision 85fd1cc7fc42)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/translator/translator.sty
+Package: translator 2010/06/12 ver 1.10
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/translator/translator-lang
+uage-mappings.tex)))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasemisc.sty
+Package: beamerbasemisc 2013/09/03  (rcs-revision a55719c41d85)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasetwoscreens.sty
+Package: beamerbasetwoscreens 2010/05/01  (rcs-revision efa082c6111d)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbaseoverlay.sty
+Package: beamerbaseoverlay 2013/12/25  (rcs-revision f6bd5e3805da)
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 \beamer@argscount=\count126
 \beamer@lastskipcover=\skip44
 \beamer@trivlistdepth=\count127
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbasetitle.sty)
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbasesection.sty
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasetitle.sty
+Package: beamerbasetitle 2010/09/21  (rcs-revision f0446ed0b6ae)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasesection.sty
+Package: beamerbasesection 2013/06/07  (rcs-revision 60b9fe0f342f)
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 \c@lecture=\count128
 \c@part=\count129
 \c@section=\count130
 \c@subsection=\count131
 \c@subsubsection=\count132
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbaseframe.sty
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbaseframe.sty
+Package: beamerbaseframe 2014/02/20  (rcs-revision 4b8ceeeff434)
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 \beamer@framebox=\box40
 \beamer@frametitlebox=\box41
 \beamer@zoombox=\box42
 \beamer@zoomcount=\count133
 \beamer@zoomframecount=\count134
+<<<<<<< HEAD
 \beamer@frametextheight=\dimen167
+=======
+\beamer@frametextheight=\dimen168
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 \c@subsectionslide=\count135
 \beamer@frametopskip=\skip45
 \beamer@framebottomskip=\skip46
 \beamer@frametopskipautobreak=\skip47
 \beamer@framebottomskipautobreak=\skip48
 \beamer@envbody=\toks27
+<<<<<<< HEAD
 \framewidth=\dimen168
 \c@framenumber=\count136
 )
@@ -546,11 +957,51 @@ sty
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.sty
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty
+=======
+\framewidth=\dimen169
+\c@framenumber=\count136
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbaseverbatim.sty
+Package: beamerbaseverbatim 2015/01/05  (rcs-revision 431510bb5890)
+\beamer@verbatimfileout=\write4
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbaseframesize.sty
+Package: beamerbaseframesize 2011/09/12  (rcs-revision 70f9d8411e54)
+\beamer@splitbox=\box43
+\beamer@autobreakcount=\count137
+\beamer@autobreaklastheight=\dimen170
+\beamer@frametitletoks=\toks28
+\beamer@framesubtitletoks=\toks29
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbaseframecomponents.
+sty
+Package: beamerbaseframecomponents 2013/10/18  (rcs-revision 5cf6c5555a45)
+\beamer@footins=\box44
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasecolor.sty
+Package: beamerbasecolor 2015/02/21  (rcs-revision d944b04ee2d5)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasenotes.sty
+Package: beamerbasenotes 2012/12/19  (rcs-revision 1686da3db3c9)
+\beamer@frameboxcopy=\box45
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasetoc.sty
+Package: beamerbasetoc 2015/03/08  (rcs-revision 7270298bbaae)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasetemplates.sty
+Package: beamerbasetemplates 2010/05/01  (rcs-revision efa082c6111d)
+\beamer@sbttoks=\toks30
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbaseauxtemplates.sty
+Package: beamerbaseauxtemplates 2014/06/30  (rcs-revision 580088513a67)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbaseboxes.sty
+Package: beamerbaseboxes 2012/05/13  (rcs-revision 56972908a390)
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 \bmb@box=\box46
 \bmb@colorbox=\box47
 \bmb@boxshadow=\box48
 \bmb@boxshadowball=\box49
 \bmb@boxshadowballlarge=\box50
+<<<<<<< HEAD
 \bmb@temp=\dimen173
 \bmb@dima=\dimen174
 \bmb@dimb=\dimen175
@@ -560,6 +1011,19 @@ sty
 ))
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbaselocalstructure.s
 ty (/usr/local/texlive/2017/texmf-dist/tex/latex/tools/enumerate.sty
+=======
+\bmb@temp=\dimen171
+\bmb@dima=\dimen172
+\bmb@dimb=\dimen173
+\bmb@prevheight=\dimen174
+)
+\beamer@blockheadheight=\dimen175
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbaselocalstructure.s
+ty
+Package: beamerbaselocalstructure 2014/09/10  (rcs-revision 393f6dcff371)
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/enumerate.sty
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks31
 )
@@ -568,6 +1032,7 @@ Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbasenavigation.sty
 \beamer@section@min@dim=\dimen178
 )
@@ -607,6 +1072,50 @@ LaTeX Info: Redefining \cdots on input line 596.
 \big@size=\dimen181
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasenavigation.sty
+Package: beamerbasenavigation 2015/02/27  (rcs-revision 923f4bf87efa)
+\beamer@section@min@dim=\dimen176
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasetheorems.sty
+Package: beamerbasetheorems 2010/06/06  (rcs-revision 7e7cc5e53e9d)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/10 v2.15b AMS math features
+\@mathmargin=\skip51
+
+For additional information on amsmath, use the `?' option.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks32
+\ex@=\dimen177
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen178
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count140
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count141
+\leftroot@=\count142
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count143
+\DOTSCASE@=\count144
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+\big@size=\dimen179
+LaTeX Font Info:    Redeclaring font encoding OML on input line 634.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 \macc@depth=\count145
 \c@MaxMatrixCols=\count146
 \dotsspace@=\muskip11
@@ -617,20 +1126,33 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
 \column@=\count150
 \maxfields@=\count151
 \andhelp@=\toks34
+<<<<<<< HEAD
 \eqnshift@=\dimen182
 \alignsep@=\dimen183
 \tagshift@=\dimen184
 \tagwidth@=\dimen185
 \totwidth@=\dimen186
 \lineht@=\dimen187
+=======
+\eqnshift@=\dimen180
+\alignsep@=\dimen181
+\tagshift@=\dimen182
+\tagwidth@=\dimen183
+\totwidth@=\dimen184
+\lineht@=\dimen185
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 \@envbody=\toks35
 \multlinegap=\skip52
 \multlinetaggap=\skip53
 \mathdisplay@stack=\toks36
-LaTeX Info: Redefining \[ on input line 2817.
-LaTeX Info: Redefining \] on input line 2818.
+LaTeX Info: Redefining \[ on input line 2739.
+LaTeX Info: Redefining \] on input line 2740.
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amscls/amsthm.sty
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amscls/amsthm.sty
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 Package: amsthm 2015/03/04 v2.20.2
 \thm@style=\toks37
 \thm@bodyfont=\toks38
@@ -644,6 +1166,7 @@ Package: amsthm 2015/03/04 v2.20.2
 )
 \c@theorem=\count152
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/beamerbasethemes.sty))
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/themes/theme/beamerthemede
 fault.sty
@@ -667,10 +1190,51 @@ Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/beamerbasethemes.sty
+Package: beamerbasethemes 2010/05/01  (rcs-revision efa082c6111d)
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/themes/theme/beamerthemede
+fault.sty
+Package: beamerthemedefault 2010/06/17  (rcs-revision d02a7cf4d8ae)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/themes/font/beamerfontthem
+edefault.sty
+Package: beamerfontthemedefault 2012/12/19  (rcs-revision 1686da3db3c9)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/themes/color/beamercolorth
+emedefault.sty
+Package: beamercolorthemedefault 2012/12/19  (rcs-revision 1686da3db3c9)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/themes/inner/beamerinnerth
+emedefault.sty
+Package: beamerinnerthemedefault 2014/06/30  (rcs-revision 580088513a67)
+\beamer@dima=\dimen186
+\beamer@dimb=\dimen187
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/themes/outer/beamerouterth
+emedefault.sty
+Package: beamerouterthemedefault 2012/12/19  (rcs-revision 1686da3db3c9)
+)))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamertheme-metropolis/beamerthem
+emetropolis.sty
+Package: beamerthememetropolis 2016/03/14 v1.1 Metropolis Beamer theme
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count153
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgfopts/pgfopts.sty
+Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 )
 \pgfopts@list@add@a@toks=\toks43
 \pgfopts@list@add@b@toks=\toks44
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamertheme-metropolis/beamerinne
 rthememetropolis.sty
 Package: beamerinnerthememetropolis 2017/01/23 Metropolis inner theme
@@ -681,10 +1245,23 @@ Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Bcount=\count154
 \calc@Adimen=\dimen190
 \calc@Bdimen=\dimen191
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamertheme-metropolis/beamerinne
+rthememetropolis.sty
+Package: beamerinnerthememetropolis 2016/03/14 Metropolis inner theme
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count154
+\calc@Bcount=\count155
+\calc@Adimen=\dimen188
+\calc@Bdimen=\dimen189
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 \calc@Askip=\skip57
 \calc@Bskip=\skip58
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
+<<<<<<< HEAD
 \calc@Ccount=\count155
 \calc@Cskip=\skip59
 )
@@ -693,10 +1270,21 @@ LaTeX Info: Redefining \addtolength on input line 81.
 Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
 
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+=======
+\calc@Ccount=\count156
+\calc@Cskip=\skip59
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.cod
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 e.tex
 File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
 \pgfnodeparttextbox=\box53
 )
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
 tex
 File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
@@ -739,10 +1327,55 @@ File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
 \tikz@lastysaved=\dimen256
 \tikzleveldistance=\dimen257
 \tikzsiblingdistance=\dimen258
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.
+tex
+File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-0-65.sty
+Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
+\pgf@nodesepstart=\dimen190
+\pgf@nodesepend=\dimen191
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version
+-1-18.sty
+Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen192
+\pgffor@skip=\dimen193
+\pgffor@stack=\toks45
+\pgffor@toks=\toks46
+))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.cod
+e.tex
+Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothan
+dlers.code.tex
+File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
+\pgf@plot@mark@count=\count157
+\pgfplotmarksize=\dimen194
+)
+\tikz@lastx=\dimen195
+\tikz@lasty=\dimen196
+\tikz@lastxsaved=\dimen197
+\tikz@lastysaved=\dimen198
+\tikzleveldistance=\dimen199
+\tikzsiblingdistance=\dimen256
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 \tikz@figbox=\box54
 \tikz@figbox@bg=\box55
 \tikz@tempbox=\box56
 \tikz@tempbox@bg=\box57
+<<<<<<< HEAD
 \tikztreelevel=\count157
 \tikznumberofchildren=\count158
 \tikznumberofcurrentchild=\count159
@@ -997,10 +1630,264 @@ File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \lst@framebox=\box60
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/listings.cfg
+=======
+\tikztreelevel=\count158
+\tikznumberofchildren=\count159
+\tikznumberofcurrentchild=\count160
+\tikz@fig@count=\count161
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.cod
+e.tex
+File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
+\pgfmatrixcurrentrow=\count162
+\pgfmatrixcurrentcolumn=\count163
+\pgf@matrix@numberofcolumns=\count164
+)
+\tikz@expandcount=\count165
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
+)))
+\metropolis@progressonsectionpage=\skip60
+\metropolis@blocksep=\skip61
+\metropolis@blockadjust=\skip62
+\metropolis@parskip=\skip63
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamertheme-metropolis/beameroute
+rthememetropolis.sty
+Package: beamerouterthememetropolis 2016/03/14 Metropolis outer theme
+\metropolis@frametitle@padding=\skip64
+\metropolis@progressinheadfoot=\skip65
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamertheme-metropolis/beamercolo
+rthememetropolis.sty
+Package: beamercolorthememetropolis 2016/03/14 Metropolis color theme
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamertheme-metropolis/beamerfont
+thememetropolis.sty
+Package: beamerfontthememetropolis 2016/03/14 Metropolis font theme
+
+
+Package beamerthememetropolis Warning: You need to compile with XeLaTeX or LuaL
+aTeX to use the Fira fonts on input line 91.
+
+))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/appendixnumberbeamer/appendixnumb
+erbeamer.sty)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2016/04/27 v1.618033 publication quality tables
+\heavyrulewidth=\dimen257
+\lightrulewidth=\dimen258
+\cmidrulewidth=\dimen259
+\belowrulesep=\dimen260
+\belowbottomsep=\dimen261
+\aboverulesep=\dimen262
+\abovetopsep=\dimen263
+\cmidrulesep=\dimen264
+\cmidrulekern=\dimen265
+\defaultaddspace=\dimen266
+\@cmidla=\count166
+\@cmidlb=\count167
+\@aboverulesep=\dimen267
+\@belowrulesep=\dimen268
+\@thisruleclass=\count168
+\@lastruleclass=\count169
+\@thisrulewidth=\dimen269
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/ccicons/ccicons.sty
+Package: ccicons 2013/04/16 v1.5 LaTeX support for Creative Commons icons
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks47
+\XKV@tempa@toks=\toks48
+)
+\XKV@depth=\count170
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgfplots/pgfplots.sty
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2016/01/06 v1.13 Data Visualization (1.13)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks49
+\t@pgfplots@tokb=\toks50
+\t@pgfplots@tokc=\toks51
+\pgfplots@tmpa=\dimen270
+\c@pgfplots@coordindex=\count171
+\c@pgfplots@scanlineindex=\count172
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric
+.code.tex))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.c
+ode.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_loader.code.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.cod
+e.tex)
+Package pgfplots: loading complementary arithmetics for your pgf version...
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_pgflibraryfpu.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
+soldpgfsupp_pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count173
+))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code
+.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+liststructure.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+liststructureext.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+array.code.tex
+\c@pgfplotsarray@tmp=\count174
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+matrix.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable
+shared.code.tex
+\c@pgfplotstable@counta=\count175
+\t@pgfplotstable@a=\toks52
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
+deque.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.co
+de.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.da
+ta.code.tex))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb
+.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplot
+s.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count176
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots
+.surfshading.pgfsys-pdftex.def)))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.
+code.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.cod
+e.tex))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.c
+ode.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.c
+ode.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandle
+r.code.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.
+code.tex)))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.
+tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessin
+g.code.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.cod
+e.tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.
+tex)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.te
+x)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.code.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
+s.code.tex
+\pgfdecoratedcompleteddistance=\dimen271
+\pgfdecoratedremainingdistance=\dimen272
+\pgfdecoratedinputsegmentcompleteddistance=\dimen273
+\pgfdecoratedinputsegmentremainingdistance=\dimen274
+\pgf@decorate@distancetomove=\dimen275
+\pgf@decorate@repeatstate=\count177
+\pgfdecorationsegmentamplitude=\dimen276
+\pgfdecorationsegmentlength=\dimen277
+)
+\tikz@lib@dec@box=\box58
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathmorphing.code.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathmorphing.code.tex))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.pathreplacing.code.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
+brarydecorations.pathreplacing.code.tex))
+\pgfplots@numplots=\count178
+\pgfplots@xmin@reg=\dimen278
+\pgfplots@xmax@reg=\dimen279
+\pgfplots@ymin@reg=\dimen280
+\pgfplots@ymax@reg=\dimen281
+\pgfplots@zmin@reg=\dimen282
+\pgfplots@zmax@reg=\dimen283
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1)
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmar
+ks.code.tex
+File: pgflibraryplotmarks.code.tex 2015/08/03 v3.0.1a (rcs-revision 1.14)
+)))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplo
+ts.dateplot.code.tex
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pgf/utilities/pgfcalendar.sty
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/utilities/pgfcalendar.code.
+tex
+File: pgfcalendar.code.tex 2007/07/23 v3.0.1a (rcs-revision 1.11)
+\pgfcalendarcurrentjulian=\count179
+))) (/usr/local/texlive/2016/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
+Package: tikz-cd 2014/10/30 v0.9e Commutative diagrams with tikz
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarymatrix.code.tex
+File: tikzlibrarymatrix.code.tex 2013/07/12 v3.0.1a (rcs-revision 1.4)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryquotes.code.tex
+File: tikzlibraryquotes.code.tex 2014/03/21 v3.0.1a (rcs-revision 1.4)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2015/05/13 v3.0.1a (rcs-revision 1.13)
+\pgfarrowinset=\dimen284
+\pgfarrowlength=\dimen285
+\pgfarrowwidth=\dimen286
+\pgfarrowlinewidth=\dimen287
+)))
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count180
+\lst@gtempboxa=\box59
+\lst@token=\toks53
+\lst@length=\count181
+\lst@currlwidth=\dimen288
+\lst@column=\count182
+\lst@pos=\count183
+\lst@lostspace=\dimen289
+\lst@width=\dimen290
+\lst@newlines=\count184
+\lst@lineno=\count185
+\lst@maxwidth=\dimen291
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count186
+\lst@skipnumbers=\count187
+\lst@framebox=\box60
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.cfg
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
@@ -1010,10 +1897,22 @@ File: lstlang2.sty 2015/06/04 1.6 listings language file
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamertheme-metropolis/pgfplotsth
 emetol.sty
 Package: pgfplotsthemetol 2017/01/23 PGFplots colors based on Paul Tol's SRON t
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2015/06/04 1.6 listings language file
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamertheme-metropolis/pgfplotsth
+emetol.sty
+Package: pgfplotsthemetol 2016/03/14 PGFplots colors based on Paul Tol's SRON t
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 echnical note
 ) (./ConCat-talk-20171115.aux)
 \openout1 = `ConCat-talk-20171115.aux'.
 
+<<<<<<< HEAD
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 126.
 LaTeX Font Info:    ... okay on input line 126.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 126.
@@ -1028,6 +1927,22 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 126.
 LaTeX Font Info:    ... okay on input line 126.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 126.
 LaTeX Font Info:    ... okay on input line 126.
+=======
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 129.
+LaTeX Font Info:    ... okay on input line 129.
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1063,6 +1978,7 @@ LaTeX Font Info:    ... okay on input line 126.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count187
@@ -1090,11 +2006,39 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count188
+\scratchdimen=\dimen292
+\scratchbox=\box61
+\nofMPsegments=\count189
+\nofMParguments=\count190
+\everyMPshowfont=\toks54
+\MPscratchCnt=\count191
+\MPscratchDim=\dimen293
+\MPnumerator=\count192
+\makeMPintoPDFobject=\count193
+\everyMPtoPDFconversion=\toks55
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box62
+<<<<<<< HEAD
 Package hyperref Info: Link coloring OFF on input line 126.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -1104,22 +2048,34 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count193
+=======
+Package hyperref Info: Link coloring OFF on input line 129.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-LaTeX Info: Redefining \ref on input line 126.
-LaTeX Info: Redefining \pageref on input line 126.
-LaTeX Info: Redefining \nameref on input line 126.
+\c@section@level=\count194
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
+)
+LaTeX Info: Redefining \ref on input line 129.
+LaTeX Info: Redefining \pageref on input line 129.
+LaTeX Info: Redefining \nameref on input line 129.
 
 (./ConCat-talk-20171115.out) (./ConCat-talk-20171115.out)
 \@outlinefile=\write5
 \openout5 = `ConCat-talk-20171115.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 126.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 129.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 126.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 129.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+<<<<<<< HEAD
 (Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 126.
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 126.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
@@ -1187,28 +2143,112 @@ r-numbers-dictionary/translator-numbers-dictionary-English.dict
 Dictionary: translator-numbers-dictionary, Language: English 
 )
 (/usr/local/texlive/2017/texmf-dist/tex/latex/beamer/translator/dicts/translato
+=======
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 129.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 129.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 129.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 129.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 129.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 129.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 129.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 129.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 129.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 129.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 129.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 129.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 129.
+LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 129.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 129.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 129.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 129.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 129.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 129.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 129.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 129.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 1
+29.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 
+129.
+LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
+(Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
+ut line 129.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/translator/dicts/translato
+r-basic-dictionary/translator-basic-dictionary-English.dict
+Dictionary: translator-basic-dictionary, Language: English 
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/translator/dicts/translato
+r-bibliography-dictionary/translator-bibliography-dictionary-English.dict
+Dictionary: translator-bibliography-dictionary, Language: English 
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/translator/dicts/translato
+r-environment-dictionary/translator-environment-dictionary-English.dict
+Dictionary: translator-environment-dictionary, Language: English 
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/translator/dicts/translato
+r-months-dictionary/translator-months-dictionary-English.dict
+Dictionary: translator-months-dictionary, Language: English 
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/translator/dicts/translato
+r-numbers-dictionary/translator-numbers-dictionary-English.dict
+Dictionary: translator-numbers-dictionary, Language: English 
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/beamer/translator/dicts/translato
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 r-theorem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-Package pgfplots notification 'compat/show suggested version=true': you might b
-enefit from \pgfplotsset{compat=1.15} (current compat level: 1.9).
+LaTeX Info: Redefining \includegraphics on input line 129.
 
+Package pgfplots notification 'compat/show suggested version=true': you might b
+enefit from \pgfplotsset{compat=1.13} (current compat level: 1.9).
+
+<<<<<<< HEAD
 \c@lstlisting=\count194
+=======
+\c@lstlisting=\count195
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 (./ConCat-talk-20171115.nav)
-Overfull \vbox (13.79993pt too high) detected at line 130
+Overfull \vbox (13.79993pt too high) detected at line 133
  []
 
 [1
 
+<<<<<<< HEAD
 {/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 (./ConCat-talk-20171115.toc
 LaTeX Font Info:    Try loading font information for U+msa on input line 4.
 
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsa.fd
+=======
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+(./ConCat-talk-20171115.toc
+LaTeX Font Info:    Try loading font information for U+msa on input line 8.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 4.
+LaTeX Font Info:    Try loading font information for U+msb on input line 8.
 
+<<<<<<< HEAD
 (/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -1220,7 +2260,24 @@ File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 ))
 Overfull \vbox (125.9134pt too high) detected at line 135
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
+line 8.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+))
+Overfull \vbox (187.86913pt too high) detected at line 138
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
  []
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
+(Font)              size <5> substituted on input line 138.
 
 [2
 
@@ -1250,7 +2307,11 @@ LaTeX Font Warning: Font shape `OML/cmss/m/n' undefined
 \openout4 = `ConCat-talk-20171115.vrb'.
 
  (./ConCat-talk-20171115.vrb)
+<<<<<<< HEAD
 Overfull \vbox (22.55505pt too high) detected at line 214
+=======
+Overfull \vbox (22.55505pt too high) detected at line 217
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
  []
 
 [6
@@ -1288,12 +2349,21 @@ Overfull \vbox (22.55505pt too high) detected at line 214
  (./ConCat-talk-20171115.vrb
 LaTeX Font Info:    Try loading font information for OMS+cmss on input line 9.
 LaTeX Font Info:    No file OMScmss.fd. on input line 9.
+<<<<<<< HEAD
 
 
 LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
 (Font)              for symbol `textbackslash' on input line 9.
 
+=======
+
+
+LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbackslash' on input line 9.
+
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 ) [12
 
 ]
@@ -1305,7 +2375,11 @@ LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
 \openout4 = `ConCat-talk-20171115.vrb'.
 
  (./ConCat-talk-20171115.vrb)
+<<<<<<< HEAD
 Overfull \vbox (16.06557pt too high) detected at line 388
+=======
+Overfull \vbox (16.06557pt too high) detected at line 391
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
  []
 
 [14
@@ -1323,81 +2397,75 @@ Overfull \vbox (16.06557pt too high) detected at line 388
  (./ConCat-talk-20171115.vrb)
 [17
 
-]
+] [18
 
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+<<<<<<< HEAD
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 431.
+=======
+ (./ConCat-talk-20171115.vrb) [19
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
 
+<<<<<<< HEAD
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `\lambda' on input line 431.
+=======
+ (./ConCat-talk-20171115.vrb
+<compiling-to-categories-headpic.png, id=224, 926.46124pt x 589.20125pt>
+File: compiling-to-categories-headpic.png Graphic file (type png)
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 
+<use compiling-to-categories-headpic.png>
+Package pdftex.def Info: compiling-to-categories-headpic.png used on input line
+ 3.
+(pdftex.def)             Requested size: 307.28987pt x 195.42596pt.
+) [20
 
+<<<<<<< HEAD
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 431.
 
 [18
+=======
+ <./compiling-to-categories-headpic.png>]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [21
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
+<<<<<<< HEAD
  (./ConCat-talk-20171115.vrb) [19
+=======
+ (./ConCat-talk-20171115.vrb)
+[22
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [20
+ (./ConCat-talk-20171115.vrb) [23
+
+] [24
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
-
-(./ConCat-talk-20171115.vrb) [21
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb) [22
+ (./ConCat-talk-20171115.vrb)
+[25
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
-
-(./ConCat-talk-20171115.vrb) [23
-
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 476.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\lambda' on input line 476.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 476.
-
-[24
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb
-
-Package amsfonts Warning: Obsolete command \frak; \mathfrak should be used inst
-ead on input line 6.
-
-LaTeX Font Info:    Try loading font information for U+euf on input line 6.
-(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-)) [25
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
-
-(./ConCat-talk-20171115.vrb) [26
+ (./ConCat-talk-20171115.vrb) [26
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
@@ -1407,32 +2475,65 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
+<<<<<<< HEAD
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 476.
+=======
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 
 (./ConCat-talk-20171115.vrb) [28
 
+<<<<<<< HEAD
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\lambda' on input line 476.
+=======
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 
  (./ConCat-talk-20171115.vrb) [29
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
+<<<<<<< HEAD
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 476.
+=======
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 
 (./ConCat-talk-20171115.vrb) [30
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [31
+ (./ConCat-talk-20171115.vrb
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 3.
 
-] [32
+<<<<<<< HEAD
+Package amsfonts Warning: Obsolete command \frak; \mathfrak should be used inst
+ead on input line 6.
+
+LaTeX Font Info:    Try loading font information for U+euf on input line 6.
+(/usr/local/texlive/2017/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)) [25
+=======
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/omlcmr.fd
+File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OML/cmr/bx/n' in size <9> not available
+(Font)              Font shape `OML/cmm/b/it' tried instead on input line 3.
+) [31
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [33
+(./ConCat-talk-20171115.vrb) [32
+
+] [33
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
@@ -1451,10 +2552,19 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
  (./ConCat-talk-20171115.vrb) [36
 
 ]
-\openout4 = `ConCat-talk-20171115.vrb'.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 600.
 
 
-(./ConCat-talk-20171115.vrb) [37
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `\lambda' on input line 600.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 600.
+
+[37
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
@@ -1464,37 +2574,40 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
-
-(./ConCat-talk-20171115.vrb) [39
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb) [40
+ (./ConCat-talk-20171115.vrb) [39
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [41
+(./ConCat-talk-20171115.vrb) [40
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [42
+ (./ConCat-talk-20171115.vrb) [41
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [43
+(./ConCat-talk-20171115.vrb) [42
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [44
+ (./ConCat-talk-20171115.vrb) [43
 
-] [45
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+
+(./ConCat-talk-20171115.vrb) [44
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [45
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
@@ -1502,11 +2615,65 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 
 (./ConCat-talk-20171115.vrb) [46
 
-] [47
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [47
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
+
+(./ConCat-talk-20171115.vrb) [48
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb
+Overfull \hbox (8.57515pt too wide) detected at line 4
+[]\OT1/cmss/m/n/10 (\OML/cmm/m/it/10 ^^U \OT1/mathkerncmss/m/sl/10 x \OMS/cmss/
+m/n/10 7! \OT1/mathkerncmss/m/sl/10 U V\OT1/cmss/m/n/10 ) = [] \OMS/cmss/m/n/10
+ ^^N \OT1/cmss/m/n/10 ([](\OML/cmm/m/it/10 ^^U \OT1/mathkerncmss/m/sl/10 x \OMS
+/cmss/m/n/10 7! \OT1/mathkerncmss/m/sl/10 U\OT1/cmss/m/n/10 ) ^^A [](\OML/cmm/m
+/it/10 ^^U \OT1/mathkerncmss/m/sl/10 x \OMS/cmss/m/n/10 7! \OT1/mathkerncmss/m/
+sl/10 V\OT1/cmss/m/n/10 ))
+ []
+
+) [49
+
+] [50
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [51
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb)
+[52
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [53
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [54
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+
+(./ConCat-talk-20171115.vrb) [55
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+<<<<<<< HEAD
  (./ConCat-talk-20171115.vrb
 LaTeX Font Info:    Try loading font information for OML+cmr on input line 3.
 
@@ -1528,117 +2695,54 @@ Package pdftex.def Info: neg-iv.pdf  used on input line 9. on input line 9.
 Package pdftex.def Info: Requested size: 304.1355pt x 100.37474pt on input line
  9.
 ) [48
+=======
+ (./ConCat-talk-20171115.vrb) [56
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 
  <./neg-iv.pdf>]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
+<<<<<<< HEAD
  (./ConCat-talk-20171115.vrb) [49
+=======
+
+(./ConCat-talk-20171115.vrb) [57
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
+<<<<<<< HEAD
 
 (./ConCat-talk-20171115.vrb) [50
+=======
+ (./ConCat-talk-20171115.vrb) [58
+
+] [59
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
+<<<<<<< HEAD
  (./ConCat-talk-20171115.vrb
 <add-iv.pdf, id=387, pagebox=cropbox, 277.035pt x 120.45pt>
-File: add-iv.pdf Graphic file (type pdf)
-<use add-iv.pdf>
-Package pdftex.def Info: add-iv.pdf  used on input line 5. on input line 5.
-Package pdftex.def Info: Requested size: 277.03432pt x 120.44969pt on input lin
-e 5.
-) [51
-
- <./add-iv.pdf>]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb
-<sub-iv.pdf, id=399, pagebox=cropbox, 277.035pt x 120.45pt>
-File: sub-iv.pdf Graphic file (type pdf)
-<use sub-iv.pdf>
-Package pdftex.def Info: sub-iv.pdf  used on input line 10. on input line 10.
-Package pdftex.def Info: Requested size: 277.03432pt x 120.44969pt on input lin
-e 10.
-) [52
-
- <./sub-iv.pdf>]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
+=======
 
 (./ConCat-talk-20171115.vrb
-<mul-iv.pdf, id=415, pagebox=cropbox, 722.7pt x 420.57124pt>
-File: mul-iv.pdf Graphic file (type pdf)
-<use mul-iv.pdf>
-Package pdftex.def Info: mul-iv.pdf  used on input line 11. on input line 11.
-Package pdftex.def Info: Requested size: 245.83282pt x 143.06291pt on input lin
-e 11.
-)
-Overfull \vbox (27.59831pt too high) detected at line 661
- []
 
-[53
+LaTeX Font Warning: Font shape `OMS/cmss/m/it' undefined
+(Font)              using `OMS/cmss/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 6.
 
- <./mul-iv.pdf>]
-\openout4 = `ConCat-talk-20171115.vrb'.
+<neg-iv.pdf, id=441, 304.13625pt x 100.375pt>
+File: neg-iv.pdf Graphic file (type pdf)
+ <use neg-iv.pdf>
+Package pdftex.def Info: neg-iv.pdf used on input line 9.
+(pdftex.def)             Requested size: 304.1355pt x 100.37474pt.
+) [60
 
- (./ConCat-talk-20171115.vrb
-<thrice-iv.pdf, id=431, pagebox=cropbox, 505.89pt x 251.94125pt>
-File: thrice-iv.pdf Graphic file (type pdf)
-<use thrice-iv.pdf>
-Package pdftex.def Info: thrice-iv.pdf  used on input line 6. on input line 6.
-Package pdftex.def Info: Requested size: 245.83282pt x 122.4297pt on input line
- 6.
-) [54
-
- <./thrice-iv.pdf>]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
-
-(./ConCat-talk-20171115.vrb
-<sqr-iv.pdf, id=448, pagebox=cropbox, 722.7pt x 437.635pt>
-File: sqr-iv.pdf Graphic file (type pdf)
-<use sqr-iv.pdf>
-Package pdftex.def Info: sqr-iv.pdf  used on input line 6. on input line 6.
-Package pdftex.def Info: Requested size: 307.28987pt x 186.08255pt on input lin
-e 6.
-)
-Overfull \vbox (7.36836pt too high) detected at line 679
- []
-
-[55
-
- <./sqr-iv.pdf>]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb
-<magSqr-iv.pdf, id=465, pagebox=cropbox, 654.445pt x 722.7pt>
-File: magSqr-iv.pdf Graphic file (type pdf)
-<use magSqr-iv.pdf>
-Package pdftex.def Info: magSqr-iv.pdf  used on input line 6. on input line 6.
-Package pdftex.def Info: Requested size: 153.64493pt x 169.6691pt on input line
- 6.
-) [56
-
- <./magSqr-iv.pdf>]
-[57
-
-] [58
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb) [59
-
-]
-\openout4 = `ConCat-talk-20171115.vrb'.
-
- (./ConCat-talk-20171115.vrb)
-[60
-
-]
+ <./neg-iv.pdf>]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
  (./ConCat-talk-20171115.vrb) [61
@@ -1652,44 +2756,270 @@ Package pdftex.def Info: Requested size: 153.64493pt x 169.6691pt on input line
 \openout4 = `ConCat-talk-20171115.vrb'.
 
 
-(./ConCat-talk-20171115.vrb) [63
+(./ConCat-talk-20171115.vrb <add-iv.pdf, id=466, 277.035pt x 120.45pt>
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
+File: add-iv.pdf Graphic file (type pdf)
+
+<use add-iv.pdf>
+<<<<<<< HEAD
+Package pdftex.def Info: add-iv.pdf  used on input line 5. on input line 5.
+Package pdftex.def Info: Requested size: 277.03432pt x 120.44969pt on input lin
+e 5.
+) [51
+=======
+Package pdftex.def Info: add-iv.pdf used on input line 5.
+(pdftex.def)             Requested size: 277.03432pt x 120.44969pt.
+) [63
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
+
+ <./add-iv.pdf>]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb
+<<<<<<< HEAD
+<sub-iv.pdf, id=399, pagebox=cropbox, 277.035pt x 120.45pt>
+File: sub-iv.pdf Graphic file (type pdf)
+<use sub-iv.pdf>
+Package pdftex.def Info: sub-iv.pdf  used on input line 10. on input line 10.
+Package pdftex.def Info: Requested size: 277.03432pt x 120.44969pt on input lin
+e 10.
+) [52
+=======
+<sub-iv.pdf, id=478, 277.035pt x 120.45pt>
+File: sub-iv.pdf Graphic file (type pdf)
+ <use sub-iv.pdf>
+Package pdftex.def Info: sub-iv.pdf used on input line 10.
+(pdftex.def)             Requested size: 277.03432pt x 120.44969pt.
+) [64
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
+
+ <./sub-iv.pdf>]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+<<<<<<< HEAD
+
+(./ConCat-talk-20171115.vrb
+<mul-iv.pdf, id=415, pagebox=cropbox, 722.7pt x 420.57124pt>
+=======
+ (./ConCat-talk-20171115.vrb <mul-iv.pdf, id=494, 722.7pt x 420.57124pt>
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
+File: mul-iv.pdf Graphic file (type pdf)
+
+<use mul-iv.pdf>
+<<<<<<< HEAD
+Package pdftex.def Info: mul-iv.pdf  used on input line 11. on input line 11.
+Package pdftex.def Info: Requested size: 245.83282pt x 143.06291pt on input lin
+e 11.
+)
+Overfull \vbox (27.59831pt too high) detected at line 661
+=======
+Package pdftex.def Info: mul-iv.pdf used on input line 11.
+(pdftex.def)             Requested size: 245.83282pt x 143.06291pt.
+)
+Overfull \vbox (27.59831pt too high) detected at line 849
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
+ []
+
+[65
+
+ <./mul-iv.pdf>]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb
+<<<<<<< HEAD
+<thrice-iv.pdf, id=431, pagebox=cropbox, 505.89pt x 251.94125pt>
+File: thrice-iv.pdf Graphic file (type pdf)
+<use thrice-iv.pdf>
+Package pdftex.def Info: thrice-iv.pdf  used on input line 6. on input line 6.
+Package pdftex.def Info: Requested size: 245.83282pt x 122.4297pt on input line
+ 6.
+) [54
+=======
+<thrice-iv.pdf, id=510, 505.89pt x 251.94125pt>
+File: thrice-iv.pdf Graphic file (type pdf)
+ <use thrice-iv.pdf>
+Package pdftex.def Info: thrice-iv.pdf used on input line 6.
+(pdftex.def)             Requested size: 245.83282pt x 122.4297pt.
+) [66
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
+
+ <./thrice-iv.pdf>]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+<<<<<<< HEAD
+
+(./ConCat-talk-20171115.vrb
+<sqr-iv.pdf, id=448, pagebox=cropbox, 722.7pt x 437.635pt>
+File: sqr-iv.pdf Graphic file (type pdf)
+<use sqr-iv.pdf>
+Package pdftex.def Info: sqr-iv.pdf  used on input line 6. on input line 6.
+Package pdftex.def Info: Requested size: 307.28987pt x 186.08255pt on input lin
+e 6.
+)
+Overfull \vbox (7.36836pt too high) detected at line 679
+=======
+ (./ConCat-talk-20171115.vrb
+<sqr-iv.pdf, id=526, 722.7pt x 437.635pt>
+File: sqr-iv.pdf Graphic file (type pdf)
+ <use sqr-iv.pdf>
+Package pdftex.def Info: sqr-iv.pdf used on input line 6.
+(pdftex.def)             Requested size: 307.28987pt x 186.08255pt.
+)
+Overfull \vbox (7.36836pt too high) detected at line 867
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
+ []
+
+[67
+
+ <./sqr-iv.pdf>]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb
+<<<<<<< HEAD
+<magSqr-iv.pdf, id=465, pagebox=cropbox, 654.445pt x 722.7pt>
+File: magSqr-iv.pdf Graphic file (type pdf)
+<use magSqr-iv.pdf>
+Package pdftex.def Info: magSqr-iv.pdf  used on input line 6. on input line 6.
+Package pdftex.def Info: Requested size: 153.64493pt x 169.6691pt on input line
+ 6.
+) [56
+
+ <./magSqr-iv.pdf>]
+[57
+=======
+<magSqr-iv.pdf, id=543, 654.445pt x 722.7pt>
+File: magSqr-iv.pdf Graphic file (type pdf)
+ <use magSqr-iv.pdf>
+Package pdftex.def Info: magSqr-iv.pdf used on input line 6.
+(pdftex.def)             Requested size: 153.64493pt x 169.6691pt.
+) [68
+
+ <./magSqr-iv.pdf>] [69
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
+
+ (./ConCat-talk-20171115.vrb) [70
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
+<<<<<<< HEAD
+ (./ConCat-talk-20171115.vrb) [59
+=======
+ (./ConCat-talk-20171115.vrb)
+[71
+
+] [72
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+<<<<<<< HEAD
+ (./ConCat-talk-20171115.vrb)
+[60
+=======
+ (./ConCat-talk-20171115.vrb) [73
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb)
+[74
+
+] [75
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+<<<<<<< HEAD
+ (./ConCat-talk-20171115.vrb) [62
+=======
+ (./ConCat-talk-20171115.vrb) [76
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb)
+[77
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+<<<<<<< HEAD
+
+(./ConCat-talk-20171115.vrb) [63
+=======
+ (./ConCat-talk-20171115.vrb) [78
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
+
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+<<<<<<< HEAD
  (./ConCat-talk-20171115.vrb)
 Overfull \vbox (4.73495pt too high) detected at line 810
  []
 
 [64
+=======
+ (./ConCat-talk-20171115.vrb) [79
 
-] [65
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
+
+
+(./ConCat-talk-20171115.vrb) [80
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [66
+ (./ConCat-talk-20171115.vrb) [81
+
+] [82
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
+<<<<<<< HEAD
  (./ConCat-talk-20171115.vrb)
 [67
+=======
+
+(./ConCat-talk-20171115.vrb) [83
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
- (./ConCat-talk-20171115.vrb) [68
+ (./ConCat-talk-20171115.vrb) [84
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
 
  (./ConCat-talk-20171115.vrb) [69
 
+<<<<<<< HEAD
 ]
 [70
+=======
+(./ConCat-talk-20171115.vrb) [85
 
-] [71
+]
+\openout4 = `ConCat-talk-20171115.vrb'.
+
+ (./ConCat-talk-20171115.vrb) [86
+
+] [87
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
+
+]
+[88
 
 ]
 \openout4 = `ConCat-talk-20171115.vrb'.
@@ -1705,7 +3035,7 @@ LaTeX Warning: Citation `diel:blog' undefined on input line 4.
 LaTeX Warning: Citation `milewski2014' undefined on input line 5.
 
 No file ConCat-talk-20171115.bbl.
-) [72
+) [89
 
 ]
 \tf@nav=\write6
@@ -1717,6 +3047,7 @@ No file ConCat-talk-20171115.bbl.
 \tf@snm=\write8
 \openout8 = `ConCat-talk-20171115.snm'.
 
+<<<<<<< HEAD
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 841.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 841.
  (./ConCat-talk-20171115.aux)
@@ -1724,6 +3055,26 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 841.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 841.
 Package rerunfilecheck Info: File `ConCat-talk-20171115.out' has not changed.
 (rerunfilecheck)             Checksum: F4F97B08A890287E8B6009A4401D66C0;761.
+=======
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1054.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1054.
+ (./ConCat-talk-20171115.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1054.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1054.
+
+
+
+Package rerunfilecheck Warning: File `ConCat-talk-20171115.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `ConCat-talk-20171115.out':
+(rerunfilecheck)             Before: 7DC7764CFF01A5010DFEAA6D31172E71;898
+(rerunfilecheck)             After:  E0F15BF6318EA7F8130EF55420930C86;898.
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 1.0pt have occurred.
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1731,8 +3082,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were undefined references.
 
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1054.
  ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  34367 strings out of 492995
  823567 string characters out of 6132704
  1000633 words of memory out of 5000000
@@ -1774,4 +3127,49 @@ PDF statistics:
  560 compressed objects within 6 object streams
  158 named destinations out of 1000 (max. 500000)
  182 words of extra memory for PDF output out of 10000 (max. 10000000)
+=======
+ 34274 strings out of 493014
+ 813010 string characters out of 6133351
+ 978443 words of memory out of 5000000
+ 36764 multiletter control sequences out of 15000+600000
+ 23594 words of font info for 87 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 71i,16n,87p,1738b,1564s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Outline0.1.1.6} has been referenced but does not 
+exist, replaced by a fixed one
+
+</usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></
+usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
+r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/l
+ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/loc
+al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib9.pfb></usr
+/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
+ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loca
+l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/local/tex
+live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi9.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2
+016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/201
+6/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2016/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2016/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2016/tex
+mf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on ConCat-talk-20171115.pdf (89 pages, 740841 bytes).
+PDF statistics:
+ 803 PDF objects out of 1000 (max. 8388607)
+ 651 compressed objects within 7 object streams
+ 195 named destinations out of 1000 (max. 500000)
+ 203 words of extra memory for PDF output out of 10000 (max. 10000000)
+>>>>>>> c2a9ec5da44e26f1a2067dcd63b1bccdbf138bbb
 
